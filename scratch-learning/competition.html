@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch竞赛篇 - 创意编程学习</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4D97FF',
+                        secondary: '#FF6B6B',
+                        accent: '#FFD166',
+                        success: '#06D6A0',
+                        info: '#118AB2',
+                        warning: '#FFD166',
+                        danger: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/e339aad56af24462b0f9d248e183dbd4~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652800&x-signature=tHJMJAcICKGqNVJAuQ9HBiSJdxo%3D" alt="Scratch学习网站" class="h-10 w-10">
+                <span class="text-xl font-bold text-primary">Scratch创意编程</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-gradient-to-r from-accent to-warning text-dark py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Scratch竞赛篇</h1>
+            <p class="text-center mt-4 max-w-2xl mx-auto">适合12-18岁青少年，为Scratch编程竞赛做准备的专业课程</p>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">课程介绍</h2>
+                <p class="text-gray-700 mb-6">竞赛篇课程专为12-18岁的青少年设计，在掌握了Scratch基础、中级和高级知识后，为参加各类Scratch编程竞赛做准备。在这个阶段，孩子们将学习竞赛编程思维和技巧，制作符合竞赛要求的项目，模拟竞赛环境和评审标准，提高他们的编程水平和竞赛竞争力。</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold mb-4">学习目标</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习竞赛编程思维和技巧</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作符合竞赛要求的项目</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>模拟竞赛环境和评审标准</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>提高项目展示和答辩能力</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>培养团队合作和项目管理能力</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">课程准备</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-laptop text-accent mt-1 mr-3"></i>
+                            <span>完成Scratch初级篇、中级篇和高级篇的学习</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-globe text-accent mt-1 mr-3"></i>
+                            <span>浏览器（推荐使用Chrome或Firefox）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-user-circle text-accent mt-1 mr-3"></i>
+                            <span>在<a href="https://scratch.mit.edu/" target="_blank" class="text-accent hover:underline">Scratch官网</a>注册一个账号</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-headphones text-accent mt-1 mr-3"></i>
+                            <span>耳机或音箱（用于听声音和音乐）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程列表 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">课程内容</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 课程列表 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <div class="divide-y divide-gray-200">
+                        <!-- 课程1 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">1. 竞赛项目分析</h3>
+                                    <p class="text-gray-600 mb-4">学习如何分析历届Scratch竞赛的优秀作品，了解评审标准和得分点。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">竞赛分析</span>
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">评审标准</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-accent hover:bg-accent/90 text-dark font-medium py-2 px-4 rounded-lg transition-colors" data-example="example1">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程2 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">2. 创意设计与规划</h3>
+                                    <p class="text-gray-600 mb-4">学习如何进行创意构思和项目规划，制定详细的开发计划。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">创意设计</span>
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">项目规划</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-accent hover:bg-accent/90 text-dark font-medium py-2 px-4 rounded-lg transition-colors" data-example="example2">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程3 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">3. 高级游戏开发</h3>
+                                    <p class="text-gray-600 mb-4">学习如何开发复杂的游戏项目，包括角色控制、物理引擎、人工智能等。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">游戏开发</span>
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">人工智能</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-accent hover:bg-accent/90 text-dark font-medium py-2 px-4 rounded-lg transition-colors" data-example="example3">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程4 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">4. 科学模拟项目</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用Scratch制作科学模拟项目，如物理模拟、生物模拟等。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">科学模拟</span>
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">数学模型</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-accent hover:bg-accent/90 text-dark font-medium py-2 px-4 rounded-lg transition-colors" data-example="example4">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程5 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">5. 项目展示与答辩</h3>
+                                    <p class="text-gray-600 mb-4">学习如何准备项目展示和答辩，提高表达能力和自信心。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">项目展示</span>
+                                        <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">答辩技巧</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-accent hover:bg-accent/90 text-dark font-medium py-2 px-4 rounded-lg transition-colors" data-example="example5">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-center">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 text-accent font-medium">上一页</a>
+                        <a href="#" class="py-2 px-4 bg-accent border border-accent text-dark font-medium">1</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-accent font-medium">2</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-accent font-medium">3</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 text-accent font-medium">下一页</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 示例详情模态框 -->
+    <div id="example-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold">示例标题</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 示例内容将通过JavaScript动态插入 -->
+                    <div class="text-center py-12">
+                        <i class="fa fa-info-circle text-5xl text-accent mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">内容正在开发中</h4>
+                        <p class="text-gray-600">这个示例的详细内容正在开发中，敬请期待！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 Scratch创意编程. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const examples = {
+            example1: {
+                title: "1. 竞赛项目分析",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何分析历届Scratch竞赛的优秀作品，了解评审标准和得分点。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">收集历届Scratch竞赛的优秀作品，准备分析表格。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：了解竞赛评审标准</h5>
+                                    <p class="text-gray-700">了解Scratch竞赛的评审标准，通常包括以下几个方面：</p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>创意与创新性</li>
+                                        <li>技术实现难度</li>
+                                        <li>项目完整性</li>
+                                        <li>用户体验</li>
+                                        <li>代码质量</li>
+                                        <li>主题符合度</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：分析优秀作品</h5>
+                                    <p class="text-gray-700">选择几个历届Scratch竞赛的优秀作品进行分析，填写分析表格。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <table class="w-full text-sm text-left text-gray-700">
+                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" class="px-4 py-2">作品名称</th>
+                                                    <th scope="col" class="px-4 py-2">主题</th>
+                                                    <th scope="col" class="px-4 py-2">创意亮点</th>
+                                                    <th scope="col" class="px-4 py-2">技术难点</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-2">智慧城市</td>
+                                                    <td class="px-4 py-2">科技与生活</td>
+                                                    <td class="px-4 py-2">交互式城市规划</td>
+                                                    <td class="px-4 py-2">复杂的交通系统模拟</td>
+                                                </tr>
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-2">环保小卫士</td>
+                                                    <td class="px-4 py-2">环境保护</td>
+                                                    <td class="px-4 py-2">沉浸式教育体验</td>
+                                                    <td class="px-4 py-2">实时数据可视化</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2">未来教室</td>
+                                                    <td class="px-4 py-2">教育创新</td>
+                                                    <td class="px-4 py-2">虚拟教学场景</td>
+                                                    <td class="px-4 py-2">人工智能助教模拟</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：总结成功要素</h5>
+                                    <p class="text-gray-700">根据分析结果，总结成功作品的共同特点和要素。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li>明确的主题和目标</li>
+                                            <li>独特的创意和创新点</li>
+                                            <li>扎实的技术实现</li>
+                                            <li>良好的用户体验</li>
+                                            <li>完整的项目文档</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：制定自己的项目计划</h5>
+                                    <p class="text-gray-700">根据分析结果，制定自己的竞赛项目计划。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <div class="space-y-2">
+                                            <p><strong>项目名称：</strong>_______________________</p>
+                                            <p><strong>项目主题：</strong>_______________________</p>
+                                            <p><strong>创意亮点：</strong>_______________________</p>
+                                            <p><strong>技术难点：</strong>_______________________</p>
+                                            <p><strong>实现计划：</strong>_______________________</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何在项目中体现创新性？</li>
+                                <li>如何平衡技术难度和项目完成度？</li>
+                                <li>如何根据评审标准调整项目方向？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试分析更多的优秀作品，并组织一次小组讨论，分享各自的发现和见解。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以通过网络搜索历届Scratch竞赛的获奖作品，或者参考Scratch官网的精选项目。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example2: {
+                title: "2. 创意设计与规划",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何进行创意构思和项目规划，制定详细的开发计划。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">准备纸和笔，用于记录创意和规划。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创意构思</h5>
+                                    <p class="text-gray-700">使用头脑风暴的方法，产生尽可能多的创意。可以从以下几个方面入手：</p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>选择一个感兴趣的主题</li>
+                                        <li>思考这个主题中存在的问题或挑战</li>
+                                        <li>提出解决问题的创意方案</li>
+                                        <li>考虑如何用Scratch实现这个方案</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：创意筛选</h5>
+                                    <p class="text-gray-700">对产生的创意进行筛选，选择最有潜力的创意。筛选标准包括：</p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>创新性：创意是否独特新颖</li>
+                                        <li>可行性：在有限时间内是否可以实现</li>
+                                        <li>价值性：是否有实际意义或教育价值</li>
+                                        <li>展示性：是否容易在竞赛中展示和说明</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：项目规划</h5>
+                                    <p class="text-gray-700">对选定的创意进行详细规划，包括：</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <h6 class="font-medium mb-2">项目概述</h6>
+                                        <p class="text-gray-700 mb-2">简要描述项目的目标、功能和特点。</p>
+                                        
+                                        <h6 class="font-medium mb-2">功能模块</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700 mb-2">
+                                            <li>核心功能1：_______________________</li>
+                                            <li>核心功能2：_______________________</li>
+                                            <li>核心功能3：_______________________</li>
+                                        </ul>
+                                        
+                                        <h6 class="font-medium mb-2">角色和背景</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700 mb-2">
+                                            <li>角色1：_______________________</li>
+                                            <li>角色2：_______________________</li>
+                                            <li>背景1：_______________________</li>
+                                        </ul>
+                                        
+                                        <h6 class="font-medium mb-2">技术实现</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700 mb-2">
+                                            <li>技术点1：_______________________</li>
+                                            <li>技术点2：_______________________</li>
+                                            <li>技术点3：_______________________</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：时间规划</h5>
+                                    <p class="text-gray-700">制定详细的时间规划，合理安排开发时间。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <table class="w-full text-sm text-left text-gray-700">
+                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                <tr>
+                                                    <th scope="col" class="px-4 py-2">阶段</th>
+                                                    <th scope="col" class="px-4 py-2">时间</th>
+                                                    <th scope="col" class="px-4 py-2">任务</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-2">准备阶段</td>
+                                                    <td class="px-4 py-2">1天</td>
+                                                    <td class="px-4 py-2">收集素材，设计角色和背景</td>
+                                                </tr>
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-2">开发阶段</td>
+                                                    <td class="px-4 py-2">3天</td>
+                                                    <td class="px-4 py-2">实现核心功能</td>
+                                                </tr>
+                                                <tr class="border-b">
+                                                    <td class="px-4 py-2">测试阶段</td>
+                                                    <td class="px-4 py-2">1天</td>
+                                                    <td class="px-4 py-2">测试和修复问题</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-4 py-2">完善阶段</td>
+                                                    <td class="px-4 py-2">1天</td>
+                                                    <td class="px-4 py-2">优化用户体验，准备展示</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：风险评估</h5>
+                                    <p class="text-gray-700">预测项目开发过程中可能遇到的风险和挑战，并制定应对措施。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li><strong>风险1：</strong>技术难度超出能力范围 → <strong>应对措施：</strong>简化功能或寻求帮助</li>
+                                            <li><strong>风险2：</strong>开发时间不足 → <strong>应对措施：</strong>优先实现核心功能</li>
+                                            <li><strong>风险3：</strong>创意不够新颖 → <strong>应对措施：</strong>多参考优秀作品，寻求反馈</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何在有限的时间内完成项目？</li>
+                                <li>如何平衡创意的创新性和可行性？</li>
+                                <li>如何根据实际开发情况调整计划？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试进行一次小组创意 brainstorming 活动，共同产生创意并进行筛选。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>在 brainstorming 过程中，不要急于评判创意的好坏，先让所有创意都被表达出来，然后再进行筛选。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example3: {
+                title: "3. 高级游戏开发",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何开发复杂的游戏项目，包括角色控制、物理引擎、人工智能等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。准备游戏所需的角色和背景素材。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：设计游戏架构</h5>
+                                    <p class="text-gray-700">设计游戏的整体架构，包括游戏类型、玩法、角色、场景等。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <div class="space-y-2">
+                                            <p><strong>游戏名称：</strong>_______________________</p>
+                                            <p><strong>游戏类型：</strong>_______________________</p>
+                                            <p><strong>游戏玩法：</strong>_______________________</p>
+                                            <p><strong>游戏目标：</strong>_______________________</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：实现角色控制</h5>
+                                    <p class="text-gray-700">编写代码，实现玩家角色的控制。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: 0
+重复执行直到 游戏状态 = "游戏结束"
+    // 移动控制
+    如果 按下左键 那么
+        将x坐标增加 -5
+        将角色面向左
+    如果 按下右键 那么
+        将x坐标增加 5
+        将角色面向右
+    // 跳跃控制
+    如果 按下空格键 并且 角色在地面上 那么
+        将y速度设为 15
+        将角色在地面上设为 否
+    // 重力效果
+    如果 角色在地面上 = 否 那么
+        将y速度增加 -0.8
+        将y坐标增加 y速度
+        // 检测是否着陆
+        如果 碰到 地面 那么
+            将y坐标设为 (地面y坐标) + (角色高度) / 2
+            将y速度设为 0
+            将角色在地面上设为 是</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：实现物理引擎</h5>
+                                    <p class="text-gray-700">编写代码，实现简单的物理引擎，包括重力、碰撞检测等。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 重力系统
+当绿旗被点击
+重复执行直到 游戏状态 = "游戏结束"
+    重复执行 (项目数 of [物理对象列表]) 次
+        将当前对象设为 (项目 (索引) of [物理对象列表])
+        将当前对象的y速度增加 -0.5
+        将当前对象的y坐标增加 (当前对象的y速度)
+        // 检测碰撞
+        重复执行 (项目数 of [碰撞对象列表]) 次
+            将碰撞对象设为 (项目 (索引) of [碰撞对象列表])
+            如果 当前对象 碰到 碰撞对象 那么
+                // 计算碰撞响应
+                将当前对象的y坐标设为 (碰撞对象的y坐标) + (当前对象的高度) / 2 + (碰撞对象的高度) / 2
+                将当前对象的y速度设为 0
+        等待 0.01 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：实现人工智能</h5>
+                                    <p class="text-gray-700">编写代码，实现游戏中的人工智能，让电脑控制的角色能够自主行动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 敌人AI
+当绿旗被点击
+移到 x: 200 y: 0
+重复执行直到 游戏状态 = "游戏结束"
+    // 巡逻模式
+    如果 状态 = "巡逻" 那么
+        移动 2 步
+        如果 碰到边缘 那么
+            反转方向
+        // 检测玩家
+        如果 距离 玩家 < 100 那么
+            将状态设为 "追踪"
+    // 追踪模式
+    如果 状态 = "追踪" 那么
+        面向 玩家
+        移动 3 步
+        // 攻击检测
+        如果 距离 玩家 < 50 那么
+            将状态设为 "攻击"
+    // 攻击模式
+    如果 状态 = "攻击" 那么
+        播放声音 "攻击"
+        广播 "玩家受伤"
+        将状态设为 "巡逻"
+        等待 2 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：实现游戏界面</h5>
+                                    <p class="text-gray-700">编写代码，实现游戏的界面，包括开始界面、游戏界面、结束界面等。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 开始界面
+当绿旗被点击
+切换到背景 "开始界面"
+说 "按空格键开始游戏" 直到按下空格键
+广播 "开始游戏"
+
+// 游戏界面
+当接收到 "开始游戏"
+切换到背景 "游戏界面"
+显示变量 "分数"
+显示变量 "生命值"
+
+// 结束界面
+当接收到 "游戏结束"
+切换到背景 "结束界面"
+说 "游戏结束！你的分数是：" & 分数 3 秒
+说 "按R键重新开始" 直到按下R键
+广播 "重新开始"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：优化游戏性能</h5>
+                                    <p class="text-gray-700">优化游戏代码，提高游戏性能。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li>减少重复计算</li>
+                                            <li>使用克隆代替多个相同角色</li>
+                                            <li>优化碰撞检测算法</li>
+                                            <li>减少不必要的动画和特效</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何平衡游戏的难度和趣味性？</li>
+                                <li>如何优化游戏的性能？</li>
+                                <li>如何设计吸引人的游戏玩法？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加更多的游戏功能，如道具系统、技能系统、成就系统等。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以参考一些经典游戏的设计，从中获取灵感。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example4: {
+                title: "4. 科学模拟项目",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用Scratch制作科学模拟项目，如物理模拟、生物模拟等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。准备模拟所需的角色和背景素材。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：选择模拟主题</h5>
+                                    <p class="text-gray-700">选择一个科学主题进行模拟，如：</p>
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                        <li>物理模拟：重力、摩擦力、弹性碰撞等</li>
+                                        <li>生物模拟：生态系统、进化、种群增长等</li>
+                                        <li>化学模拟：化学反应、分子运动等</li>
+                                        <li>天文模拟：行星运动、日食月食等</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：设计模拟模型</h5>
+                                    <p class="text-gray-700">设计模拟的数学模型，确定需要模拟的变量和参数。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <h6 class="font-medium mb-2">以行星运动模拟为例：</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li><strong>变量：</strong>行星位置、速度、加速度、质量等</li>
+                                            <li><strong>参数：</strong>引力常数、时间步长等</li>
+                                            <li><strong>公式：</strong>F = G * m1 * m2 / r^2（万有引力定律）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：实现基本物理引擎</h5>
+                                    <p class="text-gray-700">编写代码，实现基本的物理引擎，用于模拟物体的运动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 行星运动模拟
+当绿旗被点击
+// 初始化太阳
+创建太阳角色
+将太阳质量设为 1000
+将太阳x坐标设为 0
+将太阳y坐标设为 0
+// 初始化行星
+创建行星角色
+将行星质量设为 10
+将行星x坐标设为 200
+将行星y坐标设为 0
+将行星x速度设为 0
+将行星y速度设为 5
+// 模拟循环
+重复执行
+    // 计算行星受到的引力
+    将距离设为 (距离 太阳 到 行星)
+    将引力大小设为 (引力常数) * (太阳质量) * (行星质量) / (距离 * 距离)
+    // 计算引力方向
+    将引力方向设为 (面向 太阳 方向)
+    // 计算加速度
+    将x加速度设为 (引力大小) * (cos(引力方向)) / (行星质量)
+    将y加速度设为 (引力大小) * (sin(引力方向)) / (行星质量)
+    // 更新速度
+    将行星x速度增加 (x加速度) * (时间步长)
+    将行星y速度增加 (y加速度) * (时间步长)
+    // 更新位置
+    将行星x坐标增加 (行星x速度) * (时间步长)
+    将行星y坐标增加 (行星y速度) * (时间步长)
+    // 绘制轨迹
+    落笔
+    移到 x: (行星x坐标) y: (行星y坐标)
+    等待 (时间步长) 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加交互控制</h5>
+                                    <p class="text-gray-700">编写代码，添加交互控制，让用户可以调整模拟参数。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 参数控制
+当绿旗被点击
+显示变量 "引力常数"
+显示变量 "时间步长"
+将引力常数设为 0.1
+将时间步长设为 0.05
+
+// 调整引力常数
+当按下上箭头键
+将引力常数增加 0.01
+说 "引力常数：" & 引力常数 1 秒
+
+// 调整时间步长
+当按下下箭头键
+将时间步长增加 0.01
+说 "时间步长：" & 时间步长 1 秒
+
+// 添加新行星
+当按下空格键
+创建克隆体
+将克隆体x坐标设为 (鼠标x坐标)
+将克隆体y坐标设为 (鼠标y坐标)
+将克隆体x速度设为 (随机数从 -5 到 5)
+将克隆体y速度设为 (随机数从 -5 到 5)</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加数据可视化</h5>
+                                    <p class="text-gray-700">编写代码，添加数据可视化功能，用于显示模拟数据。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 能量显示
+当绿旗被点击
+重复执行
+    // 计算动能
+    将动能设为 0.5 * (行星质量) * ((行星x速度) * (行星x速度) + (行星y速度) * (行星y速度))
+    // 计算势能
+    将距离设为 (距离 太阳 到 行星)
+    将势能设为 -1 * (引力常数) * (太阳质量) * (行星质量) / (距离)
+    // 计算总能量
+    将总能量设为 (动能) + (势能)
+    // 显示能量
+    说 "动能：" & 动能 & " 势能：" & 势能 & " 总能量：" & 总能量 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：优化和完善</h5>
+                                    <p class="text-gray-700">优化模拟代码，提高模拟的准确性和性能。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li>使用更精确的数值积分方法</li>
+                                            <li>优化碰撞检测算法</li>
+                                            <li>添加更多的物理效果</li>
+                                            <li>优化代码结构，提高可读性</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何提高模拟的准确性？</li>
+                                <li>如何处理模拟中的数值误差？</li>
+                                <li>如何平衡模拟的复杂性和性能？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试制作一个生态系统模拟，模拟生物的生长、繁殖和死亡。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用随机数和概率来模拟生物的行为，使用变量来跟踪生物的状态。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example5: {
+                title: "5. 项目展示与答辩",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何准备项目展示和答辩，提高表达能力和自信心。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">准备项目展示的材料，包括演示文稿、项目说明文档等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：准备项目文档</h5>
+                                    <p class="text-gray-700">准备项目文档，包括项目概述、功能介绍、技术实现、创新点等。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <h6 class="font-medium mb-2">项目文档结构</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li><strong>项目名称：</strong>给项目起一个吸引人的名称</li>
+                                            <li><strong>项目概述：</strong>简要描述项目的目标和功能</li>
+                                            <li><strong>创意来源：</strong>说明项目的创意是如何产生的</li>
+                                            <li><strong>功能介绍：</strong>详细介绍项目的各个功能</li>
+                                            <li><strong>技术实现：</strong>说明项目使用的技术和实现方法</li>
+                                            <li><strong>创新点：</strong>突出项目的创新之处</li>
+                                            <li><strong>遇到的挑战：</strong>分享项目开发过程中遇到的困难和解决方案</li>
+                                            <li><strong>未来展望：</strong>讨论项目的改进和扩展方向</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：准备演示文稿</h5>
+                                    <p class="text-gray-700">准备演示文稿，用于项目展示。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <h6 class="font-medium mb-2">演示文稿结构</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li><strong>封面：</strong>项目名称、作者、日期</li>
+                                            <li><strong>项目概述：</strong>1-2张幻灯片，简要介绍项目</li>
+                                            <li><strong>创意来源：</strong>1张幻灯片，说明创意来源</li>
+                                            <li><strong>功能演示：</strong>3-5张幻灯片，展示项目的主要功能</li>
+                                            <li><strong>技术实现：</strong>2-3张幻灯片，介绍技术实现</li>
+                                            <li><strong>创新点：</strong>1-2张幻灯片，突出创新之处</li>
+                                            <li><strong>总结：</strong>1张幻灯片，总结项目成果和收获</li>
+                                            <li><strong>致谢：</strong>1张幻灯片，感谢帮助过你的人</li>
+                                        </ul>
+                                        <p class="mt-2 text-gray-700"><strong>注意：</strong>演示文稿应该简洁明了，每张幻灯片不要有太多文字，重点突出，使用图片和动画增强视觉效果。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：准备项目演示</h5>
+                                    <p class="text-gray-700">准备项目演示，确保能够流畅地展示项目的功能。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li>提前测试项目，确保没有bug</li>
+                                            <li>准备演示脚本，按照脚本进行演示</li>
+                                            <li>练习演示，确保演示流畅</li>
+                                            <li>准备一些可能出现的问题的解决方案</li>
+                                            <li>如果可能，准备一个备用的演示视频</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：准备答辩</h5>
+                                    <p class="text-gray-700">准备答辩，预测评审可能会问的问题，并准备答案。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <h6 class="font-medium mb-2">可能的问题</h6>
+                                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                            <li><strong>项目创意：</strong>你的项目创意是如何产生的？</li>
+                                            <li><strong>技术实现：</strong>你是如何实现这个功能的？</li>
+                                            <li><strong>创新点：</strong>你的项目有什么创新之处？</li>
+                                            <li><strong>遇到的困难：</strong>在项目开发过程中，你遇到了哪些困难？是如何解决的？</li>
+                                            <li><strong>未来改进：</strong>如果有更多时间，你会如何改进这个项目？</li>
+                                            <li><strong>学习收获：</strong>通过这个项目，你学到了什么？</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：进行模拟答辩</h5>
+                                    <p class="text-gray-700">进行模拟答辩，练习表达能力和应变能力。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>模拟答辩流程：</strong></p>
+                                        <ol class="list-decimal pl-5 mt-2 space-y-1 text-gray-700">
+                                            <li>项目展示：5分钟</li>
+                                            <li>评委提问：5-10分钟</li>
+                                            <li>总结回答：1-2分钟</li>
+                                        </ol>
+                                        <p class="mt-2 text-gray-700"><strong>答辩技巧：</strong></p>
+                                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                                            <li>保持自信，语速适中</li>
+                                            <li>回答问题要简洁明了，重点突出</li>
+                                            <li>如果遇到不会的问题，坦诚承认，并表示愿意学习</li>
+                                            <li>注意肢体语言，保持良好的姿态</li>
+                                            <li>感谢评委的提问和建议</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何在有限的时间内展示项目的亮点？</li>
+                                <li>如何应对评委的刁钻问题？</li>
+                                <li>如何在答辩中展现自己的专业素养？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">组织一次小组项目展示活动，每个人展示自己的项目，并互相评价和提问。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>在评价他人项目时，要客观公正，既要指出优点，也要提出建设性的意见。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // 模态框控制
+        const modal = document.getElementById('example-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModal = document.getElementById('close-modal');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+
+        // 打开模态框
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const exampleId = this.getAttribute('data-example');
+                const example = examples[exampleId];
+                
+                if (example) {
+                    modalTitle.textContent = example.title;
+                    modalContent.innerHTML = example.content;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+        });
+
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        });
+
+        // 点击模态框外部关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

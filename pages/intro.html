@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件介绍 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html" class="active">软件介绍</a></li>
+                    <li><a href="blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu">
+                        <a href="primary.html" class="submenu-toggle"><span>初级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="primary.html#case1">1. 你说我画</a></li>
+                            <li><a href="primary.html#case3">3. 小猫跑垒</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="intermediate.html" class="submenu-toggle"><span>中级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="intermediate.html#case1">1. 弹球游戏</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="advanced.html" class="submenu-toggle"><span>高级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="advanced.html#case1">1. 飞机大战</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="competition.html" class="submenu-toggle"><span>竞赛篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="competition.html#case1">1. 智能问答系统</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>📚 软件介绍</h1>
+            <p>认识Scratch界面，了解基本操作方法</p>
+        </div>
+
+        <!-- 什么是Scratch -->
+        <section class="case-section">
+            <div class="case-header">
+                <div class="case-number">🐱</div>
+                <h2>什么是Scratch？</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>Scratch是由美国麻省理工学院(MIT)媒体实验室开发的一款图形化编程工具。它采用积木块拼图的方式，让编程变得像搭积木一样简单有趣。通过Scratch，你可以创建动画、游戏、故事和互动艺术作品。</p>
+            </div>
+
+            <div class="solution-box">
+                <h4>✨ Scratch的特点</h4>
+                <div class="scratch-blocks">
+                    <p>🎯 <strong>图形化编程</strong> - 无需输入代码，拖拽积木即可</p>
+                    <p>🎮 <strong>丰富的素材库</strong> - 内置大量角色、背景和音效</p>
+                    <p>🌐 <strong>在线社区</strong> - 分享作品，学习他人创意</p>
+                    <p>📱 <strong>跨平台</strong> - 支持网页版和离线版</p>
+                    <p>🔗 <strong>扩展功能</strong> - 支持micro:bit、AI、翻译等扩展</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 界面介绍 -->
+        <section class="case-section">
+            <div class="case-header">
+                <div class="case-number">🖥️</div>
+                <h2>界面介绍</h2>
+            </div>
+            
+            <div class="learning-steps">
+                <h3>📝 主要区域说明</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>1. 舞台区（左上角）</h4>
+                        <p>展示你的作品效果的地方。可以全屏观看，也可以调整舞台大小。绿旗和停止按钮控制程序的运行。</p>
+                        <div class="scratch-blocks">
+                            <p>• 舞台大小：480×360像素</p>
+                            <p>• 坐标系：中心(0,0)，左上(-240,180)，右下(240,-180)</p>
+                            <p>• 绿旗：启动程序 | 停止：结束程序</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>2. 角色区（左下角）</h4>
+                        <p>管理项目中的所有角色和背景。可以添加、删除、复制角色，调整角色属性。</p>
+                        <div class="scratch-blocks">
+                            <p>• 添加角色：从库中选择、绘制、上传、随机</p>
+                            <p>• 角色属性：名称、位置、大小、方向、显示/隐藏</p>
+                            <p>• 背景：每个舞台可以有多个背景</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>3. 积木区（中间）</h4>
+                        <p>存放各种编程积木的地方。按类别分组，可以搜索需要的积木。</p>
+                        <div class="scratch-blocks">
+                            <span class="block motion">运动 - 移动和旋转</span>
+                            <span class="block looks">外观 - 造型和特效</span>
+                            <span class="block sound">声音 - 播放音效</span>
+                            <span class="block events">事件 - 触发程序</span>
+                            <span class="block control">控制 - 流程控制</span>
+                            <span class="block sensing">侦测 - 检测状态</span>
+                            <span class="block operators">运算 - 数学计算</span>
+                            <span class="block variables">变量 - 存储数据</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>4. 脚本区（右边）</h4>
+                        <p>编写程序的地方。将积木拖到这里拼接成程序脚本。</p>
+                        <div class="scratch-blocks">
+                            <p>• 拖拽积木：从积木区拖到脚本区</p>
+                            <p>• 拼接积木：积木会自动吸附连接</p>
+                            <p>• 删除积木：拖回积木区或右键删除</p>
+                            <p>• 多脚本：同一角色可以有多个独立脚本</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 基本操作 -->
+        <section class="case-section">
+            <div class="case-header">
+                <div class="case-number">⚙️</div>
+                <h2>基本操作</h2>
+            </div>
+            
+            <div class="learning-steps">
+                <h3>📝 常用操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>添加角色</h4>
+                        <p>1. 点击角色区右下角的"选择一个角色"按钮</p>
+                        <p>2. 选择添加方式：上传、选择、绘制、随机</p>
+                        <p>3. 新角色会出现在舞台和角色列表中</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>编写脚本</h4>
+                        <p>1. 点击要编程的角色</p>
+                        <p>2. 从积木区拖出需要的积木</p>
+                        <p>3. 将积木拼接在一起</p>
+                        <p>4. 点击绿旗测试效果</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>添加音效</h4>
+                        <p>1. 点击"声音"标签</p>
+                        <p>2. 选择"选择一个声音"</p>
+                        <p>3. 选择或录制音效</p>
+                        <p>4. 在脚本中使用"播放声音"积木</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>保存和分享</h4>
+                        <p>1. 点击菜单"文件" → "保存到电脑"</p>
+                        <p>2. 在线版可点击"分享"发布到社区</p>
+                        <p>3. 可以导出为.sb3文件分享给他人</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用方式 -->
+        <section class="case-section">
+            <div class="case-header">
+                <div class="case-number">💻</div>
+                <h2>如何使用Scratch</h2>
+            </div>
+            
+            <div class="learning-steps">
+                <h3>📝 两种使用方式</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>在线版（推荐）</h4>
+                        <p>访问 scratch.mit.edu，注册账号后即可使用。优点是可以在任何电脑上使用，作品自动保存，方便分享。</p>
+                        <div class="scratch-blocks">
+                            <p>✅ 无需安装，打开浏览器即可使用</p>
+                            <p>✅ 作品自动保存到云端</p>
+                            <p>✅ 可以分享作品到社区</p>
+                            <p>✅ 可以查看他人作品学习</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>离线版</h4>
+                        <p>下载Scratch Desktop（Scratch Link），无需联网即可使用。适合网络不稳定或离线环境的用户。</p>
+                        <div class="scratch-blocks">
+                            <p>📥 下载地址：scratch.mit.edu/download</p>
+                            <p>✅ 无需网络连接</p>
+                            <p>✅ 运行更流畅稳定</p>
+                            <p>⚠️ 需要手动保存文件</p>
+                            <p>⚠️ 分享需要导出文件</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🌐</span> 打开在线编辑器
+                </a>
+                <a href="https://scratch.mit.edu/download" target="_blank" class="action-btn secondary">
+                    <span>📥</span> 下载离线版
+                </a>
+            </div>
+        </section>
+
+        <!-- 快捷键 -->
+        <section class="case-section">
+            <div class="case-header">
+                <div class="case-number">⌨️</div>
+                <h2>常用快捷键</h2>
+            </div>
+            
+            <div class="solution-box">
+                <h4>⌨️ 快捷键列表</h4>
+                <div class="scratch-blocks" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <p><strong>Ctrl + S</strong> - 保存项目</p>
+                    <p><strong>Ctrl + Z</strong> - 撤销操作</p>
+                    <p><strong>Ctrl + Shift + Z</strong> - 重做操作</p>
+                    <p><strong>Ctrl + C</strong> - 复制积木</p>
+                    <p><strong>Ctrl + V</strong> - 粘贴积木</p>
+                    <p><strong>Delete</strong> - 删除积木</p>
+                    <p><strong>空格键</strong> - 运行/停止程序</p>
+                    <p><strong>右键</strong> - 显示上下文菜单</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页面导航 -->
+        <div class="page-nav">
+            <a href="../index.html">← 返回首页</a>
+            <a href="blocks.html">积木介绍 →</a>
+        </div>
+
+        <footer class="page-footer">
+            <p>© 2024 Scratch编程学习平台 | 仅供学习参考</p>
+        </footer>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

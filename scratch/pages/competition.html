@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞赛篇 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html">软件介绍</a></li>
+                    <li><a href="blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu"><a href="primary.html" class="submenu-toggle"><span>初级篇</span><span class="arrow">▼</span></a></li>
+                    <li class="has-submenu"><a href="intermediate.html" class="submenu-toggle"><span>中级篇</span><span class="arrow">▼</span></a></li>
+                    <li class="has-submenu"><a href="advanced.html" class="submenu-toggle"><span>高级篇</span><span class="arrow">▼</span></a></li>
+                    <li class="has-submenu open">
+                        <a href="competition.html" class="submenu-toggle active"><span>竞赛篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu open">
+                            <li><a href="#case1">1. 智能问答系统</a></li>
+                            <li><a href="#case2">2. 算法可视化</a></li>
+                            <li><a href="#case3">3. AI图像识别</a></li>
+                            <li><a href="#case4">4. 物理引擎</a></li>
+                            <li><a href="#case5">5. 数据可视化</a></li>
+                            <li><a href="#case6">6. 数学动画</a></li>
+                            <li><a href="#case7">7. AI对战游戏</a></li>
+                            <li><a href="#case8">8. 路径规划</a></li>
+                            <li><a href="#case9">9. 模拟器</a></li>
+                            <li><a href="#case10">10. 教育软件</a></li>
+                            <li><a href="#case11">11. 科学计算器</a></li>
+                            <li><a href="#case12">12. 实用工具集</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>🏆 竞赛篇</h1>
+            <p>结合AI扩展、高级算法、物理模拟等，挑战编程极限</p>
+        </div>
+
+        <!-- 案例1：智能问答系统 -->
+        <section class="case-section" id="case1">
+            <div class="case-header">
+                <div class="case-number">1</div>
+                <h2>智能问答系统 - 条件匹配</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用条件判断匹配用户输入，制作智能问答系统。</p>
+                <p>📖 <strong>故事背景：</strong>制作一个能回答各种问题的智能助手，像小爱同学一样！</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：打开Scratch并保留小猫</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch软件</li>
+                                <li>保留小猫角色作为智能助手</li>
+                                <li>小猫会回答用户的问题</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建问题列表</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击左边"变量"分类</li>
+                                <li>点击"建立一个列表"</li>
+                                <li>创建列表：<strong>问题列表</strong></li>
+                                <li>再创建列表：<strong>答案列表</strong></li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>列表可以存储多个数据，我们用它来存储问答对！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：初始化问答数据</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出"当绿旗被点击"积木</li>
+                                <li>添加"删除 [问题列表] 的全部项目"</li>
+                                <li>添加"删除 [答案列表] 的全部项目"</li>
+                                <li>添加"将 [你好] 加入 [问题列表]"</li>
+                                <li>添加"将 [你好呀！我是小助手！] 加入 [答案列表]"</li>
+                                <li>添加"将 [你叫什么名字] 加入 [问题列表]"</li>
+                                <li>添加"将 [我叫小猫咪！] 加入 [答案列表]"</li>
+                                <li>添加"将 [几点了] 加入 [问题列表]"</li>
+                                <li>添加"将 [现在是] 加入 [答案列表]"（后面会添加时间）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">删除 [问题列表] 的全部项目</span><br>
+                                <span class="block variable">删除 [答案列表] 的全部项目</span><br>
+                                <span class="block variable">将 [你好] 加入 [问题列表]</span><br>
+                                <span class="block variable">将 [你好呀！我是小助手！] 加入 [答案列表]</span><br>
+                                <span class="block variable">将 [你叫什么名字] 加入 [问题列表]</span><br>
+                                <span class="block variable">将 [我叫小猫咪！] 加入 [答案列表]</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量：<strong>匹配索引</strong>（记录找到的问题位置）</li>
+                                <li>创建变量：<strong>找到</strong>（是否找到匹配的问题）</li>
+                                <li>创建变量：<strong>循环计数</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：编写问答逻辑</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在初始化后面添加"重复执行"积木</li>
+                                <li>添加"询问 [你有什么问题？] 并等待"（侦测分类）</li>
+                                <li>添加"将 [找到] 设为 [否]"</li>
+                                <li>添加"将 [循环计数] 设为 (1)"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：遍历列表查找匹配</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加"重复执行直到 <(找到) = [是]> 或 <(循环计数) > (问题列表的长度)>"</li>
+                                <li>在里面添加"如果 <(回答) 包含 (问题列表的第 (循环计数) 项)> 那么"</li>
+                                <li>在"如果"里面添加"将 [找到] 设为 [是]"</li>
+                                <li>添加"将 [匹配索引] 设为 (循环计数)"</li>
+                                <li>在"如果"外面添加"将 [循环计数] 增加 (1)"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行直到 <span class="block operators"><span class="block operators">(找到) = [是]</span> 或 <span class="block operators">(循环计数) > (问题列表的长度)</span></span></span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block operators">(回答) 包含 (问题列表的第 (循环计数) 项)</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [找到] 设为 [是]</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [匹配索引] 设为 (循环计数)</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [循环计数] 增加 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第7步：输出答案</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在"重复执行直到"后面添加"如果 <(找到) = [是]> 那么"</li>
+                                <li>在"如果"里面添加"说 (答案列表的第 (匹配索引) 项) (3) 秒"</li>
+                                <li>添加"否则"</li>
+                                <li>在"否则"里添加"说 [抱歉，我不太理解你的问题...] (3) 秒"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">如果 <span class="block operators">(找到) = [是]</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block looks">说 (答案列表的第 (匹配索引) 项) (3) 秒</span><br>
+                                <span class="block control">否则</span><br>
+                                <span style="margin-left:20px" class="block looks">说 [抱歉，我不太理解你的问题...] (3) 秒</span>
+                            </div>
+                            <p>✅ <strong>测试：</strong>点击绿旗，输入"你好"，小猫会回答"你好呀！我是小助手！"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让智能助手记住用户的名字？</li>
+                    <li>如何添加数学计算功能？</li>
+                    <li>能让助手讲笑话吗？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例2：算法可视化 -->
+        <section class="case-section" id="case2">
+            <div class="case-header">
+                <div class="case-number">2</div>
+                <h2>算法可视化 - 冒泡排序</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会将排序算法过程可视化展示，理解排序原理。</p>
+                <p>📖 <strong>故事背景：</strong>用动画展示冒泡排序的过程，让抽象的算法变得直观易懂！</p>
+                <p>⏱️ <strong>预计时间：</strong>50-60分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建数据列表</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>创建列表：<strong>数据</strong>（存储要排序的数字）</li>
+                                <li>创建变量：<strong>i</strong>、<strong>j</strong>（循环变量）</li>
+                                <li>创建变量：<strong>临时</strong>（交换时用）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制数据条角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击"绘制"创建新角色</li>
+                                <li>用矩形工具画一个<strong>蓝色长方形</strong>（宽20像素，高100像素）</li>
+                                <li>把角色改名为"数据条"</li>
+                                <li>点击"造型"标签，复制造型，把第二个造型改成<strong>红色</strong>（表示正在比较）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：生成随机数据</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击数据条角色</li>
+                                <li>拖出"当绿旗被点击"积木</li>
+                                <li>添加"删除 [数据] 的全部项目"</li>
+                                <li>添加"将大小设为 (100)"</li>
+                                <li>添加"重复执行 (10) 次"</li>
+                                <li>在里面添加"将 (在 (10) 到 (100) 之间取随机数) 加入 [数据]"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">删除 [数据] 的全部项目</span><br>
+                                <span class="block control">重复执行 (10) 次</span><br>
+                                <span style="margin-left:20px" class="block variable">将 (在 (10) 到 (100) 之间取随机数) 加入 [数据]</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：克隆数据条显示数据</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在随机生成数据后，添加"隐藏"</li>
+                                <li>添加"将 [i] 设为 (1)"</li>
+                                <li>添加"重复执行 (10) 次"</li>
+                                <li>在里面添加"移到 x: ((i) - 5.5) * 40) y: (-100)"</li>
+                                <li>添加"将大小设为 ((数据) 的第 (i) 项)"</li>
+                                <li>添加"创建 [自己] 的克隆体"</li>
+                                <li>添加"将 [i] 增加 (1)"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：实现冒泡排序逻辑</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>冒泡排序原理：</strong>从第一个数开始，依次比较相邻两个数，如果前面的数比后面的数大，就交换它们。</p>
+                            <ol>
+                                <li>添加"当按下 [空格] 键"积木</li>
+                                <li>添加"将 [i] 设为 (1)"</li>
+                                <li>添加"重复执行 (9) 次"</li>
+                                <li>在里面添加"将 [j] 设为 (1)"</li>
+                                <li>添加"重复执行 (10 - i) 次"</li>
+                                <li>在里面添加比较逻辑</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：比较并交换</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在内部循环中添加"如果 <(数据 的第 j 项) > (数据 的第 (j+1) 项)> 那么"</li>
+                                <li>在"如果"里面添加"将 [临时] 设为 (数据 的第 j 项)"</li>
+                                <li>添加"替换 [数据] 的第 j 项为 (数据 的第 (j+1) 项)"</li>
+                                <li>添加"替换 [数据] 的第 (j+1) 项为 (临时)"</li>
+                                <li>添加"等待 (0.5) 秒"（让动画慢一点）</li>
+                                <li>添加"广播 [更新显示]"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [空格] 键</span><br>
+                                <span class="block variable">将 [i] 设为 (1)</span><br>
+                                <span class="block control">重复执行 (9) 次</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [j] 设为 (1)</span><br>
+                                <span style="margin-left:20px" class="block control">重复执行 (10 - i) 次</span><br>
+                                <span style="margin-left:40px" class="block control">如果 <span class="block operators">(数据 的第 j 项) > (数据 的第 (j+1) 项)</span> 那么</span><br>
+                                <span style="margin-left:60px" class="block variable">将 [临时] 设为 (数据 的第 j 项)</span><br>
+                                <span style="margin-left:60px" class="block variable">替换 [数据] 的第 j 项为 (数据 的第 (j+1) 项)</span><br>
+                                <span style="margin-left:60px" class="block variable">替换 [数据] 的第 (j+1) 项为 (临时)</span><br>
+                                <span style="margin-left:60px" class="block control">等待 (0.5) 秒</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [j] 增加 (1)</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [i] 增加 (1)</span>
+                            </div>
+                            <p>✅ <strong>测试：</strong>点击绿旗生成随机数据，按空格键开始排序动画！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让排序动画更明显？</li>
+                    <li>能否实现其他排序算法（如选择排序）？</li>
+                    <li>如何让用户自己输入数据？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例3：物理引擎 -->
+        <section class="case-section" id="case3">
+            <div class="case-header">
+                <div class="case-number">3</div>
+                <h2>物理引擎 - 重力模拟</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会模拟真实的物理运动（重力、弹力）。</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建角色和变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，绘制一个<strong>小球</strong>角色</li>
+                                <li>创建变量：<strong>速度x</strong>、<strong>速度y</strong>、<strong>重力</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：初始化变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出"当绿旗被点击"积木</li>
+                                <li>添加"将 [速度x] 设为 (5)"</li>
+                                <li>添加"将 [速度y] 设为 (0)"</li>
+                                <li>添加"将 [重力] 设为 (-0.5)"</li>
+                                <li>添加"移到 x: (-200) y: (100)"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：物理运动循环</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加"重复执行"</li>
+                                <li>添加"将 x 坐标增加 (速度x)"</li>
+                                <li>添加"将 y 坐标增加 (速度y)"</li>
+                                <li>添加"将 [速度y] 增加 (重力)"（模拟重力）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：碰撞检测和反弹</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加"如果 <(y 坐标) < (-140)> 那么"（碰到地面）</li>
+                                <li>里面添加"将 y 坐标设为 (-140)"</li>
+                                <li>添加"将 [速度y] 设为 ((速度y) * (-0.8))"（反弹，能量损失）</li>
+                                <li>添加"如果 <(x 坐标) > (200)> 或 <(x 坐标) < (-200)> 那么"</li>
+                                <li>里面添加"将 [速度x] 设为 ((速度x) * (-1))"（墙壁反弹）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [速度x] 设为 (5)</span><br>
+                                <span class="block variable">将 [速度y] 设为 (0)</span><br>
+                                <span class="block variable">将 [重力] 设为 (-0.5)</span><br>
+                                <span class="block motion">移到 x: (-200) y: (100)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">将 x 坐标增加 (速度x)</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (速度y)</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [速度y] 增加 (重力)</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block operators">(y 坐标) < (-140)</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block motion">将 y 坐标设为 (-140)</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [速度y] 设为 ((速度y) * (-0.8))</span>
+                            </div>
+                            <p>✅ <strong>测试：</strong>点击绿旗，小球会像真实世界一样弹跳！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例4：数据可视化 -->
+        <section class="case-section" id="case4">
+            <div class="case-header">
+                <div class="case-number">4</div>
+                <h2>数据可视化 - 柱状图</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会将数据转化为可视化图表展示。</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建列表存储数据</li>
+                                <li>绘制一个长方形角色作为柱子</li>
+                                <li>遍历列表，根据数据值调整柱子高度</li>
+                                <li>用克隆体显示每个柱子</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block variable">将 [i] 设为 (1)</span><br>
+                                <span class="block control">重复执行 (数据列表的长度) 次</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: ((i) * 50 - 200) y: (-100)</span><br>
+                                <span style="margin-left:20px" class="block looks">将大小设为 ((数据列表) 的第 (i) 项)</span><br>
+                                <span style="margin-left:20px" class="block control">创建 [自己] 的克隆体</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [i] 增加 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例5：数学动画 -->
+        <section class="case-section" id="case5">
+            <div class="case-header">
+                <div class="case-number">5</div>
+                <h2>数学动画 - 分形树</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会绘制递归分形图形。</p>
+                <p>⏱️ <strong>预计时间：</strong>50-60分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加画笔扩展</li>
+                                <li>创建自定义积木"画树枝 [长度]"</li>
+                                <li>画一条线，然后转向左右各画一条较短的树枝</li>
+                                <li>递归调用自己，直到长度足够小</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>分形树需要使用"制作新的积木"功能！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例6-12 简化版 -->
+        <section class="case-section" id="case6">
+            <div class="case-header">
+                <div class="case-number">6</div>
+                <h2>AI对战游戏 - 智能敌人</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会编写AI逻辑，让电脑角色有智能行为。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路 - 追踪玩家</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>敌人在"重复执行"中不断面向玩家</li>
+                                <li>然后向玩家移动</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 [玩家]</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (3) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case7">
+            <div class="case-header">
+                <div class="case-number">7</div>
+                <h2>路径规划 - 迷宫寻路</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会实现简单的路径规划算法。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>使用"左手法则"：始终沿着墙壁左侧走</li>
+                                <li>如果左边是墙，向前走</li>
+                                <li>如果前面是墙，向右转</li>
+                                <li>如果左边不是墙，向左转</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case8">
+            <div class="case-header">
+                <div class="case-number">8</div>
+                <h2>模拟器 - 生态系统</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会模拟生态系统（如捕食者与被捕食者）。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建"羊"和"狼"两种角色</li>
+                                <li>羊随机移动，吃草繁殖</li>
+                                <li>狼追逐羊，吃羊获得能量</li>
+                                <li>能量耗尽则死亡</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case9">
+            <div class="case-header">
+                <div class="case-number">9</div>
+                <h2>教育软件 - 数学练习</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计教育类软件，帮助学习。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>随机生成两个数和运算符</li>
+                                <li>用"询问并等待"让用户输入答案</li>
+                                <li>判断答案是否正确</li>
+                                <li>正确加分，错误提示正确答案</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block variable">将 [数1] 设为 (在 (1) 到 (100) 之间取随机数)</span><br>
+                                <span class="block variable">将 [数2] 设为 (在 (1) 到 (100) 之间取随机数)</span><br>
+                                <span class="block sensing">询问 (连接 (数1) (连接 [+] (数2))) 并等待</span><br>
+                                <span class="block control">如果 <span class="block operators">(回答) = ((数1) + (数2))</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block looks">说 [回答正确！]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case10">
+            <div class="case-header">
+                <div class="case-number">10</div>
+                <h2>科学计算器 - 复杂运算</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会处理复杂的数学运算。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>获取用户输入的数字和运算符</li>
+                                <li>使用"如果"判断运算符类型</li>
+                                <li>执行对应运算并显示结果</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case11">
+            <div class="case-header">
+                <div class="case-number">11</div>
+                <h2>实用工具 - 倒计时器</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会制作实用的计时工具。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量"剩余秒数"</li>
+                                <li>获取用户输入倒计时秒数</li>
+                                <li>循环减少秒数，每秒更新显示</li>
+                                <li>归零时播放提示音</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行直到 <span class="block operators">(剩余秒数) = (0)</span></span><br>
+                                <span style="margin-left:20px" class="block control">等待 (1) 秒</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [剩余秒数] 增加 (-1)</span><br>
+                                <span class="block sound">播放声音 [alert]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case12">
+            <div class="case-header">
+                <div class="case-number">12</div>
+                <h2>实用工具集 - 多功能应用</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会整合多种功能，制作完整的应用程序。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建菜单系统（1.计算器 2.倒计时 3.猜数字）</li>
+                                <li>根据用户选择跳转到不同功能</li>
+                                <li>使用"广播消息"切换功能</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block sensing">询问 [请选择功能：1.计算器 2.倒计时 3.猜数字] 并等待</span><br>
+                                <span class="block control">如果 <span class="block operators">(回答) = (1)</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block events">广播 [计算器]</span><br>
+                                <span class="block control">如果 <span class="block operators">(回答) = (2)</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block events">广播 [倒计时]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

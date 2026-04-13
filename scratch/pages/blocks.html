@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>积木介绍 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html">软件介绍</a></li>
+                    <li><a href="blocks.html" class="active">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu">
+                        <a href="primary.html" class="submenu-toggle"><span>初级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="primary.html#case1">1. 你说我画</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="intermediate.html" class="submenu-toggle"><span>中级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="intermediate.html#case1">1. 弹球游戏</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="advanced.html" class="submenu-toggle"><span>高级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="advanced.html#case1">1. 飞机大战</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="competition.html" class="submenu-toggle"><span>竞赛篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="competition.html#case1">1. 智能问答系统</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>🧩 积木介绍</h1>
+            <p>了解各类积木的功能和用法</p>
+        </div>
+
+        <!-- 运动积木 -->
+        <section class="case-section" id="motion">
+            <div class="case-header">
+                <div class="case-number" style="background: #4C97FF;">运</div>
+                <h2>运动积木（蓝色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>运动积木用于控制角色的移动、旋转和位置。这是最常用的一类积木。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>移动类积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block motion">移动 (10) 步</span> - 向当前方向移动指定步数<br>
+                            <span class="block motion">移到 x: (0) y: (0)</span> - 瞬间移动到指定坐标<br>
+                            <span class="block motion">在 (1) 秒内滑行到 x: (0) y: (0)</span> - 平滑移动到指定位置<br>
+                            <span class="block motion">移到 [鼠标指针]</span> - 移动到鼠标或其他角色位置
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>旋转类积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block motion">右转 ↻ (15) 度</span> - 顺时针旋转<br>
+                            <span class="block motion">左转 ↺ (15) 度</span> - 逆时针旋转<br>
+                            <span class="block motion">面向 (90) 方向</span> - 设置绝对方向<br>
+                            <span class="block motion">面向 [鼠标指针]</span> - 面向鼠标或其他角色
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>坐标类积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block motion">将x坐标增加 (10)</span> - 水平移动<br>
+                            <span class="block motion">将x坐标设为 (0)</span> - 设置水平位置<br>
+                            <span class="block motion">将y坐标增加 (10)</span> - 垂直移动<br>
+                            <span class="block motion">将y坐标设为 (0)</span> - 设置垂直位置
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>边界处理积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block motion">碰到边缘就反弹</span> - 碰到边界后反弹<br>
+                            <span class="block motion">将旋转方式设为 [左右翻转]</span> - 控制旋转时的外观
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 外观积木 -->
+        <section class="case-section" id="looks">
+            <div class="case-header">
+                <div class="case-number" style="background: #9966FF;">外</div>
+                <h2>外观积木（紫色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>外观积木用于控制角色的造型、大小、特效和对话气泡。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>造型控制</h4>
+                        <div class="scratch-blocks">
+                            <span class="block looks">换成 [造型1] 造型</span> - 切换到指定造型<br>
+                            <span class="block looks">下一个造型</span> - 切换到下一个造型<br>
+                            <span class="block looks">上一个造型</span> - 切换到上一个造型
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>对话和思考</h4>
+                        <div class="scratch-blocks">
+                            <span class="block looks">说 [你好！] (2) 秒</span> - 显示对话气泡<br>
+                            <span class="block looks">说 [你好！]</span> - 持续显示对话<br>
+                            <span class="block looks">思考 [嗯...] (2) 秒</span> - 显示思考气泡
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>大小和特效</h4>
+                        <div class="scratch-blocks">
+                            <span class="block looks">将大小设为 (100)</span> - 设置角色大小百分比<br>
+                            <span class="block looks">将大小增加 (10)</span> - 增大角色<br>
+                            <span class="block looks">将 [颜色] 特效设为 (25)</span> - 设置特效值<br>
+                            <span class="block looks">将 [颜色] 特效增加 (25)</span> - 增加特效<br>
+                            <span class="block looks">清除图形特效</span> - 重置所有特效
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>显示和隐藏</h4>
+                        <div class="scratch-blocks">
+                            <span class="block looks">显示</span> - 显示角色<br>
+                            <span class="block looks">隐藏</span> - 隐藏角色<br>
+                            <span class="block looks">移到最前面</span> - 置于顶层<br>
+                            <span class="block looks">下移 (1) 层</span> - 向下一层
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 事件积木 -->
+        <section class="case-section" id="events">
+            <div class="case-header">
+                <div class="case-number" style="background: #FFBF00; color: #000;">事</div>
+                <h2>事件积木（黄色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>事件积木是程序的起点，用于触发脚本的执行。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>启动事件</h4>
+                        <div class="scratch-blocks">
+                            <span class="block events">当绿旗被点击</span> - 最常用，点击绿旗启动<br>
+                            <span class="block events">当角色被点击</span> - 点击角色时触发<br>
+                            <span class="block events">当按下 [空格] 键</span> - 键盘按键触发
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>广播消息</h4>
+                        <div class="scratch-blocks">
+                            <span class="block events">广播 [消息1]</span> - 发送消息<br>
+                            <span class="block events">广播 [消息1] 并等待</span> - 发送消息并等待处理完成<br>
+                            <span class="block events">当收到 [消息1]</span> - 接收到消息时触发
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>其他事件</h4>
+                        <div class="scratch-blocks">
+                            <span class="block events">当背景换成 [背景1]</span> - 背景切换时触发<br>
+                            <span class="block events">当 [响度] > (10)</span> - 音量超过阈值时触发<br>
+                            <span class="block events">当 [计时器] > (10)</span> - 计时器超过阈值时触发
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 控制积木 -->
+        <section class="case-section" id="control">
+            <div class="case-header">
+                <div class="case-number" style="background: #FFAB19; color: #000;">控</div>
+                <h2>控制积木（橙色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>控制积木用于控制程序的执行流程，包括循环、条件判断和克隆。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>循环积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block control">重复执行 (10) 次</span> - 执行指定次数<br>
+                            <span class="block control">重复执行</span> - 无限循环<br>
+                            <span class="block control">重复执行直到 <条件></span> - 条件为真时停止
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>条件积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block control">如果 <条件> 那么</span> - 条件为真时执行<br>
+                            <span class="block control">如果 <条件> 那么 ... 否则</span> - 双分支条件<br>
+                            <span class="block control">等待直到 <条件></span> - 等待条件成立
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>停止积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block control">停止 [全部脚本]</span> - 停止所有脚本<br>
+                            <span class="block control">停止 [这个脚本]</span> - 停止当前脚本<br>
+                            <span class="block control">停止 [该角色的其他脚本]</span> - 停止其他脚本
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>克隆积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block control">创建 [自己] 的克隆体</span> - 创建克隆<br>
+                            <span class="block events">当作为克隆体启动时</span> - 克隆体启动事件<br>
+                            <span class="block control">删除此克隆体</span> - 删除克隆体
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 侦测积木 -->
+        <section class="case-section" id="sensing">
+            <div class="case-header">
+                <div class="case-number" style="background: #5CB1D6;">侦</div>
+                <h2>侦测积木（浅蓝色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>侦测积木用于检测各种状态，如按键、碰撞、鼠标位置等。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>碰撞检测</h4>
+                        <div class="scratch-blocks">
+                            <span class="block sensing">碰到 [鼠标指针] ?</span> - 是否碰到其他角色<br>
+                            <span class="block sensing">碰到颜色 [#ff0000] ?</span> - 是否碰到指定颜色<br>
+                            <span class="block sensing">颜色 [#ff0000] 碰到 [#00ff00] ?</span> - 颜色碰到颜色
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>输入检测</h4>
+                        <div class="scratch-blocks">
+                            <span class="block sensing">按键 [空格] 被按下?</span> - 检测键盘<br>
+                            <span class="block sensing">鼠标被按下?</span> - 检测鼠标点击<br>
+                            <span class="block sensing">询问 [你叫什么名字?] 并等待</span> - 获取输入
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>位置检测</h4>
+                        <div class="scratch-blocks">
+                            <span class="block sensing">鼠标的x坐标</span> - 获取鼠标x坐标<br>
+                            <span class="block sensing">鼠标的y坐标</span> - 获取鼠标y坐标<br>
+                            <span class="block sensing">到 [鼠标指针] 的距离</span> - 计算距离
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>时间和其他</h4>
+                        <div class="scratch-blocks">
+                            <span class="block sensing">当前时间 [年]</span> - 获取时间<br>
+                            <span class="block sensing">计时器</span> - 计时器值<br>
+                            <span class="block sensing">将计时器归零</span> - 重置计时器<br>
+                            <span class="block sensing">用户名</span> - 获取用户名
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 运算积木 -->
+        <section class="case-section" id="operators">
+            <div class="case-header">
+                <div class="case-number" style="background: #59C059;">运</div>
+                <h2>运算积木（绿色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>运算积木用于进行数学计算、字符串处理和逻辑判断。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>数学运算</h4>
+                        <div class="scratch-blocks">
+                            <span class="block operators">(10) + (20)</span> - 加法<br>
+                            <span class="block operators">(50) - (20)</span> - 减法<br>
+                            <span class="block operators">(10) * (5)</span> - 乘法<br>
+                            <span class="block operators">(100) / (4)</span> - 除法<br>
+                            <span class="block operators">(1) 到 (10) 随机数</span> - 随机数<br>
+                            <span class="block operators">[绝对值] (10)</span> - 数学函数
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>比较运算</h4>
+                        <div class="scratch-blocks">
+                            <span class="block operators">(50) > (30)</span> - 大于<br>
+                            <span class="block operators">(20) < (30)</span> - 小于<br>
+                            <span class="block operators">(10) = (10)</span> - 等于
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>逻辑运算</h4>
+                        <div class="scratch-blocks">
+                            <span class="block operators"><条件1> 且 <条件2></span> - 与运算<br>
+                            <span class="block operators"><条件1> 或 <条件2></span> - 或运算<br>
+                            <span class="block operators">不成立 <条件></span> - 非运算
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>字符串运算</h4>
+                        <div class="scratch-blocks">
+                            <span class="block operators">连接 [苹果] [香蕉]</span> - 拼接字符串<br>
+                            <span class="block operators">[苹果] 的第 (1) 个字符</span> - 取字符<br>
+                            <span class="block operators">[苹果] 的长度</span> - 字符串长度<br>
+                            <span class="block operators">[苹果] 包含 [果] ?</span> - 检测包含
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 变量积木 -->
+        <section class="case-section" id="variables">
+            <div class="case-header">
+                <div class="case-number" style="background: #FF8C1A;">变</div>
+                <h2>变量积木（橙色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>变量积木用于创建和管理变量和列表，存储游戏数据。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>变量操作</h4>
+                        <div class="scratch-blocks">
+                            <span class="block variables">设置 [分数] 为 (0)</span> - 设置变量值<br>
+                            <span class="block variables">将 [分数] 增加 (1)</span> - 增加变量值<br>
+                            <span class="block variables">显示变量 [分数]</span> - 显示变量<br>
+                            <span class="block variables">隐藏变量 [分数]</span> - 隐藏变量
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>列表操作</h4>
+                        <div class="scratch-blocks">
+                            <span class="block variables">将 [列表] 加入 [项目]</span> - 添加项目<br>
+                            <span class="block variables">删除 [列表] 的第 (1) 项</span> - 删除项目<br>
+                            <span class="block variables">替换 [列表] 的第 (1) 项为 [新值]</span> - 替换项目<br>
+                            <span class="block variables">[列表] 的第 (1) 项</span> - 获取项目<br>
+                            <span class="block variables">[列表] 的项目数</span> - 列表长度<br>
+                            <span class="block variables">[列表] 包含 [项目] ?</span> - 检测包含
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 自定义积木 -->
+        <section class="case-section" id="myblocks">
+            <div class="case-header">
+                <div class="case-number" style="background: #FF6680;">自</div>
+                <h2>自定义积木（粉红色）</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>自定义积木允许你创建自己的积木，封装重复使用的代码块。</p>
+            </div>
+
+            <div class="learning-steps">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>创建自定义积木</h4>
+                        <p>1. 点击"制作一个积木"按钮</p>
+                        <p>2. 输入积木名称</p>
+                        <p>3. 添加参数（可选）</p>
+                        <p>4. 编写积木的脚本</p>
+                        <div class="scratch-blocks">
+                            <span class="block myBlocks">定义 移动 (步数) 步</span><br>
+                            <span class="block control" style="margin-left:20px">重复执行 (步数) 次</span><br>
+                            <span class="block motion" style="margin-left:40px">移动 (1) 步</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>使用自定义积木</h4>
+                        <div class="scratch-blocks">
+                            <span class="block myBlocks">移动 (10) 步</span> - 调用自定义积木<br>
+                            <span class="block myBlocks">移动 (20) 步</span> - 传入不同参数
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页面导航 -->
+        <div class="page-nav">
+            <a href="intro.html">← 软件介绍</a>
+            <a href="primary.html">开始学习 →</a>
+        </div>
+
+        <footer class="page-footer">
+            <p>© 2024 Scratch编程学习平台 | 仅供学习参考</p>
+        </footer>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

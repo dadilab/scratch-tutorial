@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中级篇 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html">软件介绍</a></li>
+                    <li><a href="blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu">
+                        <a href="primary.html" class="submenu-toggle"><span>初级篇</span><span class="arrow">▼</span></a>
+                    </li>
+                    <li class="has-submenu open">
+                        <a href="intermediate.html" class="submenu-toggle active"><span>中级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu open">
+                            <li><a href="#case1">1. 弹球游戏</a></li>
+                            <li><a href="#case2">2. 打地鼠</a></li>
+                            <li><a href="#case3">3. 贪吃蛇</a></li>
+                            <li><a href="#case4">4. 记忆翻牌</a></li>
+                            <li><a href="#case5">5. 走迷宫</a></li>
+                            <li><a href="#case6">6. 接苹果</a></li>
+                            <li><a href="#case7">7. 打砖块</a></li>
+                            <li><a href="#case8">8. 猜数字</a></li>
+                            <li><a href="#case9">9. 青蛙过河</a></li>
+                            <li><a href="#case10">10. 躲避球</a></li>
+                            <li><a href="#case11">11. 简易计算器</a></li>
+                            <li><a href="#case12">12. 画板工具</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="advanced.html" class="submenu-toggle"><span>高级篇</span><span class="arrow">▼</span></a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="competition.html" class="submenu-toggle"><span>竞赛篇</span><span class="arrow">▼</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>🌿 中级篇</h1>
+            <p>学习变量、广播、列表等核心概念，制作完整的互动游戏</p>
+        </div>
+
+        <!-- 案例1：弹球游戏 -->
+        <section class="case-section" id="case1">
+            <div class="case-header">
+                <div class="case-number">1</div>
+                <h2>弹球游戏 - 变量入门</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会创建和使用变量，制作一个简单的弹球游戏。</p>
+                <p>📖 <strong>故事背景：</strong>用挡板接住弹跳的小球，看看你能得多少分！</p>
+                <p>⏱️ <strong>预计时间：</strong>30-40分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：打开Scratch并删除小猫</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>双击桌面上的<strong>Scratch图标</strong>，打开Scratch软件</li>
+                                <li>等待软件完全加载，你会看到一只橙色的小猫</li>
+                                <li>在舞台区域（右上方的白色区域），<strong>右键点击小猫角色</strong></li>
+                                <li>在弹出的菜单中，点击<strong>"删除"</strong></li>
+                                <li>小猫就消失了，舞台变成空白</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>删除角色是为了让舞台更清爽，我们等会儿添加需要的角色。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制挡板角色</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>看屏幕<strong>右下角</strong>，找到<strong>"选择一个角色"</strong>按钮（小猫头像）</li>
+                                <li>把鼠标移到这个按钮上，会出现<strong>四个小图标</strong></li>
+                                <li>点击<strong>"绘制"</strong>图标（画笔形状）</li>
+                                <li>右侧会出现绘画区域</li>
+                                <li>点击左侧工具栏的<strong>"矩形"</strong>工具（方块形状）</li>
+                                <li>选择一个喜欢的<strong>颜色</strong>（点击"填充"颜色块选择）</li>
+                                <li>在画布中间，按住鼠标拖动，画一个<strong>长方形</strong></li>
+                                <li>长方形大约：宽120像素，高20像素</li>
+                                <li>点击右上角的<strong>"选择"</strong>工具（箭头形状），拖动调整长方形的位置到中心</li>
+                                <li>点击画布上方的<strong>"角色1"</strong>，改名为<strong>"挡板"</strong></li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>挡板要画得长一点，这样更容易接到球！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让挡板跟随鼠标移动</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>确保<strong>挡板角色被选中</strong>（点击舞台上的挡板）</li>
+                                <li>看屏幕左边，点击<strong>"事件"</strong>分类（黄色积木）</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木到中间脚本区</li>
+                                <li>点击<strong>"运动"</strong>分类（蓝色积木）</li>
+                                <li>找到<strong>"移到 x: ( ) y: ( )"</strong>积木，拖到"当绿旗被点击"下面</li>
+                                <li>点击<strong>"控制"</strong>分类（橙色积木）</li>
+                                <li>找到<strong>"重复执行"</strong>积木，拖到最下面，拼在一起</li>
+                                <li>回到<strong>"运动"</strong>分类</li>
+                                <li>找到<strong>"移到 x: ( ) y: ( )"</strong>积木，<strong>拖进</strong>"重复执行"的嘴巴里面</li>
+                                <li>在<strong>"运动"</strong>分类最下面找到<strong>"鼠标的 x 坐标"</strong>（椭圆形）</li>
+                                <li>把这个椭圆形的积木<strong>拖到 x:</strong> 后面的白色框里</li>
+                                <li>在 <strong>y:</strong> 后面点击白框，输入数字 <strong>-130</strong>（挡板在舞台底部）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (鼠标的 x 坐标) y: (-130)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (鼠标的 x 坐标) y: (-130)</span>
+                            </div>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，移动鼠标，挡板是不是跟着左右移动了？</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：添加小球角色</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>点击右下角<strong>"选择一个角色"</strong></li>
+                                <li>点击<strong>"选择一个角色"</strong>（搜索图标，放大镜形状）</li>
+                                <li>在搜索框输入 <strong>ball</strong></li>
+                                <li>找到喜欢的球，点击添加</li>
+                                <li>用鼠标拖动小球，把它移到舞台<strong>中间偏上</strong>的位置</li>
+                                <li>点击小球角色，在上方名称处改名为<strong>"小球"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：创建分数变量</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>什么是变量？</strong></p>
+                            <p>变量就像一个<strong>"存东西的盒子"</strong>，可以存放数字或文字。我们需要一个"盒子"来存放分数。</p>
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>点击屏幕左边<strong>"变量"</strong>分类（深橙色积木）</li>
+                                <li>点击<strong>"建立一个变量"</strong>按钮</li>
+                                <li>在弹出的窗口中，输入变量名：<strong>分数</strong></li>
+                                <li>选择<strong>"适用于所有角色"</strong>（让所有角色都能看到这个变量）</li>
+                                <li>点击<strong>"确定"</strong></li>
+                                <li>你会看到舞台左上角出现了"分数"显示框</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>现在我们有了一个叫"分数"的变量，可以随时改变里面的数字！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：给小球添加起始代码</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li><strong>点击小球角色</strong>（确保在编辑小球的代码）</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>在<strong>"变量"</strong>分类里找到<strong>"将 [分数] 设为 (0)"</strong>积木</li>
+                                <li>拖到"当绿旗被点击"下面（这样每次开始游戏分数都是0）</li>
+                                <li>在<strong>"运动"</strong>分类里找到<strong>"移到 x: (0) y: (0)"</strong>积木</li>
+                                <li>拖到下面，设置小球的起始位置在舞台中央</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block motion">移到 x: (0) y: (0)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第7步：让小球开始随机移动</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在<strong>"运动"</strong>分类里找到<strong>"面向 ( ) 度"</strong>积木</li>
+                                <li>拖到脚本区，拼在"移到"积木下面</li>
+                                <li>在<strong>"运算"</strong>分类（绿色积木）里找到<strong>"在 (1) 到 (10) 之间取随机数"</strong>积木</li>
+                                <li>拖到"面向"积木的数字框里</li>
+                                <li>把第一个数字改成<strong>45</strong>，把第二个数字改成<strong>135</strong></li>
+                                <li>这样小球开始时会随机向上方发射</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block motion">移到 x: (0) y: (0)</span><br>
+                                <span class="block motion">面向 (在 (45) 到 (135) 之间取随机数) 度</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第8步：让小球持续移动并反弹</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类拖出<strong>"重复执行"</strong>积木</li>
+                                <li>拼在最下面</li>
+                                <li>在<strong>"运动"</strong>分类找到<strong>"移动 ( ) 步"</strong>积木</li>
+                                <li>拖进"重复执行"里面</li>
+                                <li>输入步数 <strong>8</strong></li>
+                                <li>在<strong>"运动"</strong>分类最下面找到<strong>"碰到边缘就反弹"</strong>积木</li>
+                                <li>拖进"重复执行"里面，放在"移动"积木下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block motion">移到 x: (0) y: (0)</span><br>
+                                <span class="block motion">面向 (在 (45) 到 (135) 之间取随机数) 度</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (8) 步</span><br>
+                                <span style="margin-left:20px" class="block motion">碰到边缘就反弹</span>
+                            </div>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，小球是不是开始弹来弹去了？</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第9步：检测小球碰到挡板</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类里找到<strong>"如果...那么"</strong>积木（带菱形框的）</li>
+                                <li>拖进"重复执行"里面，放在"碰到边缘就反弹"下面</li>
+                                <li>在<strong>"侦测"</strong>分类（浅蓝色积木）里找到<strong>"碰到 [鼠标指针] ?"</strong>积木</li>
+                                <li>拖到"如果"后面的<strong>菱形框</strong>里</li>
+                                <li>点击"鼠标指针"旁边的小箭头，选择<strong>挡板</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第10步：碰到挡板得分并反弹</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在<strong>"变量"</strong>分类里找到<strong>"将 [分数] 增加 (1)"</strong>积木</li>
+                                <li>拖进"如果...那么"的嘴巴里面</li>
+                                <li>在<strong>"运动"</strong>分类找到<strong>"面向 ( ) 度"</strong>积木</li>
+                                <li>拖进"如果...那么"里面</li>
+                                <li>在<strong>"运算"</strong>分类找到<strong>"( ) - ( )"</strong>积木</li>
+                                <li>拖到"面向"的数字框里</li>
+                                <li>在<strong>"运动"</strong>分类最下面找到<strong>"方向"</strong>（椭圆形）</li>
+                                <li>拖到减号的第一个框里</li>
+                                <li>在第二个框输入<strong>180</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (8) 步</span><br>
+                                <span style="margin-left:20px" class="block motion">碰到边缘就反弹</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [挡板] ?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [分数] 增加 (1)</span><br>
+                                <span style="margin-left:40px" class="block motion">面向 ((方向) - (180)) 度</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第11步：游戏结束条件</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong>当小球掉到底部（Y坐标小于-140），游戏结束。</p>
+                            <ol>
+                                <li>在"重复执行"里面，添加另一个"如果...那么"积木</li>
+                                <li>在<strong>"运算"</strong>分类找到<strong>"( ) < ( )"</strong>积木</li>
+                                <li>拖到"如果"的菱形框里</li>
+                                <li>在<strong>"运动"</strong>分类最下面找到<strong>"y 坐标"</strong></li>
+                                <li>拖到第一个框里</li>
+                                <li>第二个框输入 <strong>-140</strong></li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"说 [ ] ( ) 秒"</strong>积木</li>
+                                <li>拖进"如果...那么"里面</li>
+                                <li>输入<strong>"游戏结束！"</strong></li>
+                                <li>在<strong>"控制"</strong>分类找到<strong>"停止 [全部脚本]"</strong>积木</li>
+                                <li>拖到"说"积木下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span style="margin-left:20px" class="block control">如果 <span class="block operators">(y 坐标) < (-140)</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block looks">说 [游戏结束！] (2) 秒</span><br>
+                                <span style="margin-left:40px" class="block control">停止 [全部脚本]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果要让小球移动得更快，应该改哪个数字？</li>
+                    <li>如果要让分数每次加2分，应该怎么改？</li>
+                    <li>能添加音效吗？在碰到挡板时发出声音？</li>
+                </ol>
+            </div>
+
+            <div class="solution-box">
+                <h4>💡 进阶挑战</h4>
+                <p>1. 添加音效：在"碰到挡板"的"如果...那么"里面，添加<strong>"播放声音 [pop]"</strong>积木（声音分类）</p>
+                <p>2. 增加难度：创建一个"速度"变量，随着分数增加，让速度越来越快！</p>
+            </div>
+        </section>
+
+        <!-- 案例2：打地鼠 -->
+        <section class="case-section" id="case2">
+            <div class="case-header">
+                <div class="case-number">2</div>
+                <h2>打地鼠 - 随机位置与计时</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用随机位置、计时器和广播消息。</p>
+                <p>📖 <strong>故事背景：</strong>调皮的地鼠从洞里冒出来，快用锤子敲它！看看60秒内你能打中多少只！</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加背景</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch软件</li>
+                                <li>删除小猫角色</li>
+                                <li>点击右下角<strong>"选择一个背景"</strong></li>
+                                <li>搜索 <strong>garden</strong> 或 <strong>grass</strong>，添加一个草地背景</li>
+                                <li>或者点击<strong>"绘制"</strong>，用绿色画笔画一个草地</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制地鼠角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击右下角<strong>"绘制"</strong>创建新角色</li>
+                                <li>用<strong>椭圆工具</strong>画一个棕色的圆形（地鼠的头，大约40x40像素）</li>
+                                <li>用<strong>椭圆工具</strong>添加两个小黑色圆形当眼睛</li>
+                                <li>用<strong>椭圆工具</strong>画一个粉色的鼻子</li>
+                                <li>点击角色名称，改名为<strong>"地鼠"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加地鼠被敲到的造型</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"造型"</strong>标签（在代码标签旁边）</li>
+                                <li>右键点击左边的"造型1"，选择<strong>"复制"</strong></li>
+                                <li>在第二个造型里，用<strong>画笔工具</strong>把眼睛改成<strong>X形状</strong></li>
+                                <li>或者画两道斜线在眼睛上</li>
+                                <li>这个造型叫做"造型2"</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>第一个造型是地鼠正常的样子，第二个是地鼠被敲晕的样子！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"变量"</strong>分类</li>
+                                <li>点击<strong>"建立一个变量"</strong></li>
+                                <li>输入变量名：<strong>分数</strong>，点击确定</li>
+                                <li>再点击<strong>"建立一个变量"</strong></li>
+                                <li>输入变量名：<strong>时间</strong>，点击确定</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>"分数"用来记录打中地鼠的次数，"时间"用来倒计时60秒！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：初始化游戏</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击地鼠角色</li>
+                                <li>点击<strong>"代码"</strong>标签回到积木区</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"将 [分数] 设为 (0)"</strong></li>
+                                <li>拖到"当绿旗被点击"下面</li>
+                                <li>再拖一个<strong>"将 [时间] 设为 (60)"</strong></li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"隐藏"</strong>积木</li>
+                                <li>拖到下面（地鼠一开始是隐藏的）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block variable">将 [时间] 设为 (60)</span><br>
+                                <span class="block looks">隐藏</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：添加倒计时循环</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类找到<strong>"重复执行直到 < >"</strong>积木</li>
+                                <li>拖到"隐藏"积木下面</li>
+                                <li>在<strong>"运算"</strong>分类找到<strong>"( ) = ( )"</strong>积木</li>
+                                <li>拖到"重复执行直到"的菱形框里</li>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"时间"</strong>（椭圆形）</li>
+                                <li>拖到第一个框里</li>
+                                <li>第二个框输入<strong>0</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第7步：在倒计时循环里减时间</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类找到<strong>"等待 ( ) 秒"</strong>积木</li>
+                                <li>拖进"重复执行直到"里面</li>
+                                <li>输入<strong>1</strong>（等待1秒）</li>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"将 [时间] 增加 ( )"</strong></li>
+                                <li>拖到"等待"积木下面</li>
+                                <li>输入<strong>-1</strong>（时间减少1秒）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行直到 <span class="block operators">(时间) = (0)</span></span><br>
+                                <span style="margin-left:20px" class="block control">等待 (1) 秒</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [时间] 增加 (-1)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第8步：让地鼠随机出现</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"运动"</strong>分类找到<strong>"移到 x: ( ) y: ( )"</strong>积木</li>
+                                <li>拖进"重复执行直到"里面，放在"等待"和"将时间增加"中间</li>
+                                <li>在<strong>"运算"</strong>分类找到<strong>"在 (1) 到 (10) 之间取随机数"</strong></li>
+                                <li>拖到 x: 的框里，把范围改成<strong>-180</strong>到<strong>180</strong></li>
+                                <li>再拖一个随机数积木到 y: 的框里，范围改成<strong>-120</strong>到<strong>120</strong></li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"显示"</strong>积木</li>
+                                <li>拖到"移到"积木下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block motion">移到 x: (在 (-180) 到 (180) 之间取随机数) y: (在 (-120) 到 (120) 之间取随机数)</span><br>
+                                <span class="block looks">显示</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第9步：让地鼠停留一会儿后消失</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类找到<strong>"等待 ( ) 秒"</strong>积木</li>
+                                <li>拖到"显示"积木下面</li>
+                                <li>在<strong>"运算"</strong>分类找到<strong>"在 (1) 到 (10) 之间取随机数"</strong></li>
+                                <li>拖到等待秒数的框里</li>
+                                <li>范围改成<strong>0.5</strong>到<strong>2</strong>（地鼠随机停留0.5到2秒）</li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"隐藏"</strong>积木</li>
+                                <li>拖到"等待"积木下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block variable">将 [时间] 设为 (60)</span><br>
+                                <span class="block looks">隐藏</span><br>
+                                <span class="block control">重复执行直到 <span class="block operators">(时间) = (0)</span></span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (在 (-180) 到 (180) 之间取随机数) y: (在 (-120) 到 (120) 之间取随机数)</span><br>
+                                <span style="margin-left:20px" class="block looks">显示</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (在 (0.5) 到 (2) 之间取随机数) 秒</span><br>
+                                <span style="margin-left:20px" class="block looks">隐藏</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (1) 秒</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [时间] 增加 (-1)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第10步：点击地鼠得分</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"事件"</strong>分类找到<strong>"当角色被点击"</strong>积木</li>
+                                <li>拖到脚本区的空白位置（另起一行）</li>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"将 [分数] 增加 (1)"</strong></li>
+                                <li>拖到"当角色被点击"下面</li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"换成 [造型2] 造型"</strong></li>
+                                <li>拖到下面（换成被敲到的样子）</li>
+                                <li>在<strong>"声音"</strong>分类找到<strong>"播放声音 [pop]"</strong></li>
+                                <li>拖到下面</li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"隐藏"</strong></li>
+                                <li>拖到最下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当角色被点击</span><br>
+                                <span class="block variable">将 [分数] 增加 (1)</span><br>
+                                <span class="block looks">换成 [造型2] 造型</span><br>
+                                <span class="block sound">播放声音 [pop]</span><br>
+                                <span class="block looks">隐藏</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第11步：游戏结束提示</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在第一个代码块的最后（"重复执行直到"积木后面），添加：</li>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"说 [ ]"</strong>积木</li>
+                                <li>拖到"重复执行直到"后面</li>
+                                <li>输入<strong>"游戏结束！"</strong></li>
+                            </ol>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，地鼠会随机出现在不同位置，点击地鼠可以得分！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让地鼠出现的速度越来越快？</li>
+                    <li>如果错过一只地鼠就扣分，应该怎么改？</li>
+                    <li>能添加不同类型的地鼠，打中得分不同吗？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例3：贪吃蛇 -->
+        <section class="case-section" id="case3">
+            <div class="case-header">
+                <div class="case-number">3</div>
+                <h2>贪吃蛇 - 键盘控制游戏</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用键盘控制角色移动，制作经典贪吃蛇游戏。</p>
+                <p>📖 <strong>故事背景：</strong>控制小蛇吃食物，每吃一个食物身体就会变长，不能碰到墙壁哦！</p>
+                <p>⏱️ <strong>预计时间：</strong>50-60分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：绘制蛇头角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>点击<strong>"绘制"</strong>创建新角色</li>
+                                <li>用<strong>椭圆工具</strong>画一个<strong>绿色圆形</strong>（直径约20像素）</li>
+                                <li>用<strong>画笔工具</strong>画两个小黑点当眼睛</li>
+                                <li>把角色改名为<strong>"蛇头"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制食物角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"绘制"</strong>再创建一个角色</li>
+                                <li>用<strong>椭圆工具</strong>画一个<strong>红色小圆形</strong>（直径约15像素）</li>
+                                <li>把角色改名为<strong>"食物"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"变量"</strong>分类</li>
+                                <li>创建变量：<strong>分数</strong></li>
+                                <li>创建变量：<strong>方向</strong>（用来记录蛇头朝向）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：编写蛇头初始代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>蛇头角色</strong></li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"将 [分数] 设为 (0)"</strong></li>
+                                <li>添加<strong>"将 [方向] 设为 (90)"</strong>（初始向右）</li>
+                                <li>添加<strong>"移到 x: (0) y: (0)"</strong>（从中间开始）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block variable">将 [方向] 设为 (90)</span><br>
+                                <span class="block motion">移到 x: (0) y: (0)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：用键盘控制蛇头方向</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong>我们需要4个事件来处理4个方向键。</p>
+                            <ol>
+                                <li>拖出<strong>"当按下 [空格] 键"</strong>积木</li>
+                                <li>点击"空格"，选择<strong>"上移键"</strong></li>
+                                <li>在下面添加<strong>"将 [方向] 设为 (0)"</strong>（向上是0度）</li>
+                                <li>再拖出一个<strong>"当按下键"</strong>，选择<strong>"下移键"</strong></li>
+                                <li>添加<strong>"将 [方向] 设为 (180)"</strong>（向下是180度）</li>
+                                <li>同样方法添加<strong>左移键</strong>（方向=-90）和<strong>右移键</strong>（方向=90）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [上移键] 键</span><br>
+                                <span class="block variable">将 [方向] 设为 (0)</span><br><br>
+                                <span class="block events">当按下 [下移键] 键</span><br>
+                                <span class="block variable">将 [方向] 设为 (180)</span><br><br>
+                                <span class="block events">当按下 [左移键] 键</span><br>
+                                <span class="block variable">将 [方向] 设为 (-90)</span><br><br>
+                                <span class="block events">当按下 [右移键] 键</span><br>
+                                <span class="block variable">将 [方向] 设为 (90)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：让蛇头持续移动</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在第一个代码块里，在"移到"积木后面添加<strong>"重复执行"</strong></li>
+                                <li>在里面添加<strong>"面向 (方向) 度"</strong>积木</li>
+                                <li>在<strong>"运动"</strong>分类最下面找到<strong>"方向"</strong>，拖到数字框里</li>
+                                <li>把"方向"改成变量<strong>"方向"</strong></li>
+                                <li>添加<strong>"移动 (20) 步"</strong>积木</li>
+                                <li>添加<strong>"等待 (0.3) 秒"</strong>积木</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block variable">将 [方向] 设为 (90)</span><br>
+                                <span class="block motion">移到 x: (0) y: (0)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 (方向) 度</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (20) 步</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.3) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第7步：检测碰到墙壁</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"控制"</strong>分类找到<strong>"如果...那么"</strong>积木</li>
+                                <li>拖进"重复执行"里面</li>
+                                <li>在<strong>"侦测"</strong>分类找到<strong>"碰到边缘?"</strong></li>
+                                <li>拖到"如果"的菱形框里</li>
+                                <li>在"如果...那么"里面添加<strong>"说 [游戏结束！] (2) 秒"</strong></li>
+                                <li>添加<strong>"停止 [全部脚本]"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到边缘?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block looks">说 [游戏结束！] (2) 秒</span><br>
+                                <span style="margin-left:40px" class="block control">停止 [全部脚本]</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第8步：编写食物代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>食物角色</strong></li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"移到 x: (在 (-200) 到 (200) 之间取随机数) y: (在 (-140) 到 (140) 之间取随机数)"</strong></li>
+                                <li>添加<strong>"显示"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (在 (-200) 到 (200) 之间取随机数) y: (在 (-140) 到 (140) 之间取随机数)</span><br>
+                                <span class="block looks">显示</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第9步：蛇头吃到食物</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>回到<strong>蛇头角色</strong></li>
+                                <li>在"重复执行"里面，添加另一个"如果...那么"</li>
+                                <li>在<strong>"侦测"</strong>分类找到<strong>"碰到 [食物]?"</strong></li>
+                                <li>拖到"如果"的菱形框里</li>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"将 [分数] 增加 (1)"</strong></li>
+                                <li>拖进"如果...那么"里面</li>
+                                <li>在<strong>"事件"</strong>分类找到<strong>"广播 [消息1]"</strong></li>
+                                <li>拖到"将分数增加"下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [食物]?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [分数] 增加 (1)</span><br>
+                                <span style="margin-left:40px" class="block events">广播 [消息1]</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第10步：食物被吃后重新出现</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>食物角色</strong></li>
+                                <li>在<strong>"事件"</strong>分类找到<strong>"当收到 [消息1]"</strong>积木</li>
+                                <li>拖到脚本区</li>
+                                <li>添加<strong>"隐藏"</strong></li>
+                                <li>添加<strong>"等待 (0.5) 秒"</strong></li>
+                                <li>添加<strong>"移到随机位置"</strong></li>
+                                <li>添加<strong>"显示"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当收到 [消息1]</span><br>
+                                <span class="block looks">隐藏</span><br>
+                                <span class="block control">等待 (0.5) 秒</span><br>
+                                <span class="block motion">移到 x: (在 (-200) 到 (200) 之间取随机数) y: (在 (-140) 到 (140) 之间取随机数)</span><br>
+                                <span class="block looks">显示</span>
+                            </div>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，用方向键控制蛇头移动，吃食物得分！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让蛇头移动得更快？</li>
+                    <li>如何添加蛇身（吃完食物身体变长）？</li>
+                    <li>如何让游戏越来越难？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例4：记忆翻牌 -->
+        <section class="case-section" id="case4">
+            <div class="case-header">
+                <div class="case-number">4</div>
+                <h2>记忆翻牌 - 配对游戏</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用克隆和变量制作配对记忆游戏。</p>
+                <p>📖 <strong>故事背景：</strong>翻开卡片找相同的图案，考验你的记忆力！</p>
+                <p>⏱️ <strong>预计时间：</strong>45-55分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：绘制卡片角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>点击<strong>"绘制"</strong>创建新角色</li>
+                                <li>用<strong>矩形工具</strong>画一个<strong>正方形</strong>（约50x50像素）</li>
+                                <li>填充<strong>蓝色</strong>作为卡片的背面</li>
+                                <li>点击<strong>"造型"</strong>标签，复制造型1</li>
+                                <li>在造型2里，画一个<strong>星星</strong>或其他图案（用不同颜色）</li>
+                                <li>继续复制造型，创建<strong>至少4对</strong>不同的图案（共8个造型）</li>
+                                <li>把角色改名为<strong>"卡片"</strong></li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>造型1是卡片背面（统一的），造型2-9是不同的正面图案！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"变量"</strong>分类</li>
+                                <li>创建变量：<strong>第一张卡片</strong>（记录第一次翻开的卡片编号）</li>
+                                <li>创建变量：<strong>第二张卡片</strong>（记录第二次翻开的卡片编号）</li>
+                                <li>创建变量：<strong>翻开次数</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：初始化游戏</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>卡片角色</strong></li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"隐藏"</strong></li>
+                                <li>添加<strong>"将 [翻开次数] 设为 (0)"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block looks">隐藏</span><br>
+                                <span class="block variable">将 [翻开次数] 设为 (0)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：克隆出8张卡片</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"变量"</strong>分类找到<strong>"将 [翻开次数] 设为 (0)"</strong>，复制一份改成<strong>"将 [卡片编号] 设为 (1)"</strong></li>
+                                <li>拖到"隐藏"积木下面</li>
+                                <li>添加<strong>"重复执行 (8) 次"</strong>积木</li>
+                                <li>在里面添加<strong>"移到 x: ((卡片编号) - 1) * 60 - 180) y: (0)"</strong></li>
+                                <li>添加<strong>"创建 [自己] 的克隆体"</strong></li>
+                                <li>添加<strong>"将 [卡片编号] 增加 (1)"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block variable">将 [卡片编号] 设为 (1)</span><br>
+                                <span class="block control">重复执行 (8) 次</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (((卡片编号) - 1) * 60 - 180) y: (0)</span><br>
+                                <span style="margin-left:20px" class="block control">创建 [自己] 的克隆体</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [卡片编号] 增加 (1)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：设置克隆体的卡片类型</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当作为克隆体启动时"</strong>积木</li>
+                                <li>添加<strong>"显示"</strong></li>
+                                <li>添加<strong>"换成 [造型1] 造型"</strong>（显示背面）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当作为克隆体启动时</span><br>
+                                <span class="block looks">显示</span><br>
+                                <span class="block looks">换成 [造型1] 造型</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：点击卡片翻开</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当角色被点击"</strong>积木</li>
+                                <li>添加<strong>"换成 [造型2] 造型"</strong>（翻开显示正面）</li>
+                                <li>添加<strong>"将 [翻开次数] 增加 (1)"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当角色被点击</span><br>
+                                <span class="block looks">换成 [造型2] 造型</span><br>
+                                <span class="block variable">将 [翻开次数] 增加 (1)</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>这个游戏需要更复杂的逻辑来判断配对，可以先用简单版本测试！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何判断两张卡片是否相同？</li>
+                    <li>如何让不同的克隆体显示不同的造型？</li>
+                    <li>如何添加计时功能？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例5：走迷宫 -->
+        <section class="case-section" id="case5">
+            <div class="case-header">
+                <div class="case-number">5</div>
+                <h2>走迷宫 - 颜色检测</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用颜色检测，让角色在迷宫中行走。</p>
+                <p>📖 <strong>故事背景：</strong>小球在迷宫里移动，碰到墙壁会退回，看看你能不能走出迷宫！</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：绘制迷宫背景</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>点击右下角<strong>"选择一个背景"</strong>，点击<strong>"绘制"</strong></li>
+                                <li>用<strong>黑色</strong>的<strong>矩形工具</strong>画出迷宫的墙壁</li>
+                                <li>在起点画一个<strong>绿色</strong>小方块</li>
+                                <li>在终点画一个<strong>红色</strong>小方块</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>迷宫通道要够宽，让小球能通过！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：添加小球角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"绘制"</strong>创建一个<strong>蓝色小圆形</strong>（直径约20像素）</li>
+                                <li>把角色改名为<strong>"小球"</strong></li>
+                                <li>把小球拖到起点（绿色方块位置）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：编写向上移动代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击小球角色</li>
+                                <li>拖出<strong>"当按下 [上移键] 键"</strong>积木</li>
+                                <li>添加<strong>"将 y 坐标增加 (10)"</strong></li>
+                                <li>添加<strong>"如果 <碰到颜色 [黑色]?> 那么"</strong></li>
+                                <li>在<strong>"侦测"</strong>分类找到<strong>"碰到颜色 []?"</strong>积木</li>
+                                <li>拖到"如果"的菱形框里</li>
+                                <li>点击颜色方块，用吸管工具吸取背景上的黑色</li>
+                                <li>在"如果...那么"里面添加<strong>"将 y 坐标增加 (-10)"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [上移键] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (10)</span><br>
+                                <span class="block control">如果 <span class="block sensing">碰到颜色 [黑色]?</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (-10)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：编写其他方向移动代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当按下 [下移键] 键"</strong>积木</li>
+                                <li>添加<strong>"将 y 坐标增加 (-10)"</strong></li>
+                                <li>添加<strong>"如果 <碰到颜色 [黑色]?> 那么"</strong></li>
+                                <li>里面添加<strong>"将 y 坐标增加 (10)"</strong></li>
+                                <li>同样方法添加<strong>左移键</strong>（x坐标-10，碰到墙+10）和<strong>右移键</strong>（x坐标+10，碰到墙-10）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [下移键] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (-10)</span><br>
+                                <span class="block control">如果 <span class="block sensing">碰到颜色 [黑色]?</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (10)</span><br><br>
+                                <span class="block events">当按下 [左移键] 键</span><br>
+                                <span class="block motion">将 x 坐标增加 (-10)</span><br>
+                                <span class="block control">如果 <span class="block sensing">碰到颜色 [黑色]?</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block motion">将 x 坐标增加 (10)</span><br><br>
+                                <span class="block events">当按下 [右移键] 键</span><br>
+                                <span class="block motion">将 x 坐标增加 (10)</span><br>
+                                <span class="block control">如果 <span class="block sensing">碰到颜色 [黑色]?</span> 那么</span><br>
+                                <span style="margin-left:20px" class="block motion">将 x 坐标增加 (-10)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：检测到达终点</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"移到起点位置"</strong></li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>在里面添加<strong>"如果 <碰到颜色 [红色]?> 那么"</strong></li>
+                                <li>里面添加<strong>"说 [恭喜过关！] (2) 秒"</strong></li>
+                                <li>添加<strong>"停止 [全部脚本]"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (-180) y: (-120)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到颜色 [红色]?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block looks">说 [恭喜过关！] (2) 秒</span><br>
+                                <span style="margin-left:40px" class="block control">停止 [全部脚本]</span>
+                            </div>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，用方向键控制小球走出迷宫！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让迷宫更复杂？</li>
+                    <li>如何添加计时功能？</li>
+                    <li>如何设计多个关卡？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例6：接苹果 -->
+        <section class="case-section" id="case6">
+            <div class="case-header">
+                <div class="case-number">6</div>
+                <h2>接苹果 - 躲避游戏</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>巩固变量和克隆，制作接水果游戏。</p>
+                <p>📖 <strong>故事背景：</strong>苹果从天而降，用篮子接住苹果，小心不要让苹果落地！</p>
+                <p>⏱️ <strong>预计时间：</strong>35-45分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加角色和背景</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>添加背景：搜索<strong>garden</strong>或绘制树木背景</li>
+                                <li>添加<strong>苹果</strong>角色：搜索apple</li>
+                                <li>绘制<strong>篮子</strong>角色：用矩形工具画一个开口向上的U形</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量：<strong>分数</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：篮子跟随鼠标</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击篮子角色</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"将 [分数] 设为 (0)"</strong></li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"移到 x: (鼠标的 x 坐标) y: (-130)"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (鼠标的 x 坐标) y: (-130)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：苹果从上方掉落</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击苹果角色</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"隐藏"</strong></li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"等待 (在 (1) 到 (3) 之间取随机数) 秒"</strong></li>
+                                <li>添加<strong>"移到 x: (在 (-200) 到 (200) 之间取随机数) y: (180)"</strong></li>
+                                <li>添加<strong>"创建 [自己] 的克隆体"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block looks">隐藏</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (在 (1) 到 (3) 之间取随机数) 秒</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (在 (-200) 到 (200) 之间取随机数) y: (180)</span><br>
+                                <span style="margin-left:20px" class="block control">创建 [自己] 的克隆体</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：苹果下落并检测</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当作为克隆体启动时"</strong>积木</li>
+                                <li>添加<strong>"显示"</strong></li>
+                                <li>添加<strong>"重复执行直到 <(y 坐标) < (-140)>"</strong></li>
+                                <li>里面添加<strong>"将 y 坐标增加 (-5)"</strong></li>
+                                <li>添加<strong>"如果 <碰到 [篮子]?> 那么"</strong></li>
+                                <li>里面添加<strong>"将 [分数] 增加 (1)"</strong></li>
+                                <li>添加<strong>"删除此克隆体"</strong></li>
+                                <li>在"重复执行直到"后面添加<strong>"删除此克隆体"</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当作为克隆体启动时</span><br>
+                                <span class="block looks">显示</span><br>
+                                <span class="block control">重复执行直到 <span class="block operators">(y 坐标) < (-140)</span></span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (-5)</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [篮子]?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [分数] 增加 (1)</span><br>
+                                <span style="margin-left:40px" class="block control">删除此克隆体</span><br>
+                                <span class="block control">删除此克隆体</span>
+                            </div>
+                            <p>✅ <strong>测试一下：</strong>点击绿旗，移动鼠标接苹果！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何添加不同的水果，得分不同？</li>
+                    <li>如何让苹果掉落速度越来越快？</li>
+                    <li>如何添加"炸弹"角色，接到炸弹游戏结束？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例7-12 简化版（也包含详细步骤） -->
+        <section class="case-section" id="case7">
+            <div class="case-header">
+                <div class="case-number">7</div>
+                <h2>打砖块 - 经典游戏</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>综合运用变量、碰撞检测、角色克隆等技术。</p>
+                <p>⏱️ <strong>预计时间：</strong>50-60分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>绘制<strong>挡板</strong>角色：长方形（宽120，高20）</li>
+                                <li>绘制<strong>小球</strong>角色：小圆形（直径15）</li>
+                                <li>绘制<strong>砖块</strong>角色：正方形（宽40，高20）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量：<strong>分数</strong></li>
+                                <li>创建变量：<strong>生命</strong>（初始值3）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：挡板跟随鼠标</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击挡板角色</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"将 [分数] 设为 (0)"</strong></li>
+                                <li>添加<strong>"将 [生命] 设为 (3)"</strong></li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"移到 x: (鼠标的 x 坐标) y: (-130)"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：小球移动和反弹</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击小球角色</li>
+                                <li>添加<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"移到 x: (0) y: (0)"</strong></li>
+                                <li>添加<strong>"面向 (在 (45) 到 (135) 之间取随机数) 度"</strong></li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"移动 (8) 步"</strong></li>
+                                <li>添加<strong>"碰到边缘就反弹"</strong></li>
+                                <li>添加<strong>"如果 <碰到 [挡板]?> 那么"</strong></li>
+                                <li>里面添加<strong>"面向 ((方向) - (180)) 度"</strong></li>
+                                <li>添加<strong>"如果 <(y 坐标) < (-140)> 那么"</strong></li>
+                                <li>里面添加<strong>"将 [生命] 增加 (-1)"</strong></li>
+                                <li>添加<strong>"移到 x: (0) y: (0)"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：克隆砖块</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击砖块角色</li>
+                                <li>添加<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"隐藏"</strong></li>
+                                <li>添加<strong>"将 [行号] 设为 (1)"</strong></li>
+                                <li>添加<strong>"重复执行 (3) 次"</strong>（3行砖块）</li>
+                                <li>里面添加<strong>"将 [列号] 设为 (1)"</strong></li>
+                                <li>添加<strong>"重复执行 (6) 次"</strong>（每行6块）</li>
+                                <li>添加<strong>"移到 x: ((列号) - 3.5) * 60) y: ((行号) * 30 + 80)"</strong></li>
+                                <li>添加<strong>"创建 [自己] 的克隆体"</strong></li>
+                                <li>添加<strong>"将 [列号] 增加 (1)"</strong></li>
+                                <li>添加<strong>"将 [行号] 增加 (1)"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：砖块被击中消失</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"当作为克隆体启动时"</strong></li>
+                                <li>添加<strong>"显示"</strong></li>
+                                <li>添加<strong>"重复执行直到 <碰到 [小球]?>"</strong></li>
+                                <li>添加<strong>"将 [分数] 增加 (10)"</strong></li>
+                                <li>添加<strong>"删除此克隆体"</strong></li>
+                            </ol>
+                            <p>✅ <strong>测试：</strong>点击绿旗，控制挡板反弹小球消除砖块！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case8">
+            <div class="case-header">
+                <div class="case-number">8</div>
+                <h2>猜数字 - 条件判断</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"询问并等待"和条件判断。</p>
+                <p>⏱️ <strong>预计时间：</strong>30-40分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：生成随机数</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，保留小猫</li>
+                                <li>创建变量：<strong>答案</strong>、<strong>猜测次数</strong></li>
+                                <li>拖出<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"将 [答案] 设为 (在 (1) 到 (100) 之间取随机数)"</strong></li>
+                                <li>添加<strong>"将 [猜测次数] 设为 (0)"</strong></li>
+                                <li>添加<strong>"说 [我想好了一个1到100的数字，猜猜看！]"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让用户输入猜测</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"询问 [你猜是多少？] 并等待"</strong></li>
+                                <li>添加<strong>"将 [猜测次数] 增加 (1)"</strong></li>
+                                <li>添加<strong>"如果 <(回答) = (答案)> 那么"</strong></li>
+                                <li>里面添加<strong>"说 [恭喜你猜对了！] (2) 秒"</strong></li>
+                                <li>添加<strong>"说 (连接 [你猜了] (连接 (猜测次数) [次！]))"</strong></li>
+                                <li>添加<strong>"停止 [全部脚本]"</strong></li>
+                                <li>添加<strong>"否则"</strong></li>
+                                <li>添加<strong>"如果 <(回答) < (答案)> 那么"</strong></li>
+                                <li>里面添加<strong>"说 [太小了，再试试！]"</strong></li>
+                                <li>添加<strong>"否则"</strong></li>
+                                <li>里面添加<strong>"说 [太大了，再试试！]"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case9">
+            <div class="case-header">
+                <div class="case-number">9</div>
+                <h2>青蛙过河 - 多障碍物</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计多障碍物游戏。</p>
+                <p>⏱️ <strong>预计时间：</strong>50-60分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>搜索添加<strong>青蛙</strong>角色</li>
+                                <li>绘制<strong>汽车</strong>角色（长方形）</li>
+                                <li>绘制<strong>木头</strong>角色（棕色长方形）</li>
+                                <li>添加背景：绘制蓝色河流和灰色道路</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：青蛙控制</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>用<strong>方向键</strong>控制青蛙移动（每次移动40步）</li>
+                                <li>检测碰到汽车：游戏结束</li>
+                                <li>检测碰到木头：跟随木头移动</li>
+                                <li>检测到达顶部：过关</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：汽车移动</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>克隆多辆汽车，在不同行</li>
+                                <li>让汽车左右移动</li>
+                                <li>碰到边缘从另一边出现</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：木头移动</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>克隆多根木头</li>
+                                <li>让木头在河流中移动</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case10">
+            <div class="case-header">
+                <div class="case-number">10</div>
+                <h2>躲避球 - 多方向障碍</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会角色克隆和随机移动。</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch</li>
+                                <li>保留小猫作为玩家</li>
+                                <li>添加<strong>球</strong>角色</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：玩家控制</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>用<strong>方向键</strong>控制小猫移动</li>
+                                <li>设置移动速度为10步</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：球从四面八方飞来</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>克隆多个球</li>
+                                <li>让每个球从随机位置开始</li>
+                                <li>让球朝向小猫移动</li>
+                                <li>检测碰到小猫：游戏结束</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：添加计时</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量<strong>生存时间</strong></li>
+                                <li>每秒增加1</li>
+                                <li>显示生存时间作为分数</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case11">
+            <div class="case-header">
+                <div class="case-number">11</div>
+                <h2>简易计算器 - 数学运算</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用运算积木进行数学计算。</p>
+                <p>⏱️ <strong>预计时间：</strong>35-45分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch</li>
+                                <li>创建变量：<strong>第一个数</strong>、<strong>第二个数</strong>、<strong>结果</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：获取输入</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"询问 [请输入第一个数字] 并等待"</strong></li>
+                                <li>添加<strong>"将 [第一个数] 设为 (回答)"</strong></li>
+                                <li>添加<strong>"询问 [请输入第二个数字] 并等待"</strong></li>
+                                <li>添加<strong>"将 [第二个数] 设为 (回答)"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：选择运算</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"询问 [请选择运算：加(1) 减(2) 乘(3) 除(4)] 并等待"</strong></li>
+                                <li>使用<strong>多个"如果"</strong>判断用户选择</li>
+                                <li>如果回答=1，结果=第一个数+第二个数</li>
+                                <li>如果回答=2，结果=第一个数-第二个数</li>
+                                <li>如果回答=3，结果=第一个数×第二个数</li>
+                                <li>如果回答=4，结果=第一个数÷第二个数</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：显示结果</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"说 (连接 [结果是：] (结果))" (2) 秒"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case12">
+            <div class="case-header">
+                <div class="case-number">12</div>
+                <h2>画板工具 - 画笔扩展</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用画笔扩展，制作绘图工具。</p>
+                <p>⏱️ <strong>预计时间：</strong>40-50分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加画笔扩展</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch</li>
+                                <li>点击左下角<strong>"添加扩展"</strong>（拼图形状）</li>
+                                <li>点击<strong>"画笔"</strong>（Pen）图标</li>
+                                <li>左边出现蓝色的"画笔"分类</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建画笔角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>删除小猫</li>
+                                <li>绘制一个<strong>小圆形</strong>角色（直径5像素）</li>
+                                <li>改名为<strong>"画笔"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：跟随鼠标并绘制</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong></li>
+                                <li>添加<strong>"全部擦除"</strong>（画笔分类）</li>
+                                <li>添加<strong>"重复执行"</strong></li>
+                                <li>添加<strong>"移到 x: (鼠标的 x 坐标) y: (鼠标的 y 坐标)"</strong></li>
+                                <li>添加<strong>"如果 <按下鼠标?> 那么"</strong></li>
+                                <li>里面添加<strong>"落笔"</strong>（画笔分类）</li>
+                                <li>添加<strong>"否则"</strong></li>
+                                <li>里面添加<strong>"抬笔"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：添加颜色选择</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量<strong>画笔颜色</strong></li>
+                                <li>添加多个角色作为颜色按钮</li>
+                                <li>点击不同颜色按钮，改变画笔颜色</li>
+                                <li>使用<strong>"将画笔颜色设为"</strong>积木</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：添加清除功能</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"当按下 [空格] 键"</strong></li>
+                                <li>添加<strong>"全部擦除"</strong></li>
+                            </ol>
+                            <p>✅ <strong>测试：</strong>点击绿旗，按住鼠标绘制，按空格清除！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

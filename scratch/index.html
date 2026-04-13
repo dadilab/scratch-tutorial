@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch 编程学习平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">
+                    <span class="icon">📚</span>
+                    <span>学习指南</span>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="pages/intro.html">软件介绍</a></li>
+                    <li><a href="pages/blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">
+                    <span class="icon">🎯</span>
+                    <span>练习案例</span>
+                </div>
+                <ul class="nav-list">
+                    <li class="has-submenu">
+                        <a href="pages/primary.html" class="submenu-toggle">
+                            <span>初级篇</span>
+                            <span class="arrow">▼</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="pages/primary.html#case1">1. 你说我画</a></li>
+                            <li><a href="pages/primary.html#case2">2. 认识角色的坐标值</a></li>
+                            <li><a href="pages/primary.html#case3">3. 小猫跑垒</a></li>
+                            <li><a href="pages/primary.html#case4">4. 指南针</a></li>
+                            <li><a href="pages/primary.html#case5">5. 旋转指南针</a></li>
+                            <li><a href="pages/primary.html#case6">6. 小猫跑垒2</a></li>
+                            <li><a href="pages/primary.html#case7">7. 小鱼游动</a></li>
+                            <li><a href="pages/primary.html#case8">8. 小狗追星星</a></li>
+                            <li><a href="pages/primary.html#case9">9. 苹果下落</a></li>
+                            <li><a href="pages/primary.html#case10">10. 海底世界</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="pages/intermediate.html" class="submenu-toggle">
+                            <span>中级篇</span>
+                            <span class="arrow">▼</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="pages/intermediate.html#case1">1. 弹球游戏</a></li>
+                            <li><a href="pages/intermediate.html#case2">2. 打地鼠</a></li>
+                            <li><a href="pages/intermediate.html#case3">3. 贪吃蛇</a></li>
+                            <li><a href="pages/intermediate.html#case4">4. 记忆翻牌</a></li>
+                            <li><a href="pages/intermediate.html#case5">5. 走迷宫</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="pages/advanced.html" class="submenu-toggle">
+                            <span>高级篇</span>
+                            <span class="arrow">▼</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="pages/advanced.html#case1">1. 飞机大战</a></li>
+                            <li><a href="pages/advanced.html#case2">2. 坦克大战</a></li>
+                            <li><a href="pages/advanced.html#case3">3. 太空射击</a></li>
+                            <li><a href="pages/advanced.html#case4">4. RPG角色扮演</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="pages/competition.html" class="submenu-toggle">
+                            <span>竞赛篇</span>
+                            <span class="arrow">▼</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="pages/competition.html#case1">1. 智能问答系统</a></li>
+                            <li><a href="pages/competition.html#case2">2. 算法可视化</a></li>
+                            <li><a href="pages/competition.html#case3">3. AI识别应用</a></li>
+                            <li><a href="pages/competition.html#case4">4. 物理引擎模拟</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 头部区域 -->
+        <header class="page-header">
+            <h1>🐱 Scratch 编程学习平台</h1>
+            <p>从零开始，轻松掌握Scratch编程技能</p>
+        </header>
+
+        <!-- 介绍区域 -->
+        <section class="intro-section">
+            <div class="intro-card">
+                <div class="intro-icon">🎮</div>
+                <h2>什么是Scratch？</h2>
+                <p>Scratch是MIT媒体实验室开发的一款图形化编程工具，通过拖拽积木块的方式，让编程变得简单有趣。无需编写代码，就能创建动画、游戏和互动故事。</p>
+            </div>
+            <div class="intro-card">
+                <div class="intro-icon">🚀</div>
+                <h2>为什么学习Scratch？</h2>
+                <p>Scratch能培养逻辑思维、创造力和问题解决能力。它是编程入门的最佳选择，为未来学习Python、JavaScript等高级语言打下坚实基础。</p>
+            </div>
+            <div class="intro-card">
+                <div class="intro-icon">💡</div>
+                <h2>学习路径</h2>
+                <p>从初级篇开始，逐步掌握基础概念；进阶中级篇，学习变量和广播；挑战高级篇，创建完整游戏；最终在竞赛篇中展现你的编程实力！</p>
+            </div>
+        </section>
+
+        <!-- 学习等级 -->
+        <section class="levels-section">
+            <h2 class="section-title">选择你的学习等级</h2>
+            <div class="levels-grid">
+                <a href="pages/primary.html" class="level-card level-primary">
+                    <div class="level-badge">入门</div>
+                    <div class="level-icon">🌱</div>
+                    <h3>初级篇</h3>
+                    <p>适合零基础学习者</p>
+                    <ul class="level-features">
+                        <li>✓ 认识Scratch界面</li>
+                        <li>✓ 学习运动和控制</li>
+                        <li>✓ 掌握基本动画</li>
+                        <li>✓ 10+经典案例</li>
+                    </ul>
+                    <div class="level-cta">开始学习 →</div>
+                </a>
+                
+                <a href="pages/intermediate.html" class="level-card level-intermediate">
+                    <div class="level-badge">进阶</div>
+                    <div class="level-icon">🌿</div>
+                    <h3>中级篇</h3>
+                    <p>适合有基础的学习者</p>
+                    <ul class="level-features">
+                        <li>✓ 变量与列表</li>
+                        <li>✓ 广播与消息</li>
+                        <li>✓ 简单游戏逻辑</li>
+                        <li>✓ 8+进阶案例</li>
+                    </ul>
+                    <div class="level-cta">开始学习 →</div>
+                </a>
+                
+                <a href="pages/advanced.html" class="level-card level-advanced">
+                    <div class="level-badge">高级</div>
+                    <div class="level-icon">🌳</div>
+                    <h3>高级篇</h3>
+                    <p>适合有经验的学习者</p>
+                    <ul class="level-features">
+                        <li>✓ 克隆技术</li>
+                        <li>✓ 自定义积木</li>
+                        <li>✓ 复杂游戏设计</li>
+                        <li>✓ 6+高级案例</li>
+                    </ul>
+                    <div class="level-cta">开始学习 →</div>
+                </a>
+                
+                <a href="pages/competition.html" class="level-card level-competition">
+                    <div class="level-badge">挑战</div>
+                    <div class="level-icon">🏆</div>
+                    <h3>竞赛篇</h3>
+                    <p>适合竞赛选手</p>
+                    <ul class="level-features">
+                        <li>✓ 算法思维</li>
+                        <li>✓ AI扩展应用</li>
+                        <li>✓ 项目优化技巧</li>
+                        <li>✓ 4+竞赛案例</li>
+                    </ul>
+                    <div class="level-cta">开始学习 →</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 特色功能 -->
+        <section class="features-section">
+            <h2 class="section-title">学习特色</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">📖</span>
+                    <h4>详细步骤</h4>
+                    <p>每个案例都有完整的分步讲解</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎬</span>
+                    <h4>视频演示</h4>
+                    <p>配套视频让你直观理解效果</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔧</span>
+                    <h4>在线操作</h4>
+                    <p>一键跳转Scratch在线编辑器</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🤔</span>
+                    <h4>思考练习</h4>
+                    <p>引导你举一反三深入思考</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速入口 -->
+        <section class="quick-links">
+            <h2 class="section-title">快速入口</h2>
+            <div class="quick-grid">
+                <a href="https://scratch.mit.edu/" target="_blank" class="quick-card">
+                    <span class="quick-icon">🌐</span>
+                    <span>Scratch官网</span>
+                </a>
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="quick-card">
+                    <span class="quick-icon">✏️</span>
+                    <span>在线编辑器</span>
+                </a>
+                <a href="pages/intro.html" class="quick-card">
+                    <span class="quick-icon">📚</span>
+                    <span>软件介绍</span>
+                </a>
+                <a href="pages/blocks.html" class="quick-card">
+                    <span class="quick-icon">🧩</span>
+                    <span>积木手册</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="page-footer">
+            <p>© 2024 Scratch编程学习平台 | 仅供学习参考</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

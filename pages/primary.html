@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初级篇 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <!-- 侧边栏 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html">软件介绍</a></li>
+                    <li><a href="blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu open">
+                        <a href="primary.html" class="submenu-toggle active"><span>初级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu open">
+                            <li><a href="#case1">1. 你说我画</a></li>
+                            <li><a href="#case2">2. 认识坐标值</a></li>
+                            <li><a href="#case3">3. 小猫跑垒</a></li>
+                            <li><a href="#case4">4. 指南针</a></li>
+                            <li><a href="#case5">5. 旋转指南针</a></li>
+                            <li><a href="#case6">6. 小鱼游动</a></li>
+                            <li><a href="#case7">7. 小狗追星星</a></li>
+                            <li><a href="#case8">8. 苹果下落</a></li>
+                            <li><a href="#case9">9. 海底世界</a></li>
+                            <li><a href="#case10">10. 动物变变变</a></li>
+                            <li><a href="#case11">11. 飞翔的蝴蝶</a></li>
+                            <li><a href="#case12">12. 城堡探险</a></li>
+                            <li><a href="#case13">13. 字母雨</a></li>
+                            <li><a href="#case14">14. 小猫抓球</a></li>
+                            <li><a href="#case15">15. 电子时钟</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="intermediate.html" class="submenu-toggle"><span>中级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="intermediate.html#case1">1. 弹球游戏</a></li>
+                            <li><a href="intermediate.html#case2">2. 打地鼠</a></li>
+                            <li><a href="intermediate.html#case3">3. 贪吃蛇</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="advanced.html" class="submenu-toggle"><span>高级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="advanced.html#case1">1. 飞机大战</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="competition.html" class="submenu-toggle"><span>竞赛篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu">
+                            <li><a href="competition.html#case1">1. 智能问答系统</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>🌱 初级篇</h1>
+            <p>适合零基础学习者，从认识Scratch开始，掌握基础运动和控制</p>
+        </div>
+
+        <!-- 案例1：你说我画 -->
+        <section class="case-section" id="case1">
+            <div class="case-header">
+                <div class="case-number">1</div>
+                <h2>你说我画 - 认识坐标系</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>理解什么是坐标，学会用两个数字描述位置。</p>
+                <p>📖 <strong>故事背景：</strong>小明想告诉小红在纸上画一个圆点，但是怎么才能让小红画在正确的位置呢？让我们一起来玩"你说我画"的游戏吧！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：准备材料</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>你需要准备：</strong></p>
+                            <ul>
+                                <li>一张白纸</li>
+                                <li>一把尺子</li>
+                                <li>一支铅笔</li>
+                                <li>一个橡皮</li>
+                                <li>找一个小伙伴一起玩</li>
+                            </ul>
+                            <p>💡 <strong>小贴士：</strong>两个人面对面坐好，每个人面前都放一张白纸。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：画一条横线</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>用尺子在白纸中间画一条<strong>横着</strong>的直线</li>
+                                <li>在线的<strong>最左边</strong>写上数字 <strong>0</strong></li>
+                                <li>从0开始，每隔1厘米画一个竖线，写上数字 1、2、3、4、5...</li>
+                            </ol>
+                            <p>🔍 <strong>观察一下：</strong>现在你可以说"在第3条竖线旁边画一个圆"，小伙伴就能画对啦！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加竖线（重要！）</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在刚才画的横线<strong>上方</strong>，每隔1厘米画一条<strong>竖着</strong>的虚线</li>
+                                <li>在<strong>下方</strong>也画同样的竖线</li>
+                                <li>现在纸上出现了一个个<strong>小格子</strong></li>
+                            </ol>
+                            <p>❓ <strong>想一想：</strong>如果只说"在第3格画圆"，小伙伴能画对吗？为什么不对呢？</p>
+                            <p>💡 <strong>答案：</strong>不对！因为第3格有很多个，不知道是上面还是下面！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：给竖线也加数字</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在纸的<strong>最左边</strong>，从中间开始写 <strong>0</strong></li>
+                                <li>向上每隔1厘米写 1、2、3...</li>
+                                <li>向下每隔1厘米写 -1、-2、-3...（注意是负数！）</li>
+                            </ol>
+                            <p>✅ <strong>成功啦！</strong>现在你可以说"横3，竖2"或者用数学写法"(3, 2)"来告诉小伙伴位置了！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：认识Scratch中的坐标</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>Scratch中的坐标：</strong></p>
+                            <ul>
+                                <li><strong>横线</strong>叫做 <strong>X轴</strong>（左右方向）</li>
+                                <li><strong>竖线</strong>叫做 <strong>Y轴</strong>（上下方向）</li>
+                                <li>舞台的<strong>最左边</strong> X = <strong>-240</strong></li>
+                                <li>舞台的<strong>最右边</strong> X = <strong>240</strong></li>
+                                <li>舞台的<strong>最下边</strong> Y = <strong>-180</strong></li>
+                                <li>舞台的<strong>最上边</strong> Y = <strong>180</strong></li>
+                                <li>舞台<strong>正中间</strong>是 (<strong>0, 0</strong>)</li>
+                            </ul>
+                            <div class="code-block">
+                                📝 记住公式：<br>
+                                X坐标决定<strong>左右</strong>位置（负数在左，正数在右）<br>
+                                Y坐标决定<strong>上下</strong>位置（负数在下，正数在上）
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果小猫在坐标 (100, 50)，它是在舞台的左上角还是右上角？</li>
+                    <li>坐标 (-100, -50) 在舞台的哪个位置？</li>
+                    <li>舞台中心点的坐标是多少？</li>
+                </ol>
+                <details class="answer-details">
+                    <summary>点击查看答案</summary>
+                    <ol>
+                        <li>右上角（X是正数在右边，Y是正数在上边）</li>
+                        <li>左下角（X是负数在左边，Y是负数在下边）</li>
+                        <li>(0, 0)</li>
+                    </ol>
+                </details>
+            </div>
+
+            <div class="solution-box">
+                <h4>💡 重点知识总结</h4>
+                <div class="scratch-blocks">
+                    <p>✨ 坐标就是用<strong>两个数字</strong>来确定一个位置</p>
+                    <p>✨ 第一个数字叫 <strong>X坐标</strong>（决定左右）</p>
+                    <p>✨ 第二个数字叫 <strong>Y坐标</strong>（决定上下）</p>
+                    <p>✨ 写法：(X, Y) 例如：(100, 50)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例2：认识角色的坐标值 -->
+        <section class="case-section" id="case2">
+            <div class="case-header">
+                <div class="case-number">2</div>
+                <h2>认识角色的坐标值</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会在Scratch中查看角色的坐标，理解坐标变化规律。</p>
+                <p>📖 <strong>故事背景：</strong>小猫要去棒球场跑步，让我们看看它跑到每个垒包时的坐标是多少！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：打开Scratch编辑器</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>打开浏览器（比如Chrome或Edge）</li>
+                                <li>在地址栏输入：<strong>scratch.mit.edu</strong></li>
+                                <li>点击页面左上角的<strong>"创建"</strong>按钮（橙色按钮）</li>
+                                <li>等待编辑器加载完成，你会看到一只橙色的小猫</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>如果网页打开很慢，可以多等一会儿，或者换一个浏览器试试。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：添加棒球场背景</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>看屏幕<strong>右下角</strong>，找到<strong>"选择一个背景"</strong>按钮（图标是一张图片）</li>
+                                <li>点击后会弹出一个窗口</li>
+                                <li>在搜索框中输入：<strong>baseball</strong>（棒球场的英文名）</li>
+                                <li>找到<strong>"Baseball"</strong>图片，点击它</li>
+                                <li>现在舞台背景变成了棒球场！</li>
+                            </ol>
+                            <p>🔍 <strong>观察一下：</strong>你能看到本垒（最下面的那个垒包）在哪里吗？</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：拖动小猫到本垒</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>用<strong>鼠标</strong>点击舞台上的<strong>小猫</strong>角色</li>
+                                <li><strong>按住鼠标不放</strong>，把小猫<strong>拖动</strong>到本垒（最下面的垒包）</li>
+                                <li>松开鼠标</li>
+                                <li>看屏幕<strong>右上方</strong>，找到角色信息区域</li>
+                                <li>你会看到 <strong>x:</strong> 和 <strong>y:</strong> 后面有数字</li>
+                                <li>把这两个数字记下来！</li>
+                            </ol>
+                            <div class="code-block">
+                                📝 记录本垒坐标：x = _____，y = _____
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：记录四个垒包的坐标</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>把小猫拖到<strong>一垒</strong>（本垒右边的垒包），记录坐标</li>
+                                <li>把小猫拖到<strong>二垒</strong>（最上面的垒包），记录坐标</li>
+                                <li>把小猫拖到<strong>三垒</strong>（本垒左边的垒包），记录坐标</li>
+                                <li>把小猫拖回<strong>本垒</strong>，记录坐标</li>
+                            </ol>
+                            <table class="record-table">
+                                <tr>
+                                    <th>位置</th>
+                                    <th>X坐标</th>
+                                    <th>Y坐标</th>
+                                </tr>
+                                <tr>
+                                    <td>本垒</td>
+                                    <td>约 -120</td>
+                                    <td>约 -80</td>
+                                </tr>
+                                <tr>
+                                    <td>一垒</td>
+                                    <td>约 100</td>
+                                    <td>约 -80</td>
+                                </tr>
+                                <tr>
+                                    <td>二垒</td>
+                                    <td>约 100</td>
+                                    <td>约 80</td>
+                                </tr>
+                                <tr>
+                                    <td>三垒</td>
+                                    <td>约 -120</td>
+                                    <td>约 80</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：用积木验证坐标</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>看屏幕<strong>左边</strong>，找到<strong>"运动"</strong>分类（蓝色积木）</li>
+                                <li>点击<strong>"运动"</strong>，你会看到很多蓝色的积木</li>
+                                <li>找到<strong>"移到 x: ( ) y: ( )"</strong>这个积木</li>
+                                <li>用鼠标<strong>拖动</strong>这个积木到<strong>中间的脚本区</strong>（灰色的区域）</li>
+                                <li>在 <strong>x:</strong> 后面的白框里输入：<strong>-120</strong></li>
+                                <li>在 <strong>y:</strong> 后面的白框里输入：<strong>-80</strong></li>
+                                <li><strong>点击</strong>这个积木一次（点击积木本身）</li>
+                                <li>观察小猫是否移动到了本垒！</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block motion">移到 x: (-120) y: (-80)</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>点击积木后，小猫会"嗖"的一下移动到你设置的坐标位置！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>本垒和一垒的Y坐标为什么差不多？（提示：想想它们的位置关系）</li>
+                    <li>如果要让小猫从一垒移动到二垒，X坐标要怎么变？Y坐标呢？</li>
+                    <li>你能用"移到"积木让小猫跑到二垒吗？</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例3：小猫跑垒 -->
+        <section class="case-section" id="case3">
+            <div class="case-header">
+                <div class="case-number">3</div>
+                <h2>小猫跑垒 - 让角色动起来</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"当绿旗被点击"和"滑行到"积木，让角色按照路线移动。</p>
+                <p>📖 <strong>故事背景：</strong>棒球比赛开始了！小猫要从本垒出发，依次跑过一垒、二垒、三垒，最后回到本垒得分！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：打开编辑器并添加背景</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>打开 <strong>scratch.mit.edu</strong></li>
+                                <li>点击<strong>"创建"</strong>进入编辑器</li>
+                                <li>点击右下角<strong>"选择一个背景"</strong></li>
+                                <li>搜索 <strong>baseball</strong>，点击添加棒球背景</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：找到"当绿旗被点击"积木</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>看屏幕<strong>左边</strong>，找到<strong>"事件"</strong>分类（黄色积木，图标是一个灯泡）</li>
+                                <li>点击<strong>"事件"</strong>，你会看到很多黄色的积木</li>
+                                <li>找到第一个积木<strong>"当 🚩 被点击"</strong>（上面有个绿旗图标）</li>
+                                <li>用鼠标<strong>拖动</strong>这个积木到中间的脚本区</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>这个积木是整个程序的"开关"，点击绿旗后程序就会从这里开始运行！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加"移到"积木设置起点</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>点击左边的<strong>"运动"</strong>分类（蓝色积木）</li>
+                                <li>找到<strong>"移到 x: ( ) y: ( )"</strong>积木</li>
+                                <li>拖动这个积木，<strong>紧紧拼在</strong>"当绿旗被点击"积木的<strong>下面</strong></li>
+                                <li>你会听到"咔哒"一声，说明积木拼好了！</li>
+                                <li>在 x: 后面输入 <strong>-120</strong></li>
+                                <li>在 y: 后面输入 <strong>-80</strong>（这是本垒的坐标）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (-120) y: (-80)</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>现在小猫每次点击绿旗都会先跑到本垒！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：添加"滑行到"积木跑到一垒</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>继续在<strong>"运动"</strong>分类里</li>
+                                <li>往下滚动，找到<strong>"在 ( ) 秒内滑行到 x: ( ) y: ( )"</strong>积木</li>
+                                <li>拖动这个积木，拼在刚才积木的<strong>下面</strong></li>
+                                <li>在<strong>秒数</strong>那里输入 <strong>1</strong>（表示用1秒时间滑过去）</li>
+                                <li>在 <strong>x:</strong> 后面输入 <strong>100</strong></li>
+                                <li>在 <strong>y:</strong> 后面输入 <strong>-80</strong>（这是一垒的坐标）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (-120) y: (-80)</span><br>
+                                <span class="block motion">在 (1) 秒内滑行到 x: (100) y: (-80)</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>"移到"是瞬间到达，"滑行到"是慢慢飘过去，有动画效果！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：继续添加滑行积木跑完全程</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <p>按照同样的方法，继续添加三个滑行积木：</p>
+                            <ol>
+                                <li>拖动"在 ( ) 秒内滑行到"积木，拼在下面</li>
+                                <li>输入：<strong>1</strong> 秒，滑行到 x: <strong>100</strong> y: <strong>80</strong>（二垒）</li>
+                            </ol>
+                            <ol start="3">
+                                <li>再拖一个"滑行"积木</li>
+                                <li>输入：<strong>1</strong> 秒，滑行到 x: <strong>-120</strong> y: <strong>80</strong>（三垒）</li>
+                            </ol>
+                            <ol start="5">
+                                <li>再拖一个"滑行"积木</li>
+                                <li>输入：<strong>1</strong> 秒，滑行到 x: <strong>-120</strong> y: <strong>-80</strong>（回到本垒）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (-120) y: (-80)</span><br>
+                                <span class="block motion">在 (1) 秒内滑行到 x: (100) y: (-80)</span><br>
+                                <span class="block motion">在 (1) 秒内滑行到 x: (100) y: (80)</span><br>
+                                <span class="block motion">在 (1) 秒内滑行到 x: (-120) y: (80)</span><br>
+                                <span class="block motion">在 (1) 秒内滑行到 x: (-120) y: (-80)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：运行程序看效果</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>看舞台<strong>左上角</strong>，找到一个<strong>绿色的小旗子图标</strong>🚩</li>
+                                <li>点击这个绿旗</li>
+                                <li>观察小猫！它会从本垒出发，依次跑到一垒、二垒、三垒，最后回到本垒！</li>
+                            </ol>
+                            <p>🎉 <strong>恭喜你！</strong>你已经完成了第一个Scratch动画程序！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果把滑行时间改成2秒，小猫跑得会变快还是变慢？</li>
+                    <li>能不能让小猫跑得更快？应该怎么改？</li>
+                    <li>如果想让小猫多跑几圈，应该怎么办？（提示：可以复制积木）</li>
+                </ol>
+            </div>
+
+            <div class="solution-box">
+                <h4>💡 进阶挑战</h4>
+                <p>试着添加一个"说"积木，让小猫在跑到每个垒包时说"我到一垒啦！"：</p>
+                <ol>
+                    <li>在<strong>"外观"</strong>分类（紫色积木）里找到"说 ( ) "积木</li>
+                    <li>拖到滑行积木的下面</li>
+                    <li>输入"我到一垒啦！"</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例4：指南针 -->
+        <section class="case-section" id="case4">
+            <div class="case-header">
+                <div class="case-number">4</div>
+                <h2>指南针 - 学习面向方向</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>理解Scratch中的方向概念，学会使用"面向"积木。</p>
+                <p>📖 <strong>故事背景：</strong>探险家小猫在森林里迷路了，它需要用指南针找到正确的方向！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：认识Scratch中的方向</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>知识点：</strong></p>
+                            <ul>
+                                <li><strong>0°</strong> = 正上方（向上）</li>
+                                <li><strong>90°</strong> = 正右方（向右）➡️</li>
+                                <li><strong>180°</strong> = 正下方（向下）⬇️</li>
+                                <li><strong>-90°</strong> 或 <strong>270°</strong> = 正左方（向左）⬅️</li>
+                            </ul>
+                            <div class="code-block">
+                                📝 记住：就像时钟一样！<br>
+                                想象你站在舞台中间，面向右边是90度，面向上面是0度！
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：打开Scratch创建新项目</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开 <strong>scratch.mit.edu</strong>，点击"创建"</li>
+                                <li>点击右下角"选择一个背景"</li>
+                                <li>搜索 <strong>forest</strong>（森林），添加森林背景</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让小猫面向不同方向</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>点击左边<strong>"事件"</strong>分类，拖出"当绿旗被点击"</li>
+                                <li>点击左边<strong>"运动"</strong>分类</li>
+                                <li>找到<strong>"面向 ( ) 度"</strong>积木</li>
+                                <li>拖动拼在"当绿旗被点击"下面</li>
+                                <li>在数字框输入 <strong>90</strong></li>
+                                <li>点击绿旗，看小猫是不是面向右边了？</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">面向 (90) 度</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：尝试不同方向</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>试一试：</strong>把角度改成不同的数字，看看小猫面向哪里？</p>
+                            <ul>
+                                <li>改成 <strong>0</strong>，小猫面向<strong>上</strong>方 ⬆️</li>
+                                <li>改成 <strong>180</strong>，小猫面向<strong>下</strong>方 ⬇️</li>
+                                <li>改成 <strong>-90</strong>，小猫面向<strong>左</strong>方 ⬅️</li>
+                            </ul>
+                            <p>💡 <strong>小贴士：</strong>你可以输入任何角度，比如45度就是面向右上方！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：添加移动让小猫走起来</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</strong></p>
+                            <ol>
+                                <li>在"运动"分类里找到<strong>"移动 ( ) 步"</strong>积木</li>
+                                <li>拖动拼在"面向"积木下面</li>
+                                <li>输入步数 <strong>100</strong></li>
+                                <li>点击绿旗，小猫会面向右边走100步！</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">面向 (90) 度</span><br>
+                                <span class="block motion">移动 (100) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果要小猫面向左上角，应该填多少度？（提示：在0和-90之间）</li>
+                    <li>"移动100步"和"滑行到某个位置"有什么不同？</li>
+                    <li>能想办法让小猫面向鼠标指针吗？</li>
+                </ol>
+            </div>
+
+            <div class="solution-box">
+                <h4>💡 进阶挑战</h4>
+                <p>让小猫面向鼠标指针：</p>
+                <ol>
+                    <li>在"运动"分类里找到"面向 <strong>鼠标指针</strong>"积木</li>
+                    <li>这个积木会让小猫永远面向鼠标指针的方向！</li>
+                </ol>
+                <div class="scratch-blocks">
+                    <span class="block motion">面向 (鼠标指针)</span>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例5：旋转指南针 -->
+        <section class="case-section" id="case5">
+            <div class="case-header">
+                <div class="case-number">5</div>
+                <h2>旋转指南针 - 学习旋转</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"右转"和"左转"积木，让角色旋转起来。</p>
+                <p>📖 <strong>故事背景：</strong>指南针的指针一直在不停地转动，让我们用Scratch做一个旋转的指南针吧！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：创建新项目</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开 <strong>scratch.mit.edu</strong>，点击"创建"</li>
+                                <li>删除小猫（右键点击小猫角色，选择"删除"）</li>
+                                <li>我们要画一个指针形状的角色</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制指针角色</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</p>
+                            <ol>
+                                <li>点击左下角"选择一个角色"旁边的<strong>"绘制"</strong>按钮（画笔图标）</li>
+                                <li>在右侧绘画区域，用<strong>线条工具</strong>画一个箭头</li>
+                                <li>箭头要指向上方（这样0度就是指向上方）</li>
+                                <li>点击右上角完成绘画</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>也可以直接用小猫角色来学习旋转，效果一样！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让指针旋转</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</p>
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木（事件分类，黄色）</li>
+                                <li>在<strong>"控制"</strong>分类（橙色）找到<strong>"重复执行"</strong>积木</li>
+                                <li>拖动拼在"当绿旗被点击"下面</li>
+                                <li>在<strong>"运动"</strong>分类找到<strong>"右转 ( ) 度"</strong>积木</li>
+                                <li>拖动放进"重复执行"积木的<strong>嘴巴里面</strong></li>
+                                <li>在数字框输入 <strong>15</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">右转 (15) 度</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：运行看效果</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击绿旗</li>
+                                <li>观察指针是不是在不停地顺时针旋转？</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>把15改成30，转得会更快！改成5，转得更慢！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：尝试逆时针旋转</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</p>
+                            <ol>
+                                <li>把"右转"积木换成<strong>"左转"</strong>积木</li>
+                                <li>点击绿旗，观察指针是逆时针旋转了！</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>为什么指针会一直转个不停？</li>
+                    <li>如果要让它转得更快，应该改哪个数字？</li>
+                    <li>能做一个旋转速度时快时慢的指南针吗？</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例6：小鱼游动 -->
+        <section class="case-section" id="case6">
+            <div class="case-header">
+                <div class="case-number">6</div>
+                <h2>小鱼游动 - 遇到边缘就反弹</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"碰到边缘就反弹"积木，让角色在舞台上来回移动。</p>
+                <p>📖 <strong>故事背景：</strong>小鱼在水族馆里快乐地游来游去，碰到墙壁就会转弯，让我们来模拟这个效果！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加小鱼角色和水下背景</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开 <strong>scratch.mit.edu</strong>，点击"创建"</li>
+                                <li>点击右下角"选择一个角色"，搜索 <strong>fish</strong></li>
+                                <li>点击添加一个你喜欢的小鱼</li>
+                                <li>点击"选择一个背景"，搜索 <strong>underwater</strong></li>
+                                <li>添加水下背景</li>
+                                <li>右键小猫角色，点击"删除"（我们只需要小鱼）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让小鱼开始游动</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>拖出<strong>"重复执行"</strong>积木拼在下面</li>
+                                <li>在"运动"分类找到<strong>"移动 ( ) 步"</strong>积木</li>
+                                <li>拖进"重复执行"里面</li>
+                                <li>输入步数 <strong>10</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (10) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加边缘反弹</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>问题：</strong>现在小鱼会游出屏幕！我们要让它碰到边缘就转弯。</p>
+                            <ol>
+                                <li>在"运动"分类最下面找到<strong>"碰到边缘就反弹"</strong>积木</li>
+                                <li>拖进"重复执行"里面，放在"移动"积木下面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (10) 步</span><br>
+                                <span style="margin-left:20px" class="block motion">碰到边缘就反弹</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：让小鱼游动时翻转样式</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</p>
+                            <ol>
+                                <li>在"运动"分类找到<strong>"将旋转方式设为 [左右翻转]"</strong>积木</li>
+                                <li>拖到"当绿旗被点击"下面，"重复执行"上面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">将旋转方式设为 [左右翻转]</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (10) 步</span><br>
+                                <span style="margin-left:20px" class="block motion">碰到边缘就反弹</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>"左右翻转"会让小鱼碰到边缘后自动翻转方向，看起来更自然！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果不加"碰到边缘就反弹"积木，小鱼会怎么样？</li>
+                    <li>把移动步数改成50，小鱼游得会变快还是变慢？</li>
+                    <li>能添加一条大鱼追着小鱼跑吗？</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例7：小狗追星星 -->
+        <section class="case-section" id="case7">
+            <div class="case-header">
+                <div class="case-number">7</div>
+                <h2>小狗追星星 - 面向鼠标指针</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会让角色面向鼠标指针移动，制作追逐效果。</p>
+                <p>📖 <strong>故事背景：</strong>小狗想追逐闪闪发光的星星，星星就是你的鼠标指针，移动鼠标，小狗就会跟着追！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch编辑器</li>
+                                <li>保留小猫角色（或者换成小狗角色，搜索 <strong>dog</strong>）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让角色面向鼠标指针</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>拖出<strong>"重复执行"</strong>积木拼在下面</li>
+                                <li>在"运动"分类找到<strong>"面向鼠标指针"</strong>积木</li>
+                                <li>拖进"重复执行"里面</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 (鼠标指针)</span>
+                            </div>
+                            <p>💡 <strong>试一试：</strong>点击绿旗，然后移动鼠标，看角色是不是一直在转向鼠标？</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让角色移动到鼠标位置</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在"运动"分类找到<strong>"移动 ( ) 步"</strong>积木</li>
+                                <li>拖进"重复执行"里面，放在"面向"积木下面</li>
+                                <li>输入步数 <strong>5</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 (鼠标指针)</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (5) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：调整角色大小</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>操作方法：</p>
+                            <ol>
+                                <li>点击舞台上的角色</li>
+                                <li>看右上方角色信息区，找到<strong>"大小"</strong></li>
+                                <li>输入 <strong>50</strong>（让角色变小一点）</li>
+                            </ol>
+                            <p>💡 <strong>小贴士：</strong>改变大小可以让游戏看起来更有趣！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如果移动步数改成1，小狗追鼠标会变快还是变慢？</li>
+                    <li>能想办法让小狗碰到鼠标时发出声音吗？</li>
+                    <li>如果添加多只小狗一起追鼠标，效果会怎样？</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例8：苹果下落 -->
+        <section class="case-section" id="case8">
+            <div class="case-header">
+                <div class="case-number">8</div>
+                <h2>苹果下落 - Y坐标变化</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>理解Y坐标变化对角色位置的影响，模拟重力下落效果。</p>
+                <p>📖 <strong>故事背景：</strong>秋天的果园里，苹果熟了，从树上"扑通扑通"掉下来。让我们模拟苹果下落的效果！</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：准备场景和角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch编辑器</li>
+                                <li>添加背景：搜索 <strong>trees</strong> 或 <strong>garden</strong></li>
+                                <li>删除小猫，添加苹果角色：搜索 <strong>apple</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让苹果移到舞台顶部</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>拖出<strong>"移到 x: ( ) y: ( )"</strong>积木</li>
+                                <li>在 x: 输入 <strong>0</strong>，y: 输入 <strong>150</strong>（舞台顶部）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (0) y: (150)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让苹果慢慢下落</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>思考：</strong>苹果要向下落，Y坐标应该变大还是变小？<br>
+                            答案：<strong>变小</strong>！因为Y坐标越小，位置越靠下！</p>
+                            <ol>
+                                <li>拖出<strong>"重复执行 ( ) 次"</strong>积木（橙色控制分类）</li>
+                                <li>输入次数 <strong>30</strong></li>
+                                <li>在"运动"分类找到<strong>"将 y 坐标增加 ( )"</strong>积木</li>
+                                <li>拖进"重复执行30次"里面</li>
+                                <li>输入 <strong>-5</strong>（负数表示向下移动）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">移到 x: (0) y: (150)</span><br>
+                                <span class="block control">重复执行 (30) 次</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (-5)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：让苹果不停下落</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>把上面的代码包在<strong>"重复执行"</strong>积木里面</li>
+                                <li>这样苹果就会不停地从顶部落下</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (0) y: (150)</span><br>
+                                <span style="margin-left:20px" class="block control">重复执行 (30) 次</span><br>
+                                <span style="margin-left:40px" class="block motion">将 y 坐标增加 (-5)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：让苹果随机出现</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>进阶：</strong>让苹果每次从不同位置落下！</p>
+                            <ol>
+                                <li>在"运算"分类（绿色）找到<strong>"在 (1) 到 (10) 之间取随机数"</strong>积木</li>
+                                <li>把这个积木拖到 x: 的框里</li>
+                                <li>把数字改成 <strong>-200</strong> 和 <strong>200</strong></li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (在 (-200) 到 (200) 之间取随机数) y: (150)</span><br>
+                                <span style="margin-left:20px" class="block control">重复执行 (30) 次</span><br>
+                                <span style="margin-left:40px" class="block motion">将 y 坐标增加 (-5)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例9：海底世界 -->
+        <section class="case-section" id="case9">
+            <div class="case-header">
+                <div class="case-number">9</div>
+                <h2>海底世界 - 多角色动画</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会添加多个角色，让每个角色都有不同的动画效果。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加背景和角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch编辑器</li>
+                                <li>添加背景：搜索 <strong>underwater</strong></li>
+                                <li>添加角色：搜索 <strong>fish</strong>、<strong>shark</strong>、<strong>jellyfish</strong>（水母）</li>
+                                <li>删除小猫</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：给小鱼添加游泳动画</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击舞台上的小鱼角色</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"将旋转方式设为 [左右翻转]"</strong>积木</li>
+                                <li>添加<strong>"重复执行"</strong>积木</li>
+                                <li>里面添加<strong>"移动 10 步"</strong>和<strong>"碰到边缘就反弹"</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：给鲨鱼添加追逐动画</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击舞台上的鲨鱼角色</li>
+                                <li>添加让鲨鱼面向鼠标指针并移动的代码</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 (鼠标指针)</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (3) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：给水母添加上下浮动动画</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击水母角色</li>
+                                <li>添加上下浮动的代码</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (10)</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.5) 秒</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (-10)</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.5) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例10：动物变变变 -->
+        <section class="case-section" id="case10">
+            <div class="case-header">
+                <div class="case-number">10</div>
+                <h2>动物变变变 - 切换造型</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"下一个造型"积木，让角色变换不同的样子。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：认识造型</h4>
+                        <div class="step-detail">
+                            <p>📌 <strong>知识点：</strong>每个角色可以有多个"造型"（不同的样子），切换造型可以让角色看起来在动！</p>
+                            <ol>
+                                <li>点击小猫角色</li>
+                                <li>看左上角，点击<strong>"造型"</strong>标签</li>
+                                <li>你会看到小猫有两个造型：cat-a 和 cat-b</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让小猫走路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"代码"</strong>标签回到积木区</li>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>拖出<strong>"重复执行"</strong>积木</li>
+                                <li>在<strong>"外观"</strong>分类（紫色）找到<strong>"下一个造型"</strong>积木</li>
+                                <li>拖进"重复执行"里面</li>
+                                <li>添加<strong>"等待 0.2 秒"</strong>积木</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block looks">下一个造型</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.2) 秒</span>
+                            </div>
+                            <p>💡 <strong>小贴士：</strong>等待时间越短，走路越快！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加移动让小猫真正走起来</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"移动 10 步"</strong>积木</li>
+                                <li>添加<strong>"碰到边缘就反弹"</strong>积木</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">将旋转方式设为 [左右翻转]</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (10) 步</span><br>
+                                <span style="margin-left:20px" class="block looks">下一个造型</span><br>
+                                <span style="margin-left:20px" class="block motion">碰到边缘就反弹</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.2) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例11：飞翔的蝴蝶 -->
+        <section class="case-section" id="case11">
+            <div class="case-header">
+                <div class="case-number">11</div>
+                <h2>飞翔的蝴蝶 - 绘制角色</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会绘制自己的角色，并添加多个造型制作动画。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：绘制蝴蝶角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击左下角<strong>"绘制"</strong>按钮（画笔图标）</li>
+                                <li>用<strong>"椭圆"</strong>工具画蝴蝶的翅膀</li>
+                                <li>用<strong>"画笔"</strong>工具画蝴蝶的身体</li>
+                                <li>用<strong>"填充"</strong>工具给翅膀上色</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：添加第二个造型</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"造型"</strong>标签</li>
+                                <li>右键点击第一个造型，选择<strong>"复制"</strong></li>
+                                <li>在第二个造型里，把翅膀画得张开一点（模拟飞行）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：让蝴蝶飞起来</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击<strong>"代码"</strong>标签</li>
+                                <li>添加切换造型和移动的代码</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (5) 步</span><br>
+                                <span style="margin-left:20px" class="block looks">下一个造型</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.1) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例12：城堡探险 -->
+        <section class="case-section" id="case12">
+            <div class="case-header">
+                <div class="case-number">12</div>
+                <h2>城堡探险 - 键盘控制</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用键盘按键控制角色移动。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加城堡背景和角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加背景：搜索 <strong>castle</strong></li>
+                                <li>添加一个骑士或探险家角色</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：添加向上移动的代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"事件"</strong>分类找到<strong>"当按下 [空格] 键"</strong>积木</li>
+                                <li>拖到脚本区</li>
+                                <li>点击"空格"旁边的小箭头，选择<strong>"上移键"</strong></li>
+                                <li>添加<strong>"将 y 坐标增加 10"</strong>积木</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [上移键] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (10)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：添加其他方向的代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>再拖出一个"当按下键"积木，选择<strong>"下移键"</strong></li>
+                                <li>添加<strong>"将 y 坐标增加 -10"</strong>积木</li>
+                                <li>同样方法添加<strong>左移键</strong>（x 增加 -10）和<strong>右移键</strong>（x 增加 10）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [下移键] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (-10)</span><br><br>
+                                <span class="block events">当按下 [左移键] 键</span><br>
+                                <span class="block motion">将 x 坐标增加 (-10)</span><br><br>
+                                <span class="block events">当按下 [右移键] 键</span><br>
+                                <span class="block motion">将 x 坐标增加 (10)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>为什么按上移键时 y 增加 10，而按下移键时 y 增加 -10？</li>
+                    <li>如果想让角色移动得更快，应该怎么改？</li>
+                </ol>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例13：字母雨 -->
+        <section class="case-section" id="case13">
+            <div class="case-header">
+                <div class="case-number">13</div>
+                <h2>字母雨 - 外观变化</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"说"积木和外观变化效果。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：让小猫说字母</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"外观"</strong>分类找到<strong>"说 [你好！]"</strong>积木</li>
+                                <li>拖到脚本区，把"你好！"改成任意字母</li>
+                                <li>点击积木，看小猫头上出现对话泡泡</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：让字母不断变化</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"重复执行"</strong>积木</li>
+                                <li>在里面添加"说"积木</li>
+                                <li>使用<strong>"连接 [苹果] 和 [香蕉]"</strong>运算积木来组合文字</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例14：小猫抓球 -->
+        <section class="case-section" id="case14">
+            <div class="case-header">
+                <div class="case-number">14</div>
+                <h2>小猫抓球 - 碰撞检测</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用"碰到"积木检测角色之间的碰撞。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：添加小猫和球</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>添加一个球角色（搜索 <strong>ball</strong>）</li>
+                                <li>让球在舞台上随机移动</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：检测碰撞</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在小猫的代码中添加<strong>"控制"</strong>分类的<strong>"如果...那么"</strong>积木</li>
+                                <li>在"如果"的菱形框里，放入<strong>"侦测"</strong>分类的<strong>"碰到 [球]"</strong>积木</li>
+                                <li>在"那么"里添加<strong>"说 抓到了！"</strong>积木</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [球]</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block looks">说 [抓到了！]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+        <!-- 案例15：电子时钟 -->
+        <section class="case-section" id="case15">
+            <div class="case-header">
+                <div class="case-number">15</div>
+                <h2>电子时钟 - 时间显示</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会使用时间相关的积木，制作一个显示当前时间的时钟。</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：获取当前时间</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>在<strong>"侦测"</strong>分类找到<strong>"当前时间的 [年]"</strong>积木</li>
+                                <li>点击小箭头可以看到：年、月、日、星期、时、分、秒</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：显示时间</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出<strong>"当绿旗被点击"</strong>积木</li>
+                                <li>添加<strong>"重复执行"</strong>积木</li>
+                                <li>在里面添加<strong>"说 [ ]"</strong>积木</li>
+                                <li>用<strong>"连接"</strong>积木把时、分、秒连接起来显示</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block looks">说 (连接 (当前时间的 [时]) (连接 [:] (连接 (当前时间的 [分]) (连接 [:] (当前时间的 [秒])))))</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-actions">
+                <a href="https://scratch.mit.edu/projects/editor/" target="_blank" class="action-btn primary">
+                    <span>🎮</span> 打开Scratch在线操作
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

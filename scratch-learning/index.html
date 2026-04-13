@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch编程学习 - 创意编程的奇妙世界</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4D97FF',
+                        secondary: '#FF6B6B',
+                        accent: '#FFD166',
+                        success: '#06D6A0',
+                        info: '#118AB2',
+                        warning: '#FFD166',
+                        danger: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/e339aad56af24462b0f9d248e183dbd4~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652800&x-signature=tHJMJAcICKGqNVJAuQ9HBiSJdxo%3D" alt="Scratch学习网站" class="h-12 w-12">
+                <span class="text-2xl font-bold text-primary">Scratch创意编程</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                <a href="#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">课程</a>
+                <a href="#examples" class="text-gray-700 hover:text-primary font-medium transition-colors">示例</a>
+                <a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+                <a href="#courses" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">课程</a>
+                <a href="#examples" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">示例</a>
+                <a href="#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-br from-primary to-info text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">探索编程的奇妙世界</h1>
+                <p class="text-xl mb-8 max-w-lg">通过Scratch创意编程，让孩子在游戏中学习编程逻辑，培养创造力和解决问题的能力。</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#courses" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-colors text-center shadow-lg">开始学习</a>
+                    <a href="#examples" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary font-bold py-3 px-6 rounded-lg transition-colors text-center">查看示例</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/6172611aca3f4e0e94c2891ae92fba22~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652814&x-signature=8LRlz6%2F3rx0c%2Bf%2BcOYSIWz3KN%2FY%3D" alt="Scratch编程" class="w-full max-w-md rounded-lg shadow-2xl animate-float">
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色区域 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">为什么选择我们的Scratch课程？</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">分级别学习</h3>
+                    <p class="text-gray-600 text-center">从初级到高级，我们提供适合不同年龄段和基础的课程，循序渐进地学习编程知识。</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa fa-lightbulb-o text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">创意激发</h3>
+                    <p class="text-gray-600 text-center">通过有趣的项目和挑战，激发孩子的创造力和想象力，让编程变得生动有趣。</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fa fa-puzzle-piece text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-center mb-3">问题解决</h3>
+                    <p class="text-gray-600 text-center">培养孩子的逻辑思维和解决问题的能力，这些技能将受益终身。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程分类 -->
+    <section id="courses" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">探索我们的课程</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">选择适合您孩子的课程级别，开始编程之旅。每个级别都包含多个有趣的项目和详细的学习步骤。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 初级课程 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">初级篇</h3>
+                        <p class="text-sm opacity-90">适合6-8岁，零基础</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>认识Scratch界面和基本操作</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习角色移动和简单动画</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>制作简单的互动故事和游戏</span>
+                            </li>
+                        </ul>
+                        <a href="primary.html" class="block bg-primary hover:bg-primary/90 text-white text-center font-medium py-2 px-4 rounded-lg transition-colors">查看课程</a>
+                    </div>
+                </div>
+                
+                <!-- 中级课程 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="bg-info text-white p-4">
+                        <h3 class="text-xl font-bold">中级篇</h3>
+                        <p class="text-sm opacity-90">适合9-12岁，有基础</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习变量、循环和条件语句</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>制作更复杂的游戏和动画</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习音效和背景音乐的使用</span>
+                            </li>
+                        </ul>
+                        <a href="middle.html" class="block bg-info hover:bg-info/90 text-white text-center font-medium py-2 px-4 rounded-lg transition-colors">查看课程</a>
+                    </div>
+                </div>
+                
+                <!-- 高级课程 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="bg-secondary text-white p-4">
+                        <h3 class="text-xl font-bold">高级篇</h3>
+                        <p class="text-sm opacity-90">适合12-15岁，有经验</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习函数、列表和高级算法</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>制作多人游戏和交互式应用</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习游戏设计和用户体验</span>
+                            </li>
+                        </ul>
+                        <a href="senior.html" class="block bg-secondary hover:bg-secondary/90 text-white text-center font-medium py-2 px-4 rounded-lg transition-colors">查看课程</a>
+                    </div>
+                </div>
+                
+                <!-- 竞赛课程 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="bg-accent text-dark p-4">
+                        <h3 class="text-xl font-bold">竞赛篇</h3>
+                        <p class="text-sm opacity-90">适合12-18岁，有基础</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>学习竞赛编程思维和技巧</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>制作符合竞赛要求的项目</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-2"></i>
+                                <span>模拟竞赛环境和评审标准</span>
+                            </li>
+                        </ul>
+                        <a href="competition.html" class="block bg-accent hover:bg-accent/90 text-dark text-center font-medium py-2 px-4 rounded-lg transition-colors">查看课程</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选示例 -->
+    <section id="examples" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">精选示例</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">探索这些有趣的Scratch项目，了解不同级别的编程技能和创意应用。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 示例1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md card-hover">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/9d340475516a4688999610732c95b692~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652816&x-signature=mK5Qd8wDU8xKdTTvyuROKHNzkZU%3D" alt="坐标学习" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">认识角色的坐标值</h3>
+                        <p class="text-gray-600 mb-4">学习如何在Scratch中使用坐标系统来精确定位角色，这是制作动画和游戏的基础。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">初级</span>
+                            <a href="primary.html#coordinates" class="text-primary hover:underline flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 示例2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md card-hover">
+                    <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/636410de60034fb589304b6fd5130a89~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652815&x-signature=k%2FMV4%2F3RkZdbPwuUffEqr%2FmPT2c%3D" alt="蝴蝶动画" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">飞翔的蝴蝶</h3>
+                        <p class="text-gray-600 mb-4">学习如何使用循环和造型切换来创建流畅的动画效果，让角色看起来更加生动。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">中级</span>
+                            <a href="middle.html#butterfly" class="text-info hover:underline flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 示例3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md card-hover">
+                    <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/6172611aca3f4e0e94c2891ae92fba22~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652814&x-signature=8LRlz6%2F3rx0c%2Bf%2BcOYSIWz3KN%2FY%3D" alt="小猫抓球游戏" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">小猫抓球游戏</h3>
+                        <p class="text-gray-600 mb-4">学习如何制作一个简单的互动游戏，包括角色控制、碰撞检测和计分系统。</p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-yellow-100 text-accent text-xs font-medium px-2.5 py-0.5 rounded">高级</span>
+                            <a href="senior.html#cat-game" class="text-secondary hover:underline flex items-center">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="examples.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors">查看更多示例</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学习路径 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">学习路径</h2>
+            
+            <div class="relative">
+                <!-- 路径线 -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2"></div>
+                
+                <!-- 步骤1 -->
+                <div class="relative mb-12">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-semibold mb-2">入门基础</h3>
+                            <p class="text-gray-600">了解Scratch界面，学习基本操作，创建第一个简单项目。</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 top-0 w-10 h-10 bg-primary rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <p class="text-gray-700"><strong>推荐课程：</strong>初级篇 - 第1-5课</p>
+                                <p class="text-gray-700 mt-2"><strong>学习时长：</strong>2-3周</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤2 -->
+                <div class="relative mb-12">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:order-1">
+                            <div class="bg-white p-4 rounded-lg shadow-md md:ml-auto">
+                                <p class="text-gray-700"><strong>推荐课程：</strong>初级篇 - 第6-12课，中级篇 - 第1-5课</p>
+                                <p class="text-gray-700 mt-2"><strong>学习时长：</strong>4-6周</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 top-0 w-10 h-10 bg-info rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-semibold mb-2">进阶技能</h3>
+                            <p class="text-gray-600">学习变量、循环、条件语句等编程概念，制作更复杂的动画和游戏。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤3 -->
+                <div class="relative mb-12">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-semibold mb-2">高级应用</h3>
+                            <p class="text-gray-600">学习函数、列表、高级算法，制作多人游戏和交互式应用。</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 top-0 w-10 h-10 bg-secondary rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <p class="text-gray-700"><strong>推荐课程：</strong>中级篇 - 第6-12课，高级篇 - 第1-6课</p>
+                                <p class="text-gray-700 mt-2"><strong>学习时长：</strong>6-8周</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤4 -->
+                <div class="relative">
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:order-1">
+                            <div class="bg-white p-4 rounded-lg shadow-md md:ml-auto">
+                                <p class="text-gray-700"><strong>推荐课程：</strong>高级篇 - 第7-12课，竞赛篇</p>
+                                <p class="text-gray-700 mt-2"><strong>学习时长：</strong>8周以上</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 top-0 w-10 h-10 bg-accent rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                            <span class="text-dark font-bold">4</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <h3 class="text-xl font-semibold mb-2">竞赛与创新</h3>
+                            <p class="text-gray-600">准备编程竞赛，开发创新项目，展示编程技能和创意。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">关于我们</h2>
+            
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-gray-600 mb-6">我们是一群热爱编程教育的专业人士，致力于为孩子们提供高质量的Scratch编程学习资源。我们相信，通过有趣的编程项目，可以培养孩子的创造力、逻辑思维和解决问题的能力，为他们未来的学习和职业发展打下坚实的基础。</p>
+                <p class="text-gray-600 mb-8">我们的课程由经验丰富的编程教育专家设计，符合不同年龄段孩子的认知特点和学习需求。无论您的孩子是完全零基础，还是已经有一些编程经验，我们都能提供适合的学习路径和资源。</p>
+                
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa fa-weixin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                        <i class="fa fa-weibo text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Scratch创意编程</h3>
+                    <p class="text-gray-400">让孩子在游戏中学习编程，培养创造力和解决问题的能力。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">课程</a></li>
+                        <li><a href="#examples" class="text-gray-400 hover:text-white transition-colors">示例</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">课程分类</h3>
+                    <ul class="space-y-2">
+                        <li><a href="primary.html" class="text-gray-400 hover:text-white transition-colors">初级篇</a></li>
+                        <li><a href="middle.html" class="text-gray-400 hover:text-white transition-colors">中级篇</a></li>
+                        <li><a href="senior.html" class="text-gray-400 hover:text-white transition-colors">高级篇</a></li>
+                        <li><a href="competition.html" class="text-gray-400 hover:text-white transition-colors">竞赛篇</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <a href="mailto:contact@scratch-learning.com" class="text-gray-400 hover:text-white transition-colors">contact@scratch-learning.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span class="text-gray-400">400-123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Scratch创意编程. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // 滚动时导航栏阴影效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

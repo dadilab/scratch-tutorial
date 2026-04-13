@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch中级篇 - 创意编程学习</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4D97FF',
+                        secondary: '#FF6B6B',
+                        accent: '#FFD166',
+                        success: '#06D6A0',
+                        info: '#118AB2',
+                        warning: '#FFD166',
+                        danger: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/e339aad56af24462b0f9d248e183dbd4~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652800&x-signature=tHJMJAcICKGqNVJAuQ9HBiSJdxo%3D" alt="Scratch学习网站" class="h-10 w-10">
+                <span class="text-xl font-bold text-primary">Scratch创意编程</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-gradient-to-r from-info to-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Scratch中级篇</h1>
+            <p class="text-center mt-4 max-w-2xl mx-auto">适合9-12岁儿童，进一步学习Scratch编程的进阶课程</p>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">课程介绍</h2>
+                <p class="text-gray-700 mb-6">中级篇课程专为9-12岁的儿童设计，在掌握了Scratch基础操作后，进一步学习更复杂的编程概念和技巧。在这个阶段，孩子们将学习变量、循环、条件语句等编程概念，制作更复杂的游戏和动画，培养他们的逻辑思维和解决问题的能力。</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold mb-4">学习目标</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习变量、循环和条件语句等编程概念</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作更复杂的游戏和动画</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习音效和背景音乐的使用</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习如何使用侦测和交互功能</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作有计分系统的游戏</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">课程准备</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-laptop text-info mt-1 mr-3"></i>
+                            <span>完成Scratch初级篇的学习</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-globe text-info mt-1 mr-3"></i>
+                            <span>浏览器（推荐使用Chrome或Firefox）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-user-circle text-info mt-1 mr-3"></i>
+                            <span>在<a href="https://scratch.mit.edu/" target="_blank" class="text-info hover:underline">Scratch官网</a>注册一个账号（可选）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-headphones text-info mt-1 mr-3"></i>
+                            <span>耳机或音箱（用于听声音和音乐）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程列表 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">课程内容</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 课程列表 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <div class="divide-y divide-gray-200">
+                        <!-- 课程1 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">1. 飞翔的蝴蝶</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用循环和造型切换来创建流畅的动画效果，让角色看起来更加生动。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">动画制作</span>
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">循环</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-info hover:bg-info/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example1">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程2 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">2. 海底世界</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用多个角色和背景，创建一个生动的海底世界场景。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">多角色</span>
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">场景设计</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-info hover:bg-info/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example2">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程3 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">3. 猜数字游戏</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用变量和条件语句，制作一个简单的猜数字游戏。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">变量</span>
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">条件语句</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-info hover:bg-info/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example3">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程4 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">4. 小猫抓球</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用键盘控制角色移动，制作一个简单的游戏。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">游戏制作</span>
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">键盘控制</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-info hover:bg-info/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example4">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程5 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">5. 电子时钟</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用Scratch的时间功能，制作一个电子时钟。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">时间功能</span>
+                                        <span class="bg-green-100 text-info text-xs font-medium px-2.5 py-0.5 rounded">变量</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-info hover:bg-info/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example5">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-center">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 text-info font-medium">上一页</a>
+                        <a href="#" class="py-2 px-4 bg-info border border-info text-white font-medium">1</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-info font-medium">2</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-info font-medium">3</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 text-info font-medium">下一页</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 示例详情模态框 -->
+    <div id="example-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold">示例标题</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 示例内容将通过JavaScript动态插入 -->
+                    <div class="text-center py-12">
+                        <i class="fa fa-info-circle text-5xl text-info mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">内容正在开发中</h4>
+                        <p class="text-gray-600">这个示例的详细内容正在开发中，敬请期待！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 Scratch创意编程. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const examples = {
+            example1: {
+                title: "1. 飞翔的蝴蝶",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用循环和造型切换来创建流畅的动画效果，让角色看起来更加生动。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个天空背景，添加一个蝴蝶角色。你可以从Scratch的角色库中选择一个蝴蝶角色，或者自己绘制一个。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：观察蝴蝶角色</h5>
+                                    <p class="text-gray-700">观察蝴蝶角色的造型，了解它有哪些不同的造型。通常，蝴蝶角色会有2-3个不同的造型，用于模拟翅膀的扇动。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写基本的飞行代码</h5>
+                                    <p class="text-gray-700">编写代码，让蝴蝶在舞台上随机飞行。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: 0
+重复执行
+    移到 x: (随机数从 -240 到 240) y: (随机数从 -180 到 180)
+    等待 2 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：添加翅膀扇动动画</h5>
+                                    <p class="text-gray-700">修改代码，在蝴蝶飞行时添加翅膀扇动的动画效果。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: 0
+重复执行
+    移到 x: (随机数从 -240 到 240) y: (随机数从 -180 到 180)
+    重复执行 10 次
+        下一个造型
+        等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加平滑的移动效果</h5>
+                                    <p class="text-gray-700">进一步完善代码，让蝴蝶的移动更加平滑。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: 0
+重复执行
+    将目标x设为 (随机数从 -240 到 240)
+    将目标y设为 (随机数从 -180 到 180)
+    重复执行 50 次
+        将x坐标增加 ((目标x) - (x坐标)) / 50
+        将y坐标增加 ((目标y) - (y坐标)) / 50
+        下一个造型
+        等待 0.05 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加方向控制</h5>
+                                    <p class="text-gray-700">修改代码，让蝴蝶在飞行时面向移动方向。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: 0
+重复执行
+    将目标x设为 (随机数从 -240 到 240)
+    将目标y设为 (随机数从 -180 到 180)
+    面向 x: (目标x) y: (目标y)
+    重复执行 50 次
+        将x坐标增加 ((目标x) - (x坐标)) / 50
+        将y坐标增加 ((目标y) - (y坐标)) / 50
+        下一个造型
+        等待 0.05 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何调整蝴蝶的飞行速度？</li>
+                                <li>如何让蝴蝶的飞行路径更加自然？</li>
+                                <li>如何添加更多的动画效果，让蝴蝶看起来更加生动？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个花园场景，添加更多的蝴蝶和花朵，让蝴蝶在花朵之间飞舞。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"碰到颜色"积木来让蝴蝶在碰到花朵时停留一会儿，或者改变飞行方向。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example2: {
+                title: "2. 海底世界",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用多个角色和背景，创建一个生动的海底世界场景。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个海底背景，添加几个海洋生物角色，如鱼、海星、海草等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：设置背景</h5>
+                                    <p class="text-gray-700">从Scratch的背景库中选择一个海底背景，或者自己绘制一个。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：添加海洋生物角色</h5>
+                                    <p class="text-gray-700">从Scratch的角色库中添加几个海洋生物角色，如鱼、海星、海草等。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：为鱼角色编写代码</h5>
+                                    <p class="text-gray-700">为鱼角色编写代码，让它在海底游动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: -240 y: (随机数从 -100 到 100)
+将方向设为 90
+重复执行
+    如果 x坐标 > 240 那么
+        移到 x: -240 y: (随机数从 -100 到 100)
+    将x坐标增加 2
+    下一个造型
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：为海星角色编写代码</h5>
+                                    <p class="text-gray-700">为海星角色编写代码，让它在海底缓慢移动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (随机数从 -200 到 200) y: (随机数从 -150 到 -100)
+重复执行
+    将旋转方式设为 左右翻转
+    将x坐标增加 (随机数从 -1 到 1)
+    将y坐标增加 (随机数从 -1 到 1)
+    等待 0.5 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：为海草角色编写代码</h5>
+                                    <p class="text-gray-700">为海草角色编写代码，让它在水中轻轻摇摆。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (随机数从 -200 到 200) y: -150
+重复执行
+    将旋转方式设为 不旋转
+    重复执行 10 次
+        将方向增加 1
+        等待 0.1 秒
+    重复执行 10 次
+        将方向增加 -1
+        等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何让海洋生物的移动更加自然？</li>
+                                <li>如何添加更多的交互效果，让海底世界更加生动？</li>
+                                <li>如何使用声音效果增强海底世界的氛围？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加一个可以通过鼠标控制的潜水艇角色，让用户可以在海底世界中探索。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"当按下鼠标按键"积木和"移到鼠标指针"积木来控制潜水艇的移动。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example3: {
+                title: "3. 猜数字游戏",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用变量和条件语句，制作一个简单的猜数字游戏。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个角色作为游戏主持人。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创建变量</h5>
+                                    <p class="text-gray-700">创建两个变量："秘密数字"和"猜测次数"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>创建变量的方法：</strong>点击"数据"模块，然后点击"新建变量"按钮，输入变量名称，选择变量的作用域（仅适用于当前角色或适用于所有角色）。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写游戏初始化代码</h5>
+                                    <p class="text-gray-700">编写代码，初始化游戏状态。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将秘密数字设为 (随机数从 1 到 100)
+将猜测次数设为 0
+说"欢迎来到猜数字游戏！" 2 秒
+说"我已经想好了一个1到100之间的数字，你能猜出来吗？" 3 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写猜测处理代码</h5>
+                                    <p class="text-gray-700">编写代码，处理用户的猜测。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将秘密数字设为 (随机数从 1 到 100)
+将猜测次数设为 0
+说"欢迎来到猜数字游戏！" 2 秒
+说"我已经想好了一个1到100之间的数字，你能猜出来吗？" 3 秒
+重复执行直到 回答 = 秘密数字
+    询问"请输入一个1到100之间的数字："并等待
+    将猜测次数增加 1
+    如果 回答 > 秘密数字 那么
+        说"太大了！再试一次。" 2 秒
+    否则如果 回答 < 秘密数字 那么
+        说"太小了！再试一次。" 2 秒
+    否则
+        说"恭喜你猜对了！" 2 秒
+说"你用了" & 猜测次数 & "次就猜对了！" 3 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加难度选择</h5>
+                                    <p class="text-gray-700">修改代码，让用户可以选择游戏难度。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说"欢迎来到猜数字游戏！请选择难度：1.简单（1-50） 2.中等（1-100） 3.困难（1-200）" 4 秒
+询问"请输入难度级别（1-3）："并等待
+如果 回答 = 1 那么
+    将秘密数字设为 (随机数从 1 到 50)
+    说"你选择了简单难度，数字范围是1-50。" 2 秒
+否则如果 回答 = 2 那么
+    将秘密数字设为 (随机数从 1 到 100)
+    说"你选择了中等难度，数字范围是1-100。" 2 秒
+否则
+    将秘密数字设为 (随机数从 1 到 200)
+    说"你选择了困难难度，数字范围是1-200。" 2 秒
+将猜测次数设为 0
+重复执行直到 回答 = 秘密数字
+    询问"请输入你的猜测："并等待
+    将猜测次数增加 1
+    如果 回答 > 秘密数字 那么
+        说"太大了！再试一次。" 2 秒
+    否则如果 回答 < 秘密数字 那么
+        说"太小了！再试一次。" 2 秒
+    否则
+        说"恭喜你猜对了！" 2 秒
+说"你用了" & 猜测次数 & "次就猜对了！" 3 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加更多的游戏功能，如提示系统或排行榜？</li>
+                                <li>如何优化游戏的用户体验？</li>
+                                <li>如何使用变量来存储和显示游戏数据？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个反向猜数字游戏，让计算机来猜测用户想的数字。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用二分查找算法来让计算机更高效地猜测数字。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example4: {
+                title: "4. 小猫抓球",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用键盘控制角色移动，制作一个简单的游戏。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个小猫角色和一个球角色。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：设置游戏场景</h5>
+                                    <p class="text-gray-700">选择一个合适的背景，将小猫角色放在舞台底部，将球角色放在舞台顶部。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写小猫移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让用户可以通过键盘控制小猫左右移动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: 0 y: -150
+重复执行
+    如果 按下左键 那么
+        将x坐标增加 -5
+    如果 按下右键 那么
+        将x坐标增加 5</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写球的移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让球从舞台顶部随机位置落下。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+重复执行
+    移到 x: (随机数从 -200 到 200) y: 180
+    重复执行直到 y坐标 < -180
+        将y坐标增加 -5
+        等待 0.05 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加碰撞检测</h5>
+                                    <p class="text-gray-700">修改代码，添加碰撞检测，当小猫碰到球时，增加分数。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 小猫角色代码
+当绿旗被点击
+将分数设为 0
+移到 x: 0 y: -150
+重复执行
+    如果 按下左键 那么
+        将x坐标增加 -5
+    如果 按下右键 那么
+        将x坐标增加 5
+
+// 球角色代码
+当绿旗被点击
+重复执行
+    移到 x: (随机数从 -200 到 200) y: 180
+    重复执行直到 y坐标 < -180 或 碰到 小猫
+        将y坐标增加 -5
+        等待 0.05 秒
+    如果 碰到 小猫 那么
+        将分数增加 1
+        播放声音 喵</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加游戏结束条件</h5>
+                                    <p class="text-gray-700">修改代码，添加游戏结束条件，当球落地时，游戏结束。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+// 小猫角色代码
+当绿旗被点击
+将分数设为 0
+将游戏结束设为 否
+移到 x: 0 y: -150
+重复执行直到 游戏结束 = 是
+    如果 按下左键 那么
+        将x坐标增加 -5
+    如果 按下右键 那么
+        将x坐标增加 5
+说"游戏结束！你的分数是：" & 分数 3 秒
+
+// 球角色代码
+当绿旗被点击
+重复执行直到 游戏结束 = 是
+    移到 x: (随机数从 -200 到 200) y: 180
+    重复执行直到 y坐标 < -180 或 碰到 小猫
+        将y坐标增加 -5
+        等待 0.05 秒
+    如果 碰到 小猫 那么
+        将分数增加 1
+        播放声音 喵
+    否则
+        将游戏结束设为 是</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何调整游戏的难度？</li>
+                                <li>如何添加更多的游戏元素，如道具或障碍物？</li>
+                                <li>如何优化游戏的视觉效果和音效？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个多关卡的小猫抓球游戏，每一关都有不同的难度和挑战。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用变量来跟踪当前关卡，并根据关卡调整游戏参数，如球的速度或数量。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example5: {
+                title: "5. 电子时钟",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用Scratch的时间功能，制作一个电子时钟。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个角色作为时钟显示。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创建变量</h5>
+                                    <p class="text-gray-700">创建三个变量："时"、"分"和"秒"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>创建变量的方法：</strong>点击"数据"模块，然后点击"新建变量"按钮，输入变量名称，选择变量的作用域（仅适用于当前角色或适用于所有角色）。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写时钟初始化代码</h5>
+                                    <p class="text-gray-700">编写代码，初始化时钟状态。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将时设为 (当前小时)
+将分设为 (当前分钟)
+将秒设为 (当前秒钟)</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写时钟更新代码</h5>
+                                    <p class="text-gray-700">编写代码，更新时钟显示。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将时设为 (当前小时)
+将分设为 (当前分钟)
+将秒设为 (当前秒钟)
+重复执行
+    将秒设为 (当前秒钟)
+    将分设为 (当前分钟)
+    将时设为 (当前小时)
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加时间显示</h5>
+                                    <p class="text-gray-700">修改代码，添加时间显示功能。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将时设为 (当前小时)
+将分设为 (当前分钟)
+将秒设为 (当前秒钟)
+重复执行
+    将秒设为 (当前秒钟)
+    将分设为 (当前分钟)
+    将时设为 (当前小时)
+    说 (连接 (连接 (连接 时 & ":") & 分) & ":") & 秒
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加数字格式化</h5>
+                                    <p class="text-gray-700">修改代码，添加数字格式化功能，确保分钟和秒钟始终显示为两位数。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+重复执行
+    将时设为 (当前小时)
+    将分设为 (当前分钟)
+    将秒设为 (当前秒钟)
+    如果 分 < 10 那么
+        将分文本设为 (连接 "0" & 分)
+    否则
+        将分文本设为 (分)
+    如果 秒 < 10 那么
+        将秒文本设为 (连接 "0" & 秒)
+    否则
+        将秒文本设为 (秒)
+    说 (连接 (连接 (连接 时 & ":") & 分文本) & ":") & 秒文本
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加日期显示功能？</li>
+                                <li>如何添加闹钟功能？</li>
+                                <li>如何优化时钟的视觉效果？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个模拟时钟，使用旋转的指针来显示时间。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"将方向设为"积木来控制指针的旋转，指针的方向值可以根据当前时间计算得出。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // 模态框控制
+        const modal = document.getElementById('example-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModal = document.getElementById('close-modal');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+
+        // 打开模态框
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const exampleId = this.getAttribute('data-example');
+                const example = examples[exampleId];
+                
+                if (example) {
+                    modalTitle.textContent = example.title;
+                    modalContent.innerHTML = example.content;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+        });
+
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        });
+
+        // 点击模态框外部关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

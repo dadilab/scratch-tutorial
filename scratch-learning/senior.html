@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch高级篇 - 创意编程学习</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4D97FF',
+                        secondary: '#FF6B6B',
+                        accent: '#FFD166',
+                        success: '#06D6A0',
+                        info: '#118AB2',
+                        warning: '#FFD166',
+                        danger: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/e339aad56af24462b0f9d248e183dbd4~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652800&x-signature=tHJMJAcICKGqNVJAuQ9HBiSJdxo%3D" alt="Scratch学习网站" class="h-10 w-10">
+                <span class="text-xl font-bold text-primary">Scratch创意编程</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-gradient-to-r from-secondary to-danger text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Scratch高级篇</h1>
+            <p class="text-center mt-4 max-w-2xl mx-auto">适合12-15岁青少年，深入学习Scratch编程的高级课程</p>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">课程介绍</h2>
+                <p class="text-gray-700 mb-6">高级篇课程专为12-15岁的青少年设计，在掌握了Scratch基础和中级知识后，进一步学习高级编程概念和技巧。在这个阶段，孩子们将学习函数、列表、高级算法等编程概念，制作复杂的游戏和交互式应用，培养他们的创新思维和编程能力。</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold mb-4">学习目标</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习函数、列表和高级算法</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作多人游戏和交互式应用</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习游戏设计和用户体验</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习数据可视化和分析</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作完整的项目并进行展示</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">课程准备</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-laptop text-secondary mt-1 mr-3"></i>
+                            <span>完成Scratch初级篇和中级篇的学习</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-globe text-secondary mt-1 mr-3"></i>
+                            <span>浏览器（推荐使用Chrome或Firefox）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-user-circle text-secondary mt-1 mr-3"></i>
+                            <span>在<a href="https://scratch.mit.edu/" target="_blank" class="text-secondary hover:underline">Scratch官网</a>注册一个账号</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-headphones text-secondary mt-1 mr-3"></i>
+                            <span>耳机或音箱（用于听声音和音乐）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程列表 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">课程内容</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 课程列表 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <div class="divide-y divide-gray-200">
+                        <!-- 课程1 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">1. 小猫抓球游戏</h3>
+                                    <p class="text-gray-600 mb-4">学习如何制作一个完整的游戏，包括角色控制、碰撞检测、计分系统和游戏状态管理。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">游戏制作</span>
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">碰撞检测</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example1">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程2 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">2. 音乐播放器</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用Scratch的声音功能，制作一个音乐播放器，包括播放、暂停、上一首、下一首等功能。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">声音处理</span>
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">列表</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example2">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程3 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">3. 数据可视化</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用Scratch制作数据可视化项目，包括柱状图、折线图、饼图等。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">数据可视化</span>
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">数学计算</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example3">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程4 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">4. 多人对战游戏</h3>
+                                    <p class="text-gray-600 mb-4">学习如何制作一个多人对战游戏，包括角色控制、计分系统、游戏状态管理等。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">多人游戏</span>
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">游戏设计</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example4">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程5 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">5. 人工智能助手</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用Scratch制作一个简单的人工智能助手，可以回答问题、执行命令等。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">人工智能</span>
+                                        <span class="bg-red-100 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">条件语句</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example5">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-center">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 text-secondary font-medium">上一页</a>
+                        <a href="#" class="py-2 px-4 bg-secondary border border-secondary text-white font-medium">1</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-secondary font-medium">2</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-secondary font-medium">3</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 text-secondary font-medium">下一页</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 示例详情模态框 -->
+    <div id="example-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold">示例标题</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 示例内容将通过JavaScript动态插入 -->
+                    <div class="text-center py-12">
+                        <i class="fa fa-info-circle text-5xl text-secondary mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">内容正在开发中</h4>
+                        <p class="text-gray-600">这个示例的详细内容正在开发中，敬请期待！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 Scratch创意编程. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const examples = {
+            example1: {
+                title: "1. 小猫抓球游戏",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何制作一个完整的游戏，包括角色控制、碰撞检测、计分系统和游戏状态管理。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个小猫角色和一个球角色。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：设置游戏场景</h5>
+                                    <p class="text-gray-700">选择一个合适的背景，将小猫角色放在舞台底部，将球角色放在舞台顶部。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：创建游戏变量</h5>
+                                    <p class="text-gray-700">创建以下变量："分数"、"生命值"、"游戏状态"、"球速度"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>创建变量的方法：</strong>点击"数据"模块，然后点击"新建变量"按钮，输入变量名称，选择变量的作用域（仅适用于当前角色或适用于所有角色）。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写游戏初始化代码</h5>
+                                    <p class="text-gray-700">编写代码，初始化游戏状态。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将分数设为 0
+将生命值设为 3
+将游戏状态设为 "游戏中"
+将球速度设为 5
+广播 "开始游戏"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：编写小猫移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让用户可以通过键盘控制小猫左右移动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+移到 x: 0 y: -150
+重复执行直到 游戏状态 = "游戏结束"
+    如果 按下左键 那么
+        将x坐标增加 -10
+    如果 按下右键 那么
+        将x坐标增加 10
+    如果 x坐标 < -240 那么
+        将x坐标设为 -240
+    如果 x坐标 > 240 那么
+        将x坐标设为 240</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：编写球的移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让球从舞台顶部随机位置落下，并检测与小猫的碰撞。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+重复执行直到 游戏状态 = "游戏结束"
+    移到 x: (随机数从 -200 到 200) y: 180
+    将方向设为 (随机数从 135 到 225)
+    重复执行直到 y坐标 < -180 或 碰到 小猫
+        移动 (球速度) 步
+        如果 碰到边缘 那么
+            反弹
+        等待 0.01 秒
+    如果 碰到 小猫 那么
+        将分数增加 1
+        将球速度增加 0.5
+        播放声音 "喵"
+    否则
+        将生命值减少 1
+        如果 生命值 = 0 那么
+            将游戏状态设为 "游戏结束"
+            广播 "游戏结束"
+        否则
+            广播 "失去生命"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：添加游戏结束处理</h5>
+                                    <p class="text-gray-700">编写代码，处理游戏结束状态。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "游戏结束"
+说 "游戏结束！你的分数是：" & 分数 3 秒
+停止 全部脚本</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤7：添加生命值显示</h5>
+                                    <p class="text-gray-700">编写代码，显示生命值。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+重复执行直到 游戏状态 = "游戏结束"
+    显示变量 "生命值"
+    显示变量 "分数"
+
+当接收到 "失去生命"
+说 "生命值 -1" 1 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加更多的游戏元素，如道具或障碍物？</li>
+                                <li>如何实现关卡系统，让游戏有不同的难度级别？</li>
+                                <li>如何优化游戏的视觉效果和音效？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加特殊道具，如加速、减速、加分等，让游戏更加有趣。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以创建一个新的道具角色，当小猫碰到道具时，改变游戏变量的值。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example2: {
+                title: "2. 音乐播放器",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用Scratch的声音功能，制作一个音乐播放器，包括播放、暂停、上一首、下一首等功能。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个角色作为音乐播放器的界面。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：上传音乐文件</h5>
+                                    <p class="text-gray-700">上传几首音乐文件到Scratch项目中。你可以从Scratch的声音库中选择，或者上传自己的音乐文件。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>上传声音的方法：</strong>点击"声音"选项卡，然后点击"上传声音"按钮，选择要上传的音乐文件。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：创建变量和列表</h5>
+                                    <p class="text-gray-700">创建以下变量和列表："当前歌曲索引"、"播放状态"、"歌曲列表"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>创建列表的方法：</strong>点击"数据"模块，然后点击"新建列表"按钮，输入列表名称，选择列表的作用域（仅适用于当前角色或适用于所有角色）。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：初始化歌曲列表</h5>
+                                    <p class="text-gray-700">编写代码，初始化歌曲列表。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+删除 [歌曲列表] 的全部项目
+将 "歌曲1" 添加到 [歌曲列表]
+将 "歌曲2" 添加到 [歌曲列表]
+将 "歌曲3" 添加到 [歌曲列表]
+将当前歌曲索引设为 1
+将播放状态设为 "暂停"
+显示变量 "当前歌曲索引"
+显示列表 [歌曲列表]</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：创建播放按钮</h5>
+                                    <p class="text-gray-700">创建一个播放按钮角色，并编写代码。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当角色被点击
+如果 播放状态 = "暂停" 那么
+    将播放状态设为 "播放"
+    广播 "播放音乐"
+否则
+    将播放状态设为 "暂停"
+    广播 "暂停音乐"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：创建上一首按钮</h5>
+                                    <p class="text-gray-700">创建一个上一首按钮角色，并编写代码。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当角色被点击
+停止所有声音
+如果 当前歌曲索引 > 1 那么
+    将当前歌曲索引减少 1
+否则
+    将当前歌曲索引设为 (项目数 of [歌曲列表])
+如果 播放状态 = "播放" 那么
+    广播 "播放音乐"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：创建下一首按钮</h5>
+                                    <p class="text-gray-700">创建一个下一首按钮角色，并编写代码。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当角色被点击
+停止所有声音
+如果 当前歌曲索引 < (项目数 of [歌曲列表]) 那么
+    将当前歌曲索引增加 1
+否则
+    将当前歌曲索引设为 1
+如果 播放状态 = "播放" 那么
+    广播 "播放音乐"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤7：编写音乐播放代码</h5>
+                                    <p class="text-gray-700">编写代码，根据当前歌曲索引播放对应的音乐。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "播放音乐"
+停止所有声音
+如果 当前歌曲索引 = 1 那么
+    播放声音 "歌曲1" 直到播放完毕
+    如果 播放状态 = "播放" 那么
+        广播 "播放下一首"
+如果 当前歌曲索引 = 2 那么
+    播放声音 "歌曲2" 直到播放完毕
+    如果 播放状态 = "播放" 那么
+        广播 "播放下一首"
+如果 当前歌曲索引 = 3 那么
+    播放声音 "歌曲3" 直到播放完毕
+    如果 播放状态 = "播放" 那么
+        广播 "播放下一首"
+
+当接收到 "暂停音乐"
+停止所有声音
+
+当接收到 "播放下一首"
+如果 当前歌曲索引 < (项目数 of [歌曲列表]) 那么
+    将当前歌曲索引增加 1
+否则
+    将当前歌曲索引设为 1
+广播 "播放音乐"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤8：添加音乐进度显示</h5>
+                                    <p class="text-gray-700">编写代码，显示音乐播放进度。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "播放音乐"
+重复执行直到 播放状态 = "暂停" 或 声音 "歌曲1" 播放完毕
+    将当前时间设为 (声音 "歌曲1" 的当前时间)
+    将总时间设为 (声音 "歌曲1" 的长度)
+    将进度设为 (当前时间) / (总时间) * 100
+    说 "进度：" & 进度 & "%"
+    等待 0.5 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加更多的播放控制功能，如快进、快退、音量调节等？</li>
+                                <li>如何添加歌词显示功能？</li>
+                                <li>如何优化音乐播放器的界面设计？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加一个音乐可视化效果，让音乐播放器更加生动。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"响度"积木来获取当前播放声音的响度，然后根据响度值来控制角色的大小或颜色。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example3: {
+                title: "3. 数据可视化",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用Scratch制作数据可视化项目，包括柱状图、折线图、饼图等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个白色背景，添加一个角色作为图表的绘制者。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创建数据列表</h5>
+                                    <p class="text-gray-700">创建一个列表来存储要可视化的数据。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+删除 [数据列表] 的全部项目
+将 10 添加到 [数据列表]
+将 20 添加到 [数据列表]
+将 30 添加到 [数据列表]
+将 25 添加到 [数据列表]
+将 15 添加到 [数据列表]</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：绘制柱状图</h5>
+                                    <p class="text-gray-700">编写代码，绘制柱状图。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+清除图形
+将笔的颜色设为 蓝色
+将笔的粗细设为 1
+// 绘制坐标轴
+移到 x: -200 y: -150
+落笔
+移到 x: 200 y: -150
+移到 x: 200 y: 150
+抬笔
+// 绘制柱状图
+将项目索引设为 1
+重复执行 (项目数 of [数据列表]) 次
+    将柱状高度设为 (项目 (项目索引) of [数据列表]) * 5
+    将柱状x坐标设为 -200 + (项目索引) * 40
+    移到 x: (柱状x坐标) y: -150
+    落笔
+    移到 x: (柱状x坐标) y: -150 + (柱状高度)
+    移到 x: (柱状x坐标) + 20 y: -150 + (柱状高度)
+    移到 x: (柱状x坐标) + 20 y: -150
+    移到 x: (柱状x坐标) y: -150
+    抬笔
+    将项目索引增加 1</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：添加数据标签</h5>
+                                    <p class="text-gray-700">修改代码，为柱状图添加数据标签。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+清除图形
+将笔的颜色设为 蓝色
+将笔的粗细设为 1
+// 绘制坐标轴
+移到 x: -200 y: -150
+落笔
+移到 x: 200 y: -150
+移到 x: 200 y: 150
+抬笔
+// 绘制柱状图
+将项目索引设为 1
+重复执行 (项目数 of [数据列表]) 次
+    将柱状高度设为 (项目 (项目索引) of [数据列表]) * 5
+    将柱状x坐标设为 -200 + (项目索引) * 40
+    移到 x: (柱状x坐标) y: -150
+    落笔
+    移到 x: (柱状x坐标) y: -150 + (柱状高度)
+    移到 x: (柱状x坐标) + 20 y: -150 + (柱状高度)
+    移到 x: (柱状x坐标) + 20 y: -150
+    移到 x: (柱状x坐标) y: -150
+    抬笔
+    // 添加数据标签
+    移到 x: (柱状x坐标) + 10 y: -150 + (柱状高度) + 10
+    说 (项目 (项目索引) of [数据列表]) 2 秒
+    将项目索引增加 1</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：绘制折线图</h5>
+                                    <p class="text-gray-700">编写代码，绘制折线图。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+清除图形
+将笔的颜色设为 红色
+将笔的粗细设为 2
+// 绘制坐标轴
+移到 x: -200 y: -150
+落笔
+移到 x: 200 y: -150
+移到 x: 200 y: 150
+抬笔
+// 绘制折线图
+将项目索引设为 1
+重复执行 (项目数 of [数据列表]) 次
+    将点x坐标设为 -200 + (项目索引) * 40
+    将点y坐标设为 -150 + (项目 (项目索引) of [数据列表]) * 5
+    如果 项目索引 = 1 那么
+        移到 x: (点x坐标) y: (点y坐标)
+        落笔
+    否则
+        移到 x: (点x坐标) y: (点y坐标)
+    将项目索引增加 1
+抬笔</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：绘制饼图</h5>
+                                    <p class="text-gray-700">编写代码，绘制饼图。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+清除图形
+// 计算数据总和
+将总和设为 0
+将项目索引设为 1
+重复执行 (项目数 of [数据列表]) 次
+    将总和增加 (项目 (项目索引) of [数据列表])
+    将项目索引增加 1
+// 绘制饼图
+移到 x: 0 y: 0
+将起始角度设为 0
+将项目索引设为 1
+重复执行 (项目数 of [数据列表]) 次
+    将角度设为 (项目 (项目索引) of [数据列表]) / (总和) * 360
+    将笔的颜色设为 (项目索引) * 20
+    落笔
+    重复执行 (角度) 次
+        移动 5 步
+        右转 1 度
+    抬笔
+    移到 x: 0 y: 0
+    将起始角度增加 (角度)
+    将项目索引增加 1</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：添加交互功能</h5>
+                                    <p class="text-gray-700">修改代码，添加交互功能，让用户可以选择要显示的图表类型。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说 "请选择要显示的图表类型：1.柱状图 2.折线图 3.饼图" 3 秒
+询问 "请输入图表类型（1-3）："并等待
+将图表类型设为 回答
+如果 图表类型 = 1 那么
+    广播 "绘制柱状图"
+否则如果 图表类型 = 2 那么
+    广播 "绘制折线图"
+否则如果 图表类型 = 3 那么
+    广播 "绘制饼图"
+否则
+    说 "无效的图表类型！" 2 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加更多类型的图表，如散点图、热力图等？</li>
+                                <li>如何优化图表的视觉效果，如添加颜色、阴影等？</li>
+                                <li>如何添加数据输入功能，让用户可以输入自己的数据？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个实时数据可视化项目，如显示温度、湿度等环境数据。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用随机数来模拟实时数据，或者使用Scratch的扩展功能来获取真实的环境数据。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example4: {
+                title: "4. 多人对战游戏",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何制作一个多人对战游戏，包括角色控制、计分系统、游戏状态管理等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加两个角色作为玩家，添加一个球角色。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：设置游戏场景</h5>
+                                    <p class="text-gray-700">选择一个合适的背景，将两个玩家角色分别放在舞台的左右两侧，将球角色放在舞台中央。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：创建游戏变量</h5>
+                                    <p class="text-gray-700">创建以下变量："玩家1分数"、"玩家2分数"、"游戏状态"、"球速度"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>创建变量的方法：</strong>点击"数据"模块，然后点击"新建变量"按钮，输入变量名称，选择变量的作用域（仅适用于当前角色或适用于所有角色）。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写游戏初始化代码</h5>
+                                    <p class="text-gray-700">编写代码，初始化游戏状态。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将玩家1分数设为 0
+将玩家2分数设为 0
+将游戏状态设为 "游戏中"
+将球速度设为 5
+广播 "开始游戏"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：编写玩家1移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让玩家1可以通过W和S键控制移动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+移到 x: -200 y: 0
+重复执行直到 游戏状态 = "游戏结束"
+    如果 按下W键 那么
+        将y坐标增加 10
+    如果 按下S键 那么
+        将y坐标增加 -10
+    如果 y坐标 > 150 那么
+        将y坐标设为 150
+    如果 y坐标 < -150 那么
+        将y坐标设为 -150</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：编写玩家2移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让玩家2可以通过方向键控制移动。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+移到 x: 200 y: 0
+重复执行直到 游戏状态 = "游戏结束"
+    如果 按下上箭头键 那么
+        将y坐标增加 10
+    如果 按下下箭头键 那么
+        将y坐标增加 -10
+    如果 y坐标 > 150 那么
+        将y坐标设为 150
+    如果 y坐标 < -150 那么
+        将y坐标设为 -150</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：编写球的移动代码</h5>
+                                    <p class="text-gray-700">编写代码，让球在舞台上移动，并检测与玩家的碰撞。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+移到 x: 0 y: 0
+将方向设为 (随机数从 0 到 360)
+重复执行直到 游戏状态 = "游戏结束"
+    移动 (球速度) 步
+    如果 碰到 边缘 那么
+        如果 x坐标 > 240 那么
+            将玩家1分数增加 1
+            广播 "玩家1得分"
+            移到 x: 0 y: 0
+            将方向设为 (随机数从 0 到 360)
+            等待 1 秒
+        否则如果 x坐标 < -240 那么
+            将玩家2分数增加 1
+            广播 "玩家2得分"
+            移到 x: 0 y: 0
+            将方向设为 (随机数从 0 到 360)
+            等待 1 秒
+        否则
+            反弹
+    如果 碰到 玩家1 或 碰到 玩家2 那么
+        反弹
+        将球速度增加 0.5
+        播放声音 "碰撞"</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤7：添加得分显示</h5>
+                                    <p class="text-gray-700">编写代码，显示玩家得分。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始游戏"
+显示变量 "玩家1分数"
+显示变量 "玩家2分数"
+
+当接收到 "玩家1得分"
+说 "玩家1得分！" 1 秒
+
+当接收到 "玩家2得分"
+说 "玩家2得分！" 1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤8：添加游戏结束条件</h5>
+                                    <p class="text-gray-700">修改代码，添加游戏结束条件，当一方得分达到10分时，游戏结束。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "玩家1得分"
+说 "玩家1得分！" 1 秒
+如果 玩家1分数 = 10 那么
+    将游戏状态设为 "游戏结束"
+    广播 "游戏结束"
+
+当接收到 "玩家2得分"
+说 "玩家2得分！" 1 秒
+如果 玩家2分数 = 10 那么
+    将游戏状态设为 "游戏结束"
+    广播 "游戏结束"
+
+当接收到 "游戏结束"
+如果 玩家1分数 > 玩家2分数 那么
+    说 "玩家1获胜！" 3 秒
+否则
+    说 "玩家2获胜！" 3 秒
+停止 全部脚本</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何添加更多的游戏元素，如道具或障碍物？</li>
+                                <li>如何实现不同的游戏模式，如团队赛、淘汰赛等？</li>
+                                <li>如何优化游戏的视觉效果和音效？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加特殊道具，如加速、减速、分身等，让游戏更加有趣。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以创建一个新的道具角色，当玩家碰到道具时，改变游戏变量的值。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example5: {
+                title: "5. 人工智能助手",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用Scratch制作一个简单的人工智能助手，可以回答问题、执行命令等。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个合适的背景，添加一个角色作为人工智能助手。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创建问答列表</h5>
+                                    <p class="text-gray-700">创建两个列表："问题列表"和"回答列表"。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+删除 [问题列表] 的全部项目
+删除 [回答列表] 的全部项目
+将 "你好" 添加到 [问题列表]
+将 "你好！很高兴见到你！" 添加到 [回答列表]
+将 "你是谁" 添加到 [问题列表]
+将 "我是你的Scratch人工智能助手！" 添加到 [回答列表]
+将 "你能做什么" 添加到 [问题列表]
+将 "我可以回答问题、执行命令、讲故事等！" 添加到 [回答列表]
+将 "今天天气怎么样" 添加到 [问题列表]
+将 "对不起，我无法获取实时天气信息。" 添加到 [回答列表]
+将 "讲个故事" 添加到 [问题列表]
+将 "从前有一只小猫，它喜欢编程..." 添加到 [回答列表]</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写问答处理代码</h5>
+                                    <p class="text-gray-700">编写代码，处理用户的问题并给出回答。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说 "你好！我是你的Scratch人工智能助手！" 2 秒
+重复执行
+    询问 "请输入你的问题或命令："并等待
+    将用户输入设为 回答
+    将找到答案设为 否
+    将项目索引设为 1
+    重复执行 (项目数 of [问题列表]) 次
+        如果 用户输入 包含 (项目 (项目索引) of [问题列表]) 那么
+            说 (项目 (项目索引) of [回答列表]) 2 秒
+            将找到答案设为 是
+            停止这个脚本
+        将项目索引增加 1
+    如果 找到答案 = 否 那么
+        说 "对不起，我不理解你的问题。" 2 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：添加命令执行功能</h5>
+                                    <p class="text-gray-700">修改代码，添加命令执行功能，让助手可以执行一些简单的命令。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说 "你好！我是你的Scratch人工智能助手！" 2 秒
+重复执行
+    询问 "请输入你的问题或命令："并等待
+    将用户输入设为 回答
+    // 检查是否是命令
+    如果 用户输入 包含 "跳舞" 那么
+        说 "好的，我来跳个舞！" 1 秒
+        重复执行 10 次
+            旋转 36 度
+            等待 0.1 秒
+        说 "跳舞真有趣！" 1 秒
+    否则如果 用户输入 包含 "唱歌" 那么
+        说 "好的，我来唱首歌！" 1 秒
+        播放声音 "歌曲"
+    否则如果 用户输入 包含 "变色" 那么
+        说 "好的，我来变个颜色！" 1 秒
+        将颜色特效增加 25
+    否则
+        // 处理问题
+        将找到答案设为 否
+        将项目索引设为 1
+        重复执行 (项目数 of [问题列表]) 次
+            如果 用户输入 包含 (项目 (项目索引) of [问题列表]) 那么
+                说 (项目 (项目索引) of [回答列表]) 2 秒
+                将找到答案设为 是
+                停止这个脚本
+            将项目索引增加 1
+        如果 找到答案 = 否 那么
+            说 "对不起，我不理解你的问题或命令。" 2 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加时间查询功能</h5>
+                                    <p class="text-gray-700">修改代码，添加时间查询功能，让助手可以告诉用户当前的时间。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说 "你好！我是你的Scratch人工智能助手！" 2 秒
+重复执行
+    询问 "请输入你的问题或命令："并等待
+    将用户输入设为 回答
+    // 检查是否是时间查询
+    如果 用户输入 包含 "时间" 或 用户输入 包含 "几点" 那么
+        将当前时间设为 (当前小时) & ":" & (当前分钟) & ":" & (当前秒钟)
+        说 "现在的时间是：" & 当前时间 2 秒
+    // 其他命令和问题处理...</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加学习功能</h5>
+                                    <p class="text-gray-700">修改代码，添加学习功能，让助手可以学习新的问题和回答。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+说 "你好！我是你的Scratch人工智能助手！" 2 秒
+重复执行
+    询问 "请输入你的问题或命令："并等待
+    将用户输入设为 回答
+    // 检查是否是学习命令
+    如果 用户输入 包含 "学习" 那么
+        说 "请输入你想让我学习的问题：" 1 秒
+        询问 "问题："并等待
+        将新问题设为 回答
+        说 "请输入对应的回答：" 1 秒
+        询问 "回答："并等待
+        将新回答设为 回答
+        将 (新问题) 添加到 [问题列表]
+        将 (新回答) 添加到 [回答列表]
+        说 "我学会了！" 1 秒
+    // 其他命令和问题处理...</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤6：添加视觉反馈</h5>
+                                    <p class="text-gray-700">修改代码，添加视觉反馈，让助手在说话时有动画效果。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当接收到 "开始说话"
+重复执行直到 不说话
+    将大小增加 1
+    等待 0.05 秒
+    将大小增加 -1
+    等待 0.05 秒
+
+当绿旗被点击
+说 "你好！我是你的Scratch人工智能助手！" 2 秒
+广播 "开始说话"
+// 其他代码...</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何提高助手的语言理解能力？</li>
+                                <li>如何添加更多的功能，如天气查询、新闻播报等？</li>
+                                <li>如何优化助手的用户界面和交互体验？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试添加一个简单的对话系统，让助手可以进行连续的对话。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用变量来跟踪对话的上下文，根据上下文来生成更合适的回答。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // 模态框控制
+        const modal = document.getElementById('example-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModal = document.getElementById('close-modal');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+
+        // 打开模态框
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const exampleId = this.getAttribute('data-example');
+                const example = examples[exampleId];
+                
+                if (example) {
+                    modalTitle.textContent = example.title;
+                    modalContent.innerHTML = example.content;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+        });
+
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        });
+
+        // 点击模态框外部关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

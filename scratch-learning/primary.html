@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch初级篇 - 创意编程学习</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 统一的 Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4D97FF',
+                        secondary: '#FF6B6B',
+                        accent: '#FFD166',
+                        success: '#06D6A0',
+                        info: '#118AB2',
+                        warning: '#FFD166',
+                        danger: '#EF476F',
+                        light: '#F8F9FA',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/e339aad56af24462b0f9d248e183dbd4~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652800&x-signature=tHJMJAcICKGqNVJAuQ9HBiSJdxo%3D" alt="Scratch学习网站" class="h-10 w-10">
+                <span class="text-xl font-bold text-primary">Scratch创意编程</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">首页</a>
+                <a href="index.html#courses" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">课程</a>
+                <a href="index.html#examples" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">示例</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="bg-gradient-to-r from-primary to-info text-white py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">Scratch初级篇</h1>
+            <p class="text-center mt-4 max-w-2xl mx-auto">适合6-8岁儿童，零基础入门Scratch编程的最佳起点</p>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-6 text-center">课程介绍</h2>
+                <p class="text-gray-700 mb-6">初级篇课程专为6-8岁的儿童设计，通过有趣的项目和游戏，帮助孩子们了解Scratch编程的基本概念和操作。在这个阶段，孩子们将学习如何创建简单的动画、故事和游戏，培养他们的创造力、逻辑思维和解决问题的能力。</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-semibold mb-4">学习目标</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>认识Scratch界面和基本操作</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习角色移动、旋转和简单动画</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>理解基本的编程概念：顺序、循环、条件</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>学习如何添加声音和背景音乐</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                            <span>制作简单的互动故事和游戏</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">课程准备</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-laptop text-primary mt-1 mr-3"></i>
+                            <span>一台可以连接互联网的电脑</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-globe text-primary mt-1 mr-3"></i>
+                            <span>浏览器（推荐使用Chrome或Firefox）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-user-circle text-primary mt-1 mr-3"></i>
+                            <span>在<a href="https://scratch.mit.edu/" target="_blank" class="text-primary hover:underline">Scratch官网</a>注册一个账号（可选）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-headphones text-primary mt-1 mr-3"></i>
+                            <span>耳机或音箱（用于听声音和音乐）</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程列表 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-center">课程内容</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 课程列表 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <div class="divide-y divide-gray-200">
+                        <!-- 课程1 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">1. 你说我画</h3>
+                                    <p class="text-gray-600 mb-4">通过一个有趣的游戏，学习如何描述位置和坐标，为后续的编程学习打下基础。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">坐标系统</span>
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">位置描述</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example1">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程2 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">2. 认识角色的坐标值</h3>
+                                    <p class="text-gray-600 mb-4">学习Scratch中的坐标系统，了解如何通过坐标值精确定位角色的位置。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">坐标系统</span>
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">角色定位</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example2">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程3 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">3. 小猫跑垒</h3>
+                                    <p class="text-gray-600 mb-4">学习如何控制角色按照指定路径移动，制作一个简单的动画。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">角色移动</span>
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">动画制作</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example3">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程4 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">4. 指南针</h3>
+                                    <p class="text-gray-600 mb-4">学习如何控制角色的方向，了解Scratch中的方向值。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">角色方向</span>
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">旋转控制</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example4">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 课程5 -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">5. 旋转指南针</h3>
+                                    <p class="text-gray-600 mb-4">学习如何使用循环让角色自动旋转，制作一个动态的指南针。</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">循环</span>
+                                        <span class="bg-blue-100 text-primary text-xs font-medium px-2.5 py-0.5 rounded">旋转动画</span>
+                                    </div>
+                                </div>
+                                <button class="example-btn bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-colors" data-example="example5">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 分页 -->
+                <div class="flex justify-center">
+                    <nav class="inline-flex rounded-md shadow">
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 text-primary font-medium">上一页</a>
+                        <a href="#" class="py-2 px-4 bg-primary border border-primary text-white font-medium">1</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-primary font-medium">2</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 hover:bg-gray-50 text-primary font-medium">3</a>
+                        <a href="#" class="py-2 px-4 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 text-primary font-medium">下一页</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 示例详情模态框 -->
+    <div id="example-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold">示例标题</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- 示例内容将通过JavaScript动态插入 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-400">&copy; 2025 Scratch创意编程. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 示例数据
+        const examples = {
+            example1: {
+                title: "1. 你说我画",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">通过一个有趣的游戏，学习如何描述位置和坐标，为后续的编程学习打下基础。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">游戏介绍</h4>
+                            <p class="text-gray-700 mb-4">在你开始使用Scratch编程之前，可以先找一个朋友玩一次"你说我画"的小游戏。每人拿一张白纸，按照下面的说明进行6个回合的游戏。</p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第一回合：简单横线</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一条横线，接着分配游戏角色。一个人在横线上任意画一个圆，不能让另一个人看到。接着画圆的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第二回合：带格子的横线</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一条横线，接着使用竖线将横线平均分为多格，分配游戏角色。一个人在任意一个竖线处画一个圆，不能让另一个人看到。接着画圆的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第三回合：带数字的横线</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一条横线，接着使用竖线将横线平均分为多格，从0开始给每条竖线标出一个数字，分配游戏角色。一个人在任意一个竖线处画一个圆，不能让另一个人看到。接着画圆的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第四回合：简单长方形</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一个长方形，接着分配游戏角色。一个人在长方形中间的任意位置画一个圆，不能让另一个人看到。接着画圆的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第五回合：带格子的长方形</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一个长方形，接着将长和宽平均分为多格，分配游戏角色。一个人在长方形中任意一个交叉点画一个圆，不能让另一个人看到。接着画圆的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">第六回合：带坐标的长方形</h5>
+                                    <p class="text-gray-700">先在两张白纸上分别画一个长方形，接着将长和宽平均分为多格，从0开始给长和宽的分割线标出数字，分配游戏角色。一个人在长方形中任意一个交叉点画一个圆，不能让另一个人看到。接着画的人需要通过说话的方式，让另一个人在相同的位置也画出一个圆。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>哪些回合成功在相同位置画出圆？</li>
+                                <li>每个回合用时分别是多少？</li>
+                                <li>用时少的回合为什么时间更短？</li>
+                                <li>将长方形替换为舞台，如何告诉别人角色在舞台上的位置？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">编程联系</h4>
+                            <p class="text-gray-700 mb-4">在Scratch中，我们使用坐标系统来确定角色在舞台上的位置。舞台的左上角是(-240, 180)，右下角是(240, -180)，中心位置是(0, 0)。</p>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>在Scratch中，你可以通过"移到x: y:"积木来精确定位角色的位置，也可以通过"将x坐标增加"和"将y坐标增加"积木来移动角色。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example2: {
+                title: "2. 认识角色的坐标值",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习Scratch中的坐标系统，了解如何通过坐标值精确定位角色的位置。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个棒球场背景，添加一个小猫角色。</p>
+                            
+                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/9d340475516a4688999610732c95b692~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652816&x-signature=mK5Qd8wDU8xKdTTvyuROKHNzkZU%3D" alt="坐标示例" class="w-full max-w-md mx-auto rounded-lg">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：探索坐标</h5>
+                                    <p class="text-gray-700">在棒球场中，尝试着将小猫拖入四个不同的垒区（白色方块），看看它们各自的坐标是多少？记录下来。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="font-mono text-sm">本垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">一垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">二垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">三垒坐标：( , )</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：调整坐标点</h5>
+                                    <p class="text-gray-700">将小猫的坐标点改为两脚中间，将它重新设置为记录的4个坐标值，看看小猫的位置是否发生了改变？为什么？</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="text-gray-700"><strong>坐标点设置方法：</strong>点击角色，在角色信息面板中找到"坐标点"选项，选择"两脚中间"。</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写代码</h5>
+                                    <p class="text-gray-700">编写代码，让小猫依次移动到四个垒的位置。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (本垒x坐标) y: (本垒y坐标)
+等待 1 秒
+移到 x: (一垒x坐标) y: (一垒y坐标)
+等待 1 秒
+移到 x: (二垒x坐标) y: (二垒y坐标)
+等待 1 秒
+移到 x: (三垒x坐标) y: (三垒y坐标)
+等待 1 秒
+移到 x: (本垒x坐标) y: (本垒y坐标)</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>为什么改变坐标点后，相同的坐标值会使角色出现在不同的位置？</li>
+                                <li>在Scratch中，坐标点有什么作用？</li>
+                                <li>如何选择合适的坐标点？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个简单的迷宫，使用坐标让角色从起点移动到终点。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"重复执行直到"积木和"碰到颜色"积木来创建一个可以通过键盘控制的角色，让它在迷宫中移动。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example3: {
+                title: "3. 小猫跑垒",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何控制角色按照指定路径移动，制作一个简单的动画。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个棒球场背景，添加一个小猫角色。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：观察棒球场</h5>
+                                    <p class="text-gray-700">观察棒球场的布局，确定四个垒的位置。通常，棒球场是一个菱形，四个角分别是本垒、一垒、二垒和三垒。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：记录坐标</h5>
+                                    <p class="text-gray-700">将小猫拖到每个垒的位置，记录下它们的坐标。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="font-mono text-sm">本垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">一垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">二垒坐标：( , )</p>
+                                        <p class="font-mono text-sm">三垒坐标：( , )</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写基本代码</h5>
+                                    <p class="text-gray-700">编写代码，让小猫从本垒开始，依次移动到一垒、二垒、三垒，最后回到本垒。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (本垒x坐标) y: (本垒y坐标)
+等待 1 秒
+移到 x: (一垒x坐标) y: (一垒y坐标)
+等待 1 秒
+移到 x: (二垒x坐标) y: (二垒y坐标)
+等待 1 秒
+移到 x: (三垒x坐标) y: (三垒y坐标)
+等待 1 秒
+移到 x: (本垒x坐标) y: (本垒y坐标)</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加移动动画</h5>
+                                    <p class="text-gray-700">修改代码，让小猫在移动时显示出动画效果，而不是直接跳转到下一个位置。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (本垒x坐标) y: (本垒y坐标)
+等待 1 秒
+重复执行 20 次
+    将x坐标增加 ((一垒x坐标)-(本垒x坐标))/20
+    将y坐标增加 ((一垒y坐标)-(本垒y坐标))/20
+    等待 0.05 秒
+等待 1 秒
+重复执行 20 次
+    将x坐标增加 ((二垒x坐标)-(一垒x坐标))/20
+    将y坐标增加 ((二垒y坐标)-(一垒y坐标))/20
+    等待 0.05 秒
+等待 1 秒
+重复执行 20 次
+    将x坐标增加 ((三垒x坐标)-(二垒x坐标))/20
+    将y坐标增加 ((三垒y坐标)-(二垒y坐标))/20
+    等待 0.05 秒
+等待 1 秒
+重复执行 20 次
+    将x坐标增加 ((本垒x坐标)-(三垒x坐标))/20
+    将y坐标增加 ((本垒y坐标)-(三垒y坐标))/20
+    等待 0.05 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤5：添加方向和造型</h5>
+                                    <p class="text-gray-700">进一步完善代码，让小猫在移动时面向移动方向，并切换走路的造型。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+移到 x: (本垒x坐标) y: (本垒y坐标)
+将角色面向 90 度
+等待 1 秒
+面向 (一垒x坐标) (一垒y坐标)
+重复执行 20 次
+    将x坐标增加 ((一垒x坐标)-(本垒x坐标))/20
+    将y坐标增加 ((一垒y坐标)-(本垒y坐标))/20
+    下一个造型
+    等待 0.05 秒
+等待 1 秒
+面向 (二垒x坐标) (二垒y坐标)
+重复执行 20 次
+    将x坐标增加 ((二垒x坐标)-(一垒x坐标))/20
+    将y坐标增加 ((二垒y坐标)-(一垒y坐标))/20
+    下一个造型
+    等待 0.05 秒
+等待 1 秒
+面向 (三垒x坐标) (三垒y坐标)
+重复执行 20 次
+    将x坐标增加 ((三垒x坐标)-(二垒x坐标))/20
+    将y坐标增加 ((三垒y坐标)-(二垒y坐标))/20
+    下一个造型
+    等待 0.05 秒
+等待 1 秒
+面向 (本垒x坐标) (本垒y坐标)
+重复执行 20 次
+    将x坐标增加 ((本垒x坐标)-(三垒x坐标))/20
+    将y坐标增加 ((本垒y坐标)-(三垒y坐标))/20
+    下一个造型
+    等待 0.05 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如果不用看见两垒之间的移动过程，可以有几种方式实现？</li>
+                                <li>如何调整小猫移动的速度？</li>
+                                <li>如何让小猫在移动时看起来更自然？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个简单的赛跑游戏，使用键盘控制小猫跑步。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"当按下空格键"积木来控制小猫跳跃，使用"重复执行"积木来让小猫自动向前移动。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example4: {
+                title: "4. 指南针",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何控制角色的方向，了解Scratch中的方向值。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个白色背景，添加一个箭头角色。你可以自己绘制一个箭头，或者从Scratch的角色库中选择一个合适的角色。</p>
+                            
+                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/636410de60034fb589304b6fd5130a89~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=202604131412525121CE8ED32AE00D9235&rrcfp=f06b921b&x-expires=1778652815&x-signature=k%2FMV4%2F3RkZdbPwuUffEqr%2FmPT2c%3D" alt="指南针示例" class="w-full max-w-md mx-auto rounded-lg">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：创建指南针背景</h5>
+                                    <p class="text-gray-700">创建一个指南针背景，或者从Scratch的背景库中选择一个合适的背景。你也可以使用图片搜索功能，搜索"指南针"图片作为背景。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：探索方向值</h5>
+                                    <p class="text-gray-700">以箭头尾部为圆心，手动改变箭头方向，找出东南西北四个方向的方向值是多少？</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <p class="font-mono text-sm">东（右）方向值：</p>
+                                        <p class="font-mono text-sm">南（下）方向值：</p>
+                                        <p class="font-mono text-sm">西（左）方向值：</p>
+                                        <p class="font-mono text-sm">北（上）方向值：</p>
+                                    </div>
+                                    <p class="mt-2 text-gray-700">在Scratch中，方向值是以度为单位的，向右（东）是90度，向下（南）是180度，向左（西）是-90度或270度，向上（北）是0度。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写基本代码</h5>
+                                    <p class="text-gray-700">编写代码，让箭头按照东、南、西、北的顺序依次指向各个方向。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将方向设为 90 度（东）
+等待 2 秒
+将方向设为 180 度（南）
+等待 2 秒
+将方向设为 -90 度（西）
+等待 2 秒
+将方向设为 0 度（北）
+等待 2 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加文字提示</h5>
+                                    <p class="text-gray-700">修改代码，在箭头指向每个方向时，显示对应的文字提示。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将方向设为 90 度（东）
+说"东" 2 秒
+将方向设为 180 度（南）
+说"南" 2 秒
+将方向设为 -90 度（西）
+说"西" 2 秒
+将方向设为 0 度（北）
+说"北" 2 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Scratch中的方向值是如何定义的？</li>
+                                <li>除了东、南、西、北，你还知道哪些方向？它们的方向值是多少？</li>
+                                <li>如何让箭头指向任意一个方向？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个可以通过鼠标控制的指南针，让箭头始终指向鼠标指针的方向。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"面向鼠标指针"积木来让箭头始终指向鼠标指针的方向。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            example5: {
+                title: "5. 旋转指南针",
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">学习目标</h4>
+                            <p class="text-gray-700">学习如何使用循环让角色自动旋转，制作一个动态的指南针。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动准备</h4>
+                            <p class="text-gray-700 mb-4">打开Scratch，创建一个新的项目。选择一个指南针背景，添加一个箭头角色。</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">活动步骤</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤1：回顾方向值</h5>
+                                    <p class="text-gray-700">回顾上一课学习的方向值：东（右）是90度，南（下）是180度，西（左）是-90度或270度，北（上）是0度。</p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤2：编写顺时针旋转代码</h5>
+                                    <p class="text-gray-700">编写代码，让箭头顺时针旋转一周（360度）。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将方向设为 0 度（北）
+等待 1 秒
+重复执行 36 次
+    将方向增加 10
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤3：编写逆时针旋转代码</h5>
+                                    <p class="text-gray-700">修改代码，让箭头先顺时针旋转一周，再逆时针旋转一周。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将方向设为 0 度（北）
+等待 1 秒
+说"开始顺时针旋转" 2 秒
+重复执行 36 次
+    将方向增加 10
+    等待 0.1 秒
+等待 1 秒
+说"开始逆时针旋转" 2 秒
+重复执行 36 次
+    将方向增加 -10
+    等待 0.1 秒</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-medium mb-2">步骤4：添加旋转速度控制</h5>
+                                    <p class="text-gray-700">进一步完善代码，让用户可以通过按键控制旋转的速度。</p>
+                                    <div class="mt-2 p-3 bg-white border border-gray-200 rounded-lg">
+                                        <pre class="font-mono text-sm text-gray-800">
+当绿旗被点击
+将方向设为 0 度（北）
+将旋转速度设为 5
+说"按上箭头增加速度，按下箭头减少速度" 3 秒
+重复执行
+    将方向增加 旋转速度
+    等待 0.1 秒
+
+当按下上箭头键
+将旋转速度增加 2
+说"速度：旋转速度" 1 秒
+
+当按下下箭头键
+将旋转速度减少 2
+说"速度：旋转速度" 1 秒</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">思考问题</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>如何让箭头旋转更自然，看见整个旋转过程？</li>
+                                <li>如何控制旋转的速度？</li>
+                                <li>如何让箭头在旋转时指向正确的方向名称？</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">拓展活动</h4>
+                            <p class="text-gray-700 mb-2">尝试创建一个可以通过鼠标控制的旋转指南针，让箭头指向鼠标点击的方向。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <p class="text-blue-800"><strong>小提示：</strong>你可以使用"当角色被点击"积木和"面向鼠标指针"积木来让箭头指向鼠标点击的方向。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // 模态框控制
+        const modal = document.getElementById('example-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const exampleBtns = document.querySelectorAll('.example-btn');
+
+        // 打开模态框
+        exampleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const exampleId = this.getAttribute('data-example');
+                const example = examples[exampleId];
+                
+                if (example) {
+                    modalTitle.textContent = example.title;
+                    modalContent.innerHTML = example.content;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+        });
+
+        // 关闭模态框
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        });
+
+        // 点击模态框外部关闭
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

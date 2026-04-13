@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高级篇 - Scratch编程学习平台</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+    
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                <span class="logo-text">Scratch学习手册</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">📚</span><span>学习指南</span></div>
+                <ul class="nav-list">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="intro.html">软件介绍</a></li>
+                    <li><a href="blocks.html">积木介绍</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title"><span class="icon">🎯</span><span>练习案例</span></div>
+                <ul class="nav-list">
+                    <li class="has-submenu"><a href="primary.html" class="submenu-toggle"><span>初级篇</span><span class="arrow">▼</span></a></li>
+                    <li class="has-submenu"><a href="intermediate.html" class="submenu-toggle"><span>中级篇</span><span class="arrow">▼</span></a></li>
+                    <li class="has-submenu open">
+                        <a href="advanced.html" class="submenu-toggle active"><span>高级篇</span><span class="arrow">▼</span></a>
+                        <ul class="submenu open">
+                            <li><a href="#case1">1. 飞机大战</a></li>
+                            <li><a href="#case2">2. 坦克大战</a></li>
+                            <li><a href="#case3">3. 太空射击</a></li>
+                            <li><a href="#case4">4. RPG冒险</a></li>
+                            <li><a href="#case5">5. 水果忍者</a></li>
+                            <li><a href="#case6">6. 植物大战僵尸</a></li>
+                            <li><a href="#case7">7. 愤怒的小鸟</a></li>
+                            <li><a href="#case8">8. 无限跑酷</a></li>
+                            <li><a href="#case9">9. 弹幕射击</a></li>
+                            <li><a href="#case10">10. 双人对战</a></li>
+                            <li><a href="#case11">11. 音乐节奏</a></li>
+                            <li><a href="#case12">12. 关卡编辑器</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu"><a href="competition.html" class="submenu-toggle"><span>竞赛篇</span><span class="arrow">▼</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="level-page-header">
+            <h1>🌳 高级篇</h1>
+            <p>综合运用克隆、自定义积木、复杂逻辑，制作完整游戏项目</p>
+        </div>
+
+        <!-- 案例1：飞机大战 -->
+        <section class="case-section" id="case1">
+            <div class="case-header">
+                <div class="case-number">1</div>
+                <h2>飞机大战 - 完整射击游戏</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>综合运用克隆、变量、广播等技术，制作一款完整的射击游戏。</p>
+                <p>📖 <strong>故事背景：</strong>驾驶战斗机，消灭从上方飞来的敌机，看看你能坚持多久！</p>
+                <p>⏱️ <strong>预计时间：</strong>60-80分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：准备角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch软件</li>
+                                <li>删除小猫角色</li>
+                                <li>点击右下角"选择一个背景"，搜索 <strong>space</strong>，添加太空背景</li>
+                                <li>点击"选择一个角色"，搜索 <strong>rocket</strong>，添加我方飞机，改名为"我方飞机"</li>
+                                <li>搜索 <strong>plane</strong>，添加敌机角色，改名为"敌机"</li>
+                                <li>绘制"子弹角色"：用矩形工具画一个黄色小长方形（约10x20像素），改名为"子弹"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：创建变量</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击左边"变量"分类</li>
+                                <li>点击"建立一个变量"，创建变量：<strong>分数</strong></li>
+                                <li>再创建变量：<strong>生命</strong>（初始值3）</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：编写我方飞机代码</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击"我方飞机角色"</li>
+                                <li>拖出"当绿旗被点击"积木</li>
+                                <li>添加"将旋转方式设为 [不可旋转]"</li>
+                                <li>添加"将大小设为 (50)"</li>
+                                <li>添加"将 [分数] 设为 (0)"</li>
+                                <li>添加"将 [生命] 设为 (3)"</li>
+                                <li>添加"重复执行"</li>
+                                <li>在里面添加"移到 x: (鼠标的 x 坐标) y: (-100)"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block motion">将旋转方式设为 [不可旋转]</span><br>
+                                <span class="block looks">将大小设为 (50)</span><br>
+                                <span class="block variable">将 [分数] 设为 (0)</span><br>
+                                <span class="block variable">将 [生命] 设为 (3)</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">移到 x: (鼠标的 x 坐标) y: (-100)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：按空格发射子弹</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击"子弹角色"</li>
+                                <li>拖出"当绿旗被点击"积木，添加"隐藏"</li>
+                                <li>添加"重复执行"</li>
+                                <li>添加"等待直到 <按下 [空格] 键?> "</li>
+                                <li>添加"创建 [自己] 的克隆体"</li>
+                                <li>添加"等待 (0.2) 秒"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当 🚩 被点击</span><br>
+                                <span class="block looks">隐藏</span><br>
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block control">等待直到 <span class="block sensing">按下 [空格] 键?</span></span><br>
+                                <span style="margin-left:20px" class="block control">创建 [自己] 的克隆体</span><br>
+                                <span style="margin-left:20px" class="block control">等待 (0.2) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：子弹向上飞行</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出"当作为克隆体启动时"积木</li>
+                                <li>添加"移到 [我方飞机]"</li>
+                                <li>添加"显示"</li>
+                                <li>添加"重复执行直到 <碰到边缘?>"</li>
+                                <li>在里面添加"将 y 坐标增加 (15)"</li>
+                                <li>添加"删除此克隆体"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当作为克隆体启动时</span><br>
+                                <span class="block motion">移到 [我方飞机]</span><br>
+                                <span class="block looks">显示</span><br>
+                                <span class="block control">重复执行直到 <span class="block sensing">碰到边缘?</span></span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (15)</span><br>
+                                <span class="block control">删除此克隆体</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第6步：敌机从上方出现</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击"敌机角色"</li>
+                                <li>添加"当绿旗被点击"，添加"隐藏"</li>
+                                <li>添加"将大小设为 (40)"</li>
+                                <li>添加"重复执行"</li>
+                                <li>添加"等待 (在 (1) 到 (3) 之间取随机数) 秒"</li>
+                                <li>添加"移到 x: (在 (-200) 到 (200) 之间取随机数) y: (180)"</li>
+                                <li>添加"创建 [自己] 的克隆体"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第7步：敌机向下飞行并检测碰撞</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出"当作为克隆体启动时"</li>
+                                <li>添加"显示"</li>
+                                <li>添加"重复执行直到 <(y 坐标) < (-150)>"</li>
+                                <li>在里面添加"将 y 坐标增加 (-3)"</li>
+                                <li>添加"如果 <碰到 [子弹]?> 那么"</li>
+                                <li>里面添加"将 [分数] 增加 (10)"和"删除此克隆体"</li>
+                                <li>添加"如果 <碰到 [我方飞机]?> 那么"</li>
+                                <li>里面添加"将 [生命] 增加 (-1)"和"删除此克隆体"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当作为克隆体启动时</span><br>
+                                <span class="block looks">显示</span><br>
+                                <span class="block control">重复执行直到 <span class="block operators">(y 坐标) < (-150)</span></span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (-3)</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [子弹]?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [分数] 增加 (10)</span><br>
+                                <span style="margin-left:40px" class="block control">删除此克隆体</span><br>
+                                <span style="margin-left:20px" class="block control">如果 <span class="block sensing">碰到 [我方飞机]?</span> 那么</span><br>
+                                <span style="margin-left:40px" class="block variable">将 [生命] 增加 (-1)</span><br>
+                                <span style="margin-left:40px" class="block control">删除此克隆体</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第8步：游戏结束判断</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>回到"我方飞机"的代码</li>
+                                <li>在"重复执行"里面，在"移到"积木后添加"如果 <(生命) ≤ (0)> 那么"</li>
+                                <li>里面添加"说 [游戏结束！] (5) 秒"</li>
+                                <li>添加"停止 [全部脚本]"</li>
+                            </ol>
+                            <p>✅ <strong>测试：</strong>点击绿旗，移动鼠标控制飞机，按空格发射子弹消灭敌机！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="think-section">
+                <h4>🤔 课后思考题</h4>
+                <ol>
+                    <li>如何让敌机越来越快？</li>
+                    <li>如何添加不同类型的敌机？</li>
+                    <li>如何添加道具，吃到后可以增加生命？</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 案例2：坦克大战 -->
+        <section class="case-section" id="case2">
+            <div class="case-header">
+                <div class="case-number">2</div>
+                <h2>坦克大战 - 旋转射击</h2>
+            </div>
+            
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会控制角色旋转和方向性射击。</p>
+                <p>⏱️ <strong>预计时间：</strong>70-90分钟</p>
+            </div>
+
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>第1步：绘制坦克角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>打开Scratch，删除小猫</li>
+                                <li>点击"绘制"创建坦克角色</li>
+                                <li>用矩形工具画绿色长方形作为坦克主体（约40x30像素）</li>
+                                <li>画深绿色细长方形作为炮管（约30x8像素），指向右边</li>
+                                <li>在两侧画棕色长条作为履带</li>
+                                <li>改名为"坦克"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第2步：绘制炮弹角色</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>绘制小圆形作为炮弹（直径10像素），用黄色填充</li>
+                                <li>改名为"炮弹"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第3步：控制坦克旋转</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击坦克角色</li>
+                                <li>拖出"当按下 [左移键] 键"，添加"左转 (15) 度"</li>
+                                <li>拖出"当按下 [右移键] 键"，添加"右转 (15) 度"</li>
+                                <li>拖出"当按下 [上移键] 键"，添加"移动 (10) 步"</li>
+                                <li>拖出"当按下 [下移键] 键"，添加"移动 (-10) 步"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [左移键] 键</span><br>
+                                <span class="block motion">左转 (15) 度</span><br><br>
+                                <span class="block events">当按下 [右移键] 键</span><br>
+                                <span class="block motion">右转 (15) 度</span><br><br>
+                                <span class="block events">当按下 [上移键] 键</span><br>
+                                <span class="block motion">移动 (10) 步</span><br><br>
+                                <span class="block events">当按下 [下移键] 键</span><br>
+                                <span class="block motion">移动 (-10) 步</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第4步：发射炮弹</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击炮弹角色</li>
+                                <li>添加"当绿旗被点击"，添加"隐藏"</li>
+                                <li>添加"重复执行"</li>
+                                <li>添加"等待直到 <按下 [空格] 键?> "</li>
+                                <li>添加"创建 [自己] 的克隆体"</li>
+                                <li>添加"等待 (0.5) 秒"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>第5步：炮弹沿坦克方向飞行</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>拖出"当作为克隆体启动时"</li>
+                                <li>添加"移到 [坦克]"</li>
+                                <li>添加"面向 [坦克] 的方向"（关键！）</li>
+                                <li>添加"显示"</li>
+                                <li>添加"重复执行直到 <碰到边缘?>"</li>
+                                <li>在里面添加"移动 (15) 步"</li>
+                                <li>添加"删除此克隆体"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当作为克隆体启动时</span><br>
+                                <span class="block motion">移到 [坦克]</span><br>
+                                <span class="block motion">面向 [坦克] 的方向</span><br>
+                                <span class="block looks">显示</span><br>
+                                <span class="block control">重复执行直到 <span class="block sensing">碰到边缘?</span></span><br>
+                                <span style="margin-left:20px" class="block motion">移动 (15) 步</span><br>
+                                <span class="block control">删除此克隆体</span>
+                            </div>
+                            <p>✅ <strong>测试：</strong>点击绿旗，用方向键控制坦克，空格发射炮弹！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例3-12 简化版 -->
+        <section class="case-section" id="case3">
+            <div class="case-header">
+                <div class="case-number">3</div>
+                <h2>太空射击 - 多种敌人</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计多种敌人类型和Boss。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量"敌人类型"，用随机数选择敌人（1=小行星，2=外星人，3=Boss）</li>
+                                <li>不同敌人有不同的移动速度和血量</li>
+                                <li>小行星：移动慢，血量1，得分10</li>
+                                <li>外星人：移动中，血量2，得分20</li>
+                                <li>Boss：移动慢，血量10，得分100</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case4">
+            <div class="case-header">
+                <div class="case-number">4</div>
+                <h2>RPG冒险 - 对话系统</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计RPG游戏的对话和NPC系统。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>用方向键控制勇者角色移动</li>
+                                <li>NPC角色：当被点击时，显示对话内容</li>
+                                <li>宝箱角色：点击时增加金币，说"获得10金币！"</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当角色被点击</span><br>
+                                <span class="block looks">说 [欢迎来到村庄！] (3) 秒</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case5">
+            <div class="case-header">
+                <div class="case-number">5</div>
+                <h2>水果忍者 - 滑动切割</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会检测鼠标划过轨迹。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>水果从底部向上抛物线运动</li>
+                                <li>检测"碰到鼠标指针"，如果碰到就得分</li>
+                                <li>炸弹角色：碰到炸弹游戏结束</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case6">
+            <div class="case-header">
+                <div class="case-number">6</div>
+                <h2>植物大战僵尸 - 塔防游戏</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计塔防类游戏。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>点击舞台种植植物（消耗阳光）</li>
+                                <li>植物每2秒发射一颗豌豆</li>
+                                <li>僵尸从右边出现，向左移动</li>
+                                <li>阳光随机掉落，点击收集</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case7">
+            <div class="case-header">
+                <div class="case-number">7</div>
+                <h2>愤怒的小鸟 - 物理抛射</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会模拟抛物线运动。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量"速度x"和"速度y"</li>
+                                <li>拖动小鸟计算初始速度</li>
+                                <li>飞行时：x增加速度x，y增加速度y，速度y减少（模拟重力）</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block control">重复执行</span><br>
+                                <span style="margin-left:20px" class="block motion">将 x 坐标增加 (速度x)</span><br>
+                                <span style="margin-left:20px" class="block motion">将 y 坐标增加 (速度y)</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [速度y] 增加 (-1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case8">
+            <div class="case-header">
+                <div class="case-number">8</div>
+                <h2>无限跑酷 - 滚动背景</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会制作无限滚动的背景效果。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>按空格键跳跃（y先增加后减少）</li>
+                                <li>障碍物从右边出现，向左移动</li>
+                                <li>碰到障碍物游戏结束</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [空格] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (50)</span><br>
+                                <span class="block control">等待 (0.2) 秒</span><br>
+                                <span class="block motion">将 y 坐标增加 (-50)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case9">
+            <div class="case-header">
+                <div class="case-number">9</div>
+                <h2>弹幕射击 - 多子弹模式</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计复杂的弹幕模式。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路 - 圆形弹幕</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建变量"角度"，从0开始</li>
+                                <li>循环12次，每次发射一颗子弹，角度增加30度</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block variable">将 [角度] 设为 (0)</span><br>
+                                <span class="block control">重复执行 (12) 次</span><br>
+                                <span style="margin-left:20px" class="block motion">面向 (角度) 度</span><br>
+                                <span style="margin-left:20px" class="block control">创建 [自己] 的克隆体</span><br>
+                                <span style="margin-left:20px" class="block variable">将 [角度] 增加 (30)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case10">
+            <div class="case-header">
+                <div class="case-number">10</div>
+                <h2>双人对战 - 多人控制</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计双人同时游戏。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>玩家1用WASD键控制（W上，S下，A左，D右）</li>
+                                <li>玩家2用方向键控制</li>
+                                <li>可以是足球对战或乒乓球对战</li>
+                            </ol>
+                            <div class="scratch-blocks">
+                                <span class="block events">当按下 [w] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (10)</span><br><br>
+                                <span class="block events">当按下 [s] 键</span><br>
+                                <span class="block motion">将 y 坐标增加 (-10)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case11">
+            <div class="case-header">
+                <div class="case-number">11</div>
+                <h2>音乐节奏 - 音游基础</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计音乐节奏游戏。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>音符从上方下落</li>
+                                <li>到达判定线时按对应键</li>
+                                <li>判断按键时音符位置是否接近判定线</li>
+                                <li>接近则得分，否则扣分</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section" id="case12">
+            <div class="case-header">
+                <div class="case-number">12</div>
+                <h2>关卡编辑器 - 自定义关卡</h2>
+            </div>
+            <div class="case-description">
+                <p>🎯 <strong>学习目标：</strong>学会设计关卡编辑功能。</p>
+            </div>
+            <div class="learning-steps">
+                <h3>📝 详细操作步骤</h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>核心思路</h4>
+                        <div class="step-detail">
+                            <ol>
+                                <li>创建列表"障碍物X"和"障碍物Y"</li>
+                                <li>点击舞台时记录鼠标位置，添加到列表</li>
+                                <li>创建障碍物克隆体</li>
+                                <li>加载关卡时读取列表数据创建障碍物</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
